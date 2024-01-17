@@ -1,0 +1,53 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+}
+
+
+
+.homeLink {
+  margin-left: 2rem;
+  margin-right: 4rem;
+}
+
+.navBar {
+  display: flex;
+  background-color: #f6f4f2;
+  align-items: center;
+  padding: 0.2rem;
+  border: auto;
+  font-size: 1.4rem;
+}
+
+.userSpecificButtons {
+  display: flex;
+  gap: 4rem;
+  margin-left: 8rem;
+  margin-right: 16.5rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.loginButton {
+  margin-right: 3rem;
+  margin-left: auto;
+}
+
+.navBar a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.olliLogo {
+  width: 5.2rem;
+  height: 5.2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
