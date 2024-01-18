@@ -6,11 +6,11 @@ import "../../CSS/NavBar/NavBar.css"
 export default function NavBar({userSpecificButtons, style}){
 
 return(
- <div className='bg-gray-200 p-4 container mx-auto flex justify-between items-center' style={style} >
+ <div className='navBar' style={style} >
     <a href="/"><img className='olliLogo' src={require("./OLLILOGO.png")} style={{backgroundColor: 'transparent'}}></img></a>
 
     <div className='homeLink'>
-      <NavButton name = "OLLI" linkTo = "/home">
+      <NavButton name = "O.L.L.I" linkTo = "/home">
       
       </NavButton>
     </div>
