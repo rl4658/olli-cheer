@@ -1,13 +1,17 @@
 .imageSliderContainer {
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     
 }
+
 
 .custom-image-size {
     height: 40rem;
     /* Set the desired height */
-    width: 90rem;
+    width:95rem ;
+   
     /* Set the desired width */
 }

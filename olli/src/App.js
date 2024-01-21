@@ -9,6 +9,9 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import './CSS/ImageSlider/ImageSlider.css'
 import ImageSlider from './components/ImageSlider/ImageSlider.js';
 import AboutUs from './components/AboutUS/AboutUsSection.js';
+import CheerGroup from './components/AboutUS/CheerGroup.js';
+import CheerConnections from './components/AboutUS/CheerConnections.js';
+import CheerWorks from './components/AboutUS/CheerWorks.js';
 
 
 
@@ -17,17 +20,40 @@ export default function App() {
   return (
     <Router>
 
-      <GuestUserBar>
-      </GuestUserBar>
-
+      <GuestUserBar />
       <Routes>
         <Route
           exact path='/'
-          element={<div className='imageSliderContainer'>
-            <div className='imageSlider'>
-              <ImageSlider />
+          element={
+            <div>
+
+              <div className='imageSliderContainer'>
+                <div className='imageSlider'>
+                  <ImageSlider />
+                </div>
+              </div>
+
+              <div className='aboutUsSection'>
+                <AboutUs />
+              </div>
+
+              <div className='cheerInfo'>
+                <CheerGroup />
+              </div>
+
+              <div className='cheerInfo'>
+                <CheerConnections />
+              </div>
+
+              <div className='cheerInfo'>
+                <CheerWorks />
+              </div>
+
+
             </div>
-          </div>}>
+          }>
+
+
         </Route>
 
         <Route
@@ -38,10 +64,7 @@ export default function App() {
             </DndProvider>
           }
         />
-        <Route
-          exact path="/about-us"
-          element={<AboutUs />}
-        />
+
       </Routes>
 
     </Router>

@@ -1,0 +1,40 @@
+.cheer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(252, 244, 244);
+    /* Sets the background color to gray */
+    color: blue;
+    /* Sets the font color to black */
+}
+
+.cheer-statement {
+    flex: 3;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.cheer-statement h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.cheer-statement p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: justify;
+    color: rgb(0, 0, 0);
+}
+
+.image-container {
+    flex: 1;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.image-container img {
+    width: 65%;
+    height: auto;
+    margin-left: 120px;
+}

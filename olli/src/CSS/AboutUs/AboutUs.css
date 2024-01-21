@@ -1,0 +1,56 @@
+.about-us-container {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgb(201, 113, 66);
+    /* Example RGB color - light sky blue */
+}
+
+.mission-statement {
+    margin: 0 auto;
+    max-width: 1100px;
+    /* Adjust max-width as needed */
+}
+
+.mission-statement h2 {
+    font-size: 2em;
+    /* Adjust font size as needed */
+    margin-bottom: 10px;
+}
+
+.mission-statement p {
+    font-size: 1.6em;
+    /* Increased font size */
+    line-height: 1.5;
+    max-width: 100%;
+    /* Expand to full width of the container */
+    margin: 0 auto;
+    /* Center the text block */
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .image-container {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .description-container {
+    flex: 2;
+    padding: 10px;
+    text-align: left;
+    font-size: 1.1em;
+  }
+  
+  /* Add styles for img tag if needed */
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  

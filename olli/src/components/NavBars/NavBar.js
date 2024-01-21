@@ -1,42 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavButton from "./NavButton";
-import { Link } from "react-router-dom";
-import "../../CSS/NavBar/NavBar.css"
+import "../../CSS/NavBar/NavBar.css";
 
-export default function NavBar({userSpecificButtons, style}){
+export default function NavBar({ userSpecificButtons, style }) {
+  const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
-return(
- <div className='navBar' style={style} >
-    <a href="/"><img className='olliLogo' src={require("./OLLILOGO.png")} style={{backgroundColor: 'transparent'}}></img></a>
+  const toggleBurgerMenu = () => {
+    setBurgerMenuOpen(!isBurgerMenuOpen);
+  };
 
-    <div className='homeLink'>
-      <NavButton name = "O.L.L.I" linkTo = "/home">
-      
-      </NavButton>
-    </div>
-
-
-    <div className='userSpecificButtons'>
-        {userSpecificButtons.map((button, index) => (
-          <React.Fragment key={index}>
-            {button}
-          </React.Fragment>
-        ))}
+  return (
+    <div>
+      <div className={`burgerMenu ${isBurgerMenuOpen ? 'open' : ''}`} onClick={toggleBurgerMenu}>
+        <div className={`burgerIcon ${isBurgerMenuOpen ? 'open1' : ''}`}></div>
+        <div className={`burgerIcon ${isBurgerMenuOpen ? 'open2' : ''}`}></div>
+        <div className={`burgerIcon ${isBurgerMenuOpen ? 'open3' : ''}`}></div>
       </div>
 
-    <div className='loginButton'>
-    <NavButton name ="Login" linkTo="/login">
-      
-    </NavButton>
-    </div>
+      <div className={`navBar ${isBurgerMenuOpen ? 'hidden' : ''}`} style={style}>
+        <a href="/"><img className='olliLogo' src={require("./OLLILOGO.png")} alt="OLLI Logo" style={{ backgroundColor: 'transparent' }}></img></a>
 
-    <div className='signUpButton'>
-      <NavButton name="Sign Up" linkTo="signUp">
+        <div className={`homeLink ${isBurgerMenuOpen ? 'hidden' : ''}`}>
+          <NavButton name="O.L.L.I" linkTo="/"></NavButton>
+        </div>
+
+        <div className='userSpecificButtons'>
+          {userSpecificButtons.map((button, index) => (
+            <React.Fragment key={index}>
+              {button}
+            </React.Fragment>
+          ))}
+        </div>
+
+        <div className='loginButton'>
+          <NavButton name="Login" linkTo="/login"></NavButton>
+        </div>
+
+        <div className='signUpButton'>
+          <NavButton name="Sign Up" linkTo="signUp"></NavButton>
+        </div>
+      </div>
+
+      {/* Side Menu HTML */}
+      <div className={`sideMenu ${isBurgerMenuOpen ? 'open' : ''}`}>
         
-      </NavButton>
+        
+        <div className='userSpecificButtons'>
+          {userSpecificButtons.map((button, index) => (
+            <React.Fragment key={index}>
+              {button}
+            </React.Fragment>
+          ))}
+        </div>
+
+        <div className='login'>
+          <NavButton name="Login" linkTo="/login"></NavButton>
+        </div>
+
+        <div className='signUp'>
+          <NavButton name="Sign Up" linkTo="signUp"></NavButton>
+        </div>
+
+      </div>
     </div>
-
- </div>
-)
-
+  );
 }
+

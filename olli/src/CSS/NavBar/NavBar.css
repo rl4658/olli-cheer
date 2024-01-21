@@ -1,21 +1,89 @@
+/* Reset styles */
 * {
   padding: 0;
   margin: 0;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   box-sizing: border-box;
 }
+
+body {
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  
+}
+
+
+/* Define the keyframes for the rotation animation */
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Stop rotation on hover */
+.olliLogo:hover {
+  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+
+  /* Define the rotation animation */
+  animation: rotateAnimation 2s infinite; 
+  
+}
+
+
+/* Burger menu styles */
+.sideMenu{
+  display: none;
+}
+.burgerMenu {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 0.8rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.burgerIcon {
+  width: 30px;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.burgerIcon.open1 {
+  transform: rotate(-51deg) translate(-7px, 6px);
+
+}
+
+.burgerIcon.open2 {
+  opacity: 0;
+}
+
+.burgerIcon.open3 {
+  transform: rotate(50deg) translate(-6.9px, -6px);
+}
+
+.burgerMenu.open .burgerIcon {
+  background-color: white;
+}
+
+/* Navigation bar styles */
 .navBar {
   display: flex;
-  background-color: #f6f4f2;
+  position: fixed;
+  width: 100%;
+  background-color: #000000;
   align-items: center;
   padding: 0.2rem;
   border: auto;
   font-size: 1.4rem;
-}
-
-body {
-  padding: 0.5rem;
+  margin: auto;
+  z-index: 100;
 }
 
 .homeLink {
@@ -26,21 +94,40 @@ body {
 .userSpecificButtons {
   display: flex;
   justify-content: space-between;
-  gap: 4rem;
-  margin-left: 8rem;
+  gap: 6rem;
+  margin-left: 2.0rem;
   margin-right: auto;
   align-items: center;
   white-space: nowrap;
 }
 
 .loginButton {
- 
- margin-right: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+
+.navBar a {
+  position: relative; /* Ensure anchor is positioned */
+}
+.navBar a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: rgb(114, 6, 202);
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.navBar a:hover::before {
+  width: 100%;
 }
 
 .navBar a:hover {
-  text-decoration: underline;
-  color: black;
+  text-decoration: none;
+  color: rgb(114, 6, 202);
 }
 
 .olliLogo {
@@ -48,6 +135,91 @@ body {
   height: 5.2rem;
   background-color: rgba(255, 255, 255, 0.5);
 }
-.signUpButton{
+
+.signUpButton {
   white-space: nowrap;
+  padding: 0.2rem;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 1230px) {
+  .burgerMenu {
+    display: block;
+  }
+
+  .navBar {
+    display: none;
+  }
+
+  .burgerIcon {
+    cursor: pointer;
+  }
+
+  .userSpecificButtons {
+    margin-top: 2.5rem;
+    margin-bottom: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    outline: white;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  .login,
+  .signUp {
+    width: 57%;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .signUp {
+    width: 60%;
+  }
+
+  .homeLink.hidden {
+    display: none;
+  }
+
+  .burgerMenu.open .olliLogo {
+    display: none;
+  }
+
+  .burgerMenu:hover .burgerIcon {
+    background-color: #888;
+  }
+
+  .sideMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2rem;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .sideMenu.open {
+    transform: translateX(0);
+  }
+
+  .sideMenu a {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .sideMenu a:hover {
+    color: rgb(114, 6, 202);
+  }
 }
