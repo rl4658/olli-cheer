@@ -1,0 +1,77 @@
+/* LoginPage.css */
+.login-container {
+  background-image: url("./bg.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h2,
+p {
+  color: #ffffff;
+  font-size: 1.3em; /* Increase font size by 30% */
+}
+
+.login-box {
+  background-color: #000000;
+  padding: 26px; /* Increase padding by 30% */
+  border-radius: 16px; /* Increased border-radius for rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 520px; /* Increase max-width by 30% */
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 26px; /* Increase margin by 30% */
+}
+
+label {
+  margin-bottom: 10px; /* Increase margin by 30% */
+  color: rgb(255, 255, 255);
+}
+
+input {
+  padding: 13px; /* Increase padding by 30% */
+  margin-bottom: 20px; /* Increase margin by 30% */
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Rounded corners for input boxes */
+}
+
+button {
+ 
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: #007bff;
+  color: #fff;
+  padding: 13px; /* Increase padding by 30% */
+  border: none;
+  border-radius: 5px; /* Increase border-radius by 30% */
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #fff;
+  color: #000000;
+}
+
+.signup-link {
+  margin-top: 26px; /* Increase margin by 30% */
+}
+
+
+.signup-link a:hover{
+  text-decoration: underline;
+}
+.signup-link a {
+  color: #ffffff;
+  
+  text-decoration: none;
+  font-size: 1.1em; /* Increase font size by 30% */
+}

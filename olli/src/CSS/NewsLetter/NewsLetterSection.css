@@ -1,0 +1,36 @@
+
+.news h1{
+    color: black;
+    text-align: center; 
+    justify-content: center;
+}
+
+
+.news {
+  display: flex; /* Use flexbox to control layout */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  height: 1000px; /* Set height to viewport height */
+
+}
+
+.pdf-container {
+  width: auto; /* Allow the container to adjust its width based on content */
+  max-width: 100%; /* Ensure the container doesn't exceed the viewport width */
+  height: auto; /* Allow the container to adjust its height based on content */
+  max-height: 100%; /* Ensure the container doesn't exceed the viewport height */
+  overflow: hidden; /* Hide any overflow content */
+  margin: 0 auto; /* Center the container horizontally */
+  position: relative; /* Position relative to its parent */
+}
+
+.react-pdf__Page {
+  width: 100%; /* Ensure the page fills the container horizontally */
+  height: 100%; /* Ensure the page fills the container vertically */
+}
+
+
+
+
+
+ 

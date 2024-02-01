@@ -1,17 +1,43 @@
-.imageSliderContainer {
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+
+ 
+
+.imageSliderSection .swiper-scrollbar.swiper-scrollbar-horizontal {
+    display: none; /* Set the height of the horizontal scrollbar */
+  }
+  
+
+  
+ 
+  .imageSliderSection .swiper-slide img {
+    padding: 0;
+    display: block;
+    
     width: 100%;
     
-}
+
+    height: 62.5rem;
+    object-fit: cover;
+    
+    
+  }
 
 
-.custom-image-size {
-    height: 40rem;
-    /* Set the desired height */
-    width:95rem ;
-   
-    /* Set the desired width */
-}
+  .imageSliderSection .swiper-pagination .swiper-pagination-bullet{
+    background-color: #ffffff;
+  }

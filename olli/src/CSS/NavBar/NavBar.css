@@ -7,11 +7,7 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: rgb(255, 255, 255);
-  overflow-x: hidden;
-  
-}
+
 
 
 /* Define the keyframes for the rotation animation */
@@ -51,6 +47,7 @@ body {
   width: 30px;
   height: 3px;
   background-color: rgb(0, 0, 0);
+  
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -77,13 +74,14 @@ body {
   display: flex;
   position: fixed;
   width: 100%;
-  background-color: #000000;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 1);  align-items: center;
   padding: 0.2rem;
   border: auto;
   font-size: 1.4rem;
   margin: auto;
-  z-index: 100;
+  z-index: 10;
+  top: -0px;
+  transition: top 0.3s ease, transform 0.3s ease;
 }
 
 .homeLink {
@@ -94,7 +92,7 @@ body {
 .userSpecificButtons {
   display: flex;
   justify-content: space-between;
-  gap: 6rem;
+  gap: 5rem;
   margin-left: 2.0rem;
   margin-right: auto;
   align-items: center;
@@ -110,6 +108,13 @@ body {
 .navBar a {
   position: relative; /* Ensure anchor is positioned */
 }
+
+.faded {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .navBar a::before {
   content: "";
   position: absolute;
@@ -221,5 +226,8 @@ body {
 
   .sideMenu a:hover {
     color: rgb(114, 6, 202);
+  }
+  .burgerMenu .burgerIcon{
+    background-color: #000;
   }
 }

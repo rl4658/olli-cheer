@@ -2,15 +2,25 @@ import React from 'react';
 import '../../CSS/AboutUs/AboutUs.css'; // css file
 
 const AboutUs = () => {
-  return (
+ return (
     <div className="about-us-container">
-      <section className="mission-statement">
-        <h2>Mission Statement</h2>
-        <p>Ongoing Living & Learning Inc. (OLLI) is a registered not-for-profit, caregiver-driven organization with a vision to create a community of inclusion and a circle of friendship. We focus on supporting and enhancing the lives of individuals with intellectual disabilities, as well as their families. Our aim is to provide opportunities for development, social recreation, and community integration.</p>
-      </section>
+      <div className="content-container">
+        <div className="image-container">
+          <img src={require("./cheerconnections.png")} />
+        </div>
+        <div className="mission-statement">
+          <h1 className="heading">Welcome to Our World of Care</h1>
+          <p>
+            At Ongoing Living & Learning Inc. (OLLI), we are dedicated to creating
+            an inclusive community and a circle of friendship. We focus on
+            empowering and enriching the lives of individuals with intellectual
+            disabilities and their families through development, social
+            recreation, and community integration opportunities.
+          </p>
+        </div>
+      </div>
     </div>
-    
-  );
+ );
 };
 
 export default AboutUs;

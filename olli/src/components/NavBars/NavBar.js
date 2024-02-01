@@ -1,23 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavButton from "./NavButton";
 import "../../CSS/NavBar/NavBar.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 export default function NavBar({ userSpecificButtons, style }) {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isNavbarFaded, setNavbarFaded] = useState(false);
 
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
   };
 
+  const handleScroll = React.useCallback(() => {
+    const currentScrollPos = window.scrollY;
+
+    if (currentScrollPos > prevScrollPos) {
+      console.log("schrodingers up");
+      setNavbarFaded(true);
+    } else if(currentScrollPos < prevScrollPos){      
+      console.log("schrodingers down");
+      setNavbarFaded(false);
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  },[prevScrollPos]);
+
+  useEffect(() => {
+
+    AOS.init();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+    
+  }, [handleScroll, prevScrollPos])
+
   return (
-    <div>
-      <div className={`burgerMenu ${isBurgerMenuOpen ? 'open' : ''}`} onClick={toggleBurgerMenu}>
+
+
+
+    <div >
+      <div className={`burgerMenu ${isBurgerMenuOpen ? 'open' : ''}`}  onClick={toggleBurgerMenu}>
         <div className={`burgerIcon ${isBurgerMenuOpen ? 'open1' : ''}`}></div>
         <div className={`burgerIcon ${isBurgerMenuOpen ? 'open2' : ''}`}></div>
         <div className={`burgerIcon ${isBurgerMenuOpen ? 'open3' : ''}`}></div>
       </div>
 
-      <div className={`navBar ${isBurgerMenuOpen ? 'hidden' : ''}`} style={style}>
+      <div className={`navBar ${isBurgerMenuOpen ? 'hidden' : ''} ${isNavbarFaded ? 'faded' : ''}`}  style={style}>
         <a href="/"><img className='olliLogo' src={require("./OLLILOGO.png")} alt="OLLI Logo" style={{ backgroundColor: 'transparent' }}></img></a>
 
         <div className={`homeLink ${isBurgerMenuOpen ? 'hidden' : ''}`}>
@@ -36,9 +69,7 @@ export default function NavBar({ userSpecificButtons, style }) {
           <NavButton name="Login" linkTo="/login"></NavButton>
         </div>
 
-        <div className='signUpButton'>
-          <NavButton name="Sign Up" linkTo="signUp"></NavButton>
-        </div>
+        
       </div>
 
       {/* Side Menu HTML */}
@@ -57,12 +88,12 @@ export default function NavBar({ userSpecificButtons, style }) {
           <NavButton name="Login" linkTo="/login"></NavButton>
         </div>
 
-        <div className='signUp'>
-          <NavButton name="Sign Up" linkTo="signUp"></NavButton>
-        </div>
+        
 
       </div>
+      
     </div>
+
   );
 }
 
