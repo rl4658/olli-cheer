@@ -30,7 +30,7 @@ export default function App() {
         element = {
           <div>
               
-              <div className='loginSection'>
+              <div className='loginSection'> 
                 <Login/>
               </div>
           </div>
