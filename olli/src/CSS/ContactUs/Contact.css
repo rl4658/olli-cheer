@@ -1,5 +1,5 @@
 #ContactUsDiv{
-	background-color: rgb(192, 192, 192);
+	background-color: #e9d1d1;
 	height: auto; 
 }
 
@@ -45,7 +45,8 @@
 }
 
 .contact-info-item:hover {
-  transform: translateY(-5px); /* Add a slight lift on hover for a subtle interactive effect */
+  transform: translateY(-5px);
+   /* Add a slight lift on hover for a subtle interactive effect */  
 }
 
 .contact-name {
@@ -55,12 +56,13 @@
 }
 
 
+
 #ContactTitle {
 
     display: block;
     font-size: 70px;
     font-weight: 600;
-    background-image: linear-gradient(to left, #064b73, #476dce);
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

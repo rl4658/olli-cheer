@@ -16,7 +16,7 @@ import { images } from './components/ImageSlider/Images.js';
 import EventSection from './components/Events/EventSection.js';
 import ContactUs from './components/ContactUs/ContactUs.js'; 
 import Login from './components/Login/login.js';
-
+import SignUpPage from './components/SignUp/signUp.js';
 
 export default function App() {
 
@@ -39,7 +39,20 @@ export default function App() {
 
 
         </Route>
-
+        <Route exact path='/signUp' 
+         
+         element = {
+           <div>
+               
+               <div className='signUpSection'>
+                 <SignUpPage/>
+               </div>
+           </div>
+         }
+         >
+ 
+ 
+         </Route>
 
 
         <Route

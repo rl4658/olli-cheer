@@ -13,7 +13,7 @@ export default function EventCard({title, URL, description}){
             <h1 className="title">{title}</h1>
             <p className="description">{description}</p>
 
-            <div className="button-wrapper"><button className="button">Sign Up</button></div>
+            <div className="button-wrapper"><button className="button">Learn More</button></div>
             
             </div>
             

@@ -43,12 +43,7 @@
     box-shadow: rgb(79, 57, 112) 0px 20px 20px -15px;
   }
 
-.cardContainer:hover .button{
-    background-color: rgb(105, 15, 189);
-    font-weight: 100;
-   
-    
-}
+
 
 
 
@@ -58,7 +53,7 @@
     height: 2rem;
     text-align: center;
     margin-bottom: 2rem;
-    
+    padding-bottom: 1.7rem;
     border-radius: 5px;
     background-color: blueviolet;
     color: white;
@@ -72,6 +67,6 @@
 }
 .content-wrapper .button-wrapper{
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 

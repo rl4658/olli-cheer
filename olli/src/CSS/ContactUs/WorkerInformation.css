@@ -6,7 +6,9 @@
 	justify-content: center;
 }
 
-
+.team-member:hover{
+	cursor: pointer;
+}
 
 .team-member {
 	
@@ -22,7 +24,6 @@
 	transition: transform 1200ms;
 	perspective: 1000px; 
 	box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-	
 
 }
 
@@ -45,7 +46,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-
+	border-radius: 5px;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
   }
@@ -54,10 +55,20 @@
 	border-radius: 5px;
 	z-index: 1;
 	background-color: #f0f0f0;
-	padding: 20px;
+	
 	text-align: center;
+
   }
 
+  .front img{
+	border-radius: 5px;
+  }
+
+  .front :hover{
+	cursor: pointer;
+  }
+
+ 
 
   
   .back {
@@ -69,30 +80,42 @@
 	color: black; 
   }
 
-  
-  
-
-
-
-
-
-
-
-
-
-
 
 
   .photo {
 	width: 100%; /* Adjust photo size */
 	height: 100%; /* Adjust photo size */
+
+  }
+  .position {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px; /* Reduce space below */
+	margin-top: 0; /* Reset top margin */
+	color: black;
+	position: relative; 
+	bottom:5rem; 
+	
+	text-shadow: 
+    -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
   }
   
   .name {
-	font-size: 18px;
+	font-size: 36px;
 	font-weight: bold;
-	margin-bottom: 10px;
-	color: black; 
+	margin-bottom: 5px; /* Reduce space below */
+	margin-top: 0; /* Reset top margin */
+	color: black;
+	position: relative; 
+	bottom: 5rem; 
+	text-shadow: 
+    -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
   }
   
   .info {

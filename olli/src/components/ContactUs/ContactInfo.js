@@ -11,43 +11,33 @@ export default function ContactInfo() {
       cell: 9057778888,
       email: 'iveyEmail@fake.com', 
       description: "Ivey is the compassionate and dedicated owner of a special needs care business.",
-      photo: "https://source.unsplash.com/random/200x200/?person",
+      photo: "https://source.unsplash.com/random/200x200/?business&woman",
+      position: 'owner'
     },
     {
-      name: 'Person2',
-      cell: 9057779999,
-      email: 'Person2Email@fake.com', 
-      description: "Person2 is the compassionate and dedicated owner of a special needs care business.",
-      photo: "https://source.unsplash.com/random/200x200/?person",
-    },
-    {
-      name: 'Alice',
+      name: 'Seth',
       cell: 9057777777,
       email: 'aliceEmail@fake.com', 
       description: "Alice is an adventurous explorer with a passion for discovering new places.",
-      photo: "https://source.unsplash.com/random/200x200/?woman",
+      photo: "https://source.unsplash.com/random/200x200/?engineer",
+      position: 'Software Engineering Intern'
     },
     {
-      name: 'Bob',
+      name: 'Raymond',
       cell: 9057776666,
       email: 'bobEmail@fake.com', 
       description: "Bob is a skilled craftsman who loves working with his hands to create beautiful things.",
-      photo: "https://source.unsplash.com/random/200x200/?man",
+      photo: "https://source.unsplash.com/random/200x200/?software&student",
+      position: 'Senior Software Engineer'
     },
     {
-      name: 'Charlie',
+      name: 'Sabi',
       cell: 9057775555,
       email: 'charlieEmail@fake.com', 
       description: "Charlie is a dedicated educator who is passionate about inspiring young minds.",
-      photo: "https://source.unsplash.com/random/200x200/?person",
+      photo: "https://source.unsplash.com/random/200x200/?software&engineer",
+      position: 'Full Stack Web Developer'
     },
-    {
-      name: 'Diana',
-      cell: 9057774444,
-      email: 'dianaEmail@fake.com', 
-      description: "Diana is a talented musician who brings joy to audiences with her soulful performances.",
-      photo: "https://source.unsplash.com/random/200x200/?woman",
-    }
   ];
   
 
@@ -69,13 +59,14 @@ export default function ContactInfo() {
 
       {workers.map((worker, index) => (
 
-        <div key = {index}>
+        <div key = {index} data-aos="zoom-in" data-aos-duration = "1500">
           <div
             className={`team-member ${clickedIndices.includes(index) ? 'clicked' : ''}`}
             onClick={() => handleToggleClick(index)}
           >
               <div className={`front`}>
                 <img src={worker.photo} alt={worker.name} className="photo" />
+                <p className="position"> {worker.position}</p>
                 <p className="name">{worker.name}</p>
               </div>
 

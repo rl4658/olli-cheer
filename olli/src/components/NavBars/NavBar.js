@@ -84,7 +84,7 @@ export default function NavBar({ userSpecificButtons, style }) {
           ))}
         </div>
 
-        <div className='login'>
+        <div className='login' >
           <NavButton name="Login" linkTo="/login"></NavButton>
         </div>
 

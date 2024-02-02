@@ -41,6 +41,7 @@ input {
   margin-bottom: 20px; /* Increase margin by 30% */
   border: 1px solid #ccc;
   border-radius: 10px; /* Rounded corners for input boxes */
+  color: #000;
 }
 
 button {
@@ -48,7 +49,7 @@ button {
   width: 50%;
   margin: 0 auto;
   margin-top: 2rem;
-  background-color: #007bff;
+  background-color: rgb(201, 113, 66);
   color: #fff;
   padding: 13px; /* Increase padding by 30% */
   border: none;
@@ -68,6 +69,7 @@ button:hover{
 
 .signup-link a:hover{
   text-decoration: underline;
+  
 }
 .signup-link a {
   color: #ffffff;
