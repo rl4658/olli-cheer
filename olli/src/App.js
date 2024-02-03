@@ -14,7 +14,7 @@ import CheerConnections from './components/AboutUS/CheerConnections.js';
 import CheerWorks from './components/AboutUS/CheerWorks.js';
 import { images } from './components/ImageSlider/Images.js';
 import EventSection from './components/Events/EventSection.js';
-import ContactUs from './components/ContactUs/ContactUs.js'; 
+import ContactUs from './components/ContactUs/ContactUs.js';
 import Login from './components/Login/login.js';
 import SignUpPage from './components/SignUp/signUp.js';
 
@@ -22,50 +22,42 @@ export default function App() {
 
   return (
     <Router>
-      
       <Routes>
 
-        <Route exact path='/login' 
-         
-        element = {
-          <div>
-              
+        <Route exact path='/login'
+          element={
+            <div>
+
               <div className='loginSection'>
-                <Login/>
+                <Login />
               </div>
-          </div>
-        }
+            </div>
+          }
         >
-
-
         </Route>
-        <Route exact path='/signUp' 
-         
-         element = {
-           <div>
-               
-               <div className='signUpSection'>
-                 <SignUpPage/>
-               </div>
-           </div>
-         }
-         >
- 
- 
-         </Route>
+        <Route exact path='/signUp'
+          element={
+            <div>
 
+              <div className='signUpSection'>
+                <SignUpPage />
+              </div>
+            </div>
+          }
+        >
+        </Route>
 
         <Route
           exact path='/'
           element={
             <div>
-              <GuestUserBar/>
-            <ImageSlider 
-            imageURLs={images}
-            />
+              <GuestUserBar />
+              <ImageSlider
+                imageURLs={images}
+              />
               <div className='aboutUsSection'>
                 <AboutUs />
-                
+
               </div>
 
               <div className='cheerInfo'>
@@ -75,33 +67,23 @@ export default function App() {
               <div className='cheerInfo'>
                 <CheerConnections />
               </div>
-              
 
               <div className='cheerInfo'>
                 <CheerWorks />
               </div>
 
               <div className='news'>
-                <NewsLetterSection/>
+                <NewsLetterSection />
               </div>
-              <EventSection/>
+              <EventSection />
               <div className='contactUs'>
                 <ContactUs />
               </div>
-              
-              
             </div>
           }>
-
-
         </Route>
-
         
-        
-
       </Routes>
-
     </Router>
   )
-
 }
