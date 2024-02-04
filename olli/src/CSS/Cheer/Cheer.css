@@ -1,40 +1,45 @@
-.cheer-container {
+.cheers-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    /* Sets the background color to gray */
-    color: blue;
-    /* Sets the font color to black */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+    background: url("../../components/AboutUS/image2.jpg");
+
 }
 
-.cheer-statement {
-    flex: 3;
-    padding: 10px;
-    margin-right: 20px;
-}
-
-.cheer-statement h2 {
-    font-size: 2em;
-    margin-bottom: 15px;
-    color: black;
-}
-
-.cheer-statement p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    text-align: justify;
-    color: rgb(0, 0, 0);
+.cheer-container {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 0 1rem;
+    /* Added padding */
 }
 
 .image-container {
-    flex: 1;
-    padding: 10px;
-    margin-left: 20px;
+    text-align: center;
+    margin-bottom: 1rem;
+    /* Added margin bottom */
+    margin-top: 1rem;
 }
 
 .image-container img {
-    width: 65%;
+    max-width: 100%;
     height: auto;
-    margin-left: 12px;
+}
+
+.text-container {
+    padding: 0 10px;
+}
+
+.text-container h2 {
+    font-size: 1.6em;
+    margin-bottom: 1rem;
+    /* Added margin bottom */
+    color: #6c5c73;
+}
+
+.text-container p {
+    font-size: 1.4em;
+    line-height: 1.5;
+    color: #6c5c73;
 }

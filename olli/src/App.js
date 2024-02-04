@@ -9,9 +9,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import './CSS/ImageSlider/ImageSlider.css'
 import ImageSlider from './components/ImageSlider/ImageSlider.js';
 import AboutUs from './components/AboutUS/AboutUsSection.js';
-import CheerGroup from './components/AboutUS/CheerGroup.js';
-import CheerConnections from './components/AboutUS/CheerConnections.js';
-import CheerWorks from './components/AboutUS/CheerWorks.js';
+import Cheers from './components/AboutUS/Cheers.js';
 import { images } from './components/ImageSlider/Images.js';
 import EventSection from './components/Events/EventSection.js';
 import ContactUs from './components/ContactUs/ContactUs.js';
@@ -60,16 +58,8 @@ export default function App() {
 
               </div>
 
-              <div className='cheerInfo'>
-                <CheerGroup />
-              </div>
-
-              <div className='cheerInfo'>
-                <CheerConnections />
-              </div>
-
-              <div className='cheerInfo'>
-                <CheerWorks />
+              <div className='cheers-container'>
+                <Cheers />
               </div>
 
               <div className='news'>
