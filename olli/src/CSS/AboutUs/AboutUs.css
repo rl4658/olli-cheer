@@ -3,44 +3,37 @@
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
-  background: rgb(201, 113, 66);
+  background: url("../../components/AboutUS/image1.jpg");
   color: white;
-}
-
-.mission-statement {
-  margin: 0 auto;
-  max-width: 1100px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.heading {
-  font-size: 4.5em;
-  margin-bottom: 60px;
-  text-align: left;
-}
-
-.mission-statement p {
-  font-size: 2em;
-  line-height: 2;
-  max-width: 100%;
-  margin: 0 auto;
-  color: white;
-  text-align: left;
 }
 
 .content-container {
   display: flex;
-  
-  margin-top: 20px;
+  justify-content: space-between; /* This will push the two divs to the sides */
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.image-container {
+.text-container {
   flex: 1;
   padding: 10px;
+  text-align: left; /* Align heading to the left */
 }
 
-.image-container img {
-  width: 100%;
-  height: auto;
+.heading {
+  font-size: 4.5em;
+  margin-bottom: 20px;
+  color: #6c5c73;
+}
+
+.mission-statement {
+  flex: 2;
+  padding: 10px;
+  text-align: left; /* Align paragraph to the right */
+}
+
+.mission-statement p {
+  font-size: 2em;
+  line-height: 1.5;
+  color: #6c5c73;
 }
