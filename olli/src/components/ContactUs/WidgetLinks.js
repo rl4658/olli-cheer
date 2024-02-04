@@ -14,7 +14,7 @@ export default function WidgetLinks() {
 
    
   return (
-    <div data-aos="fade-left" id = 'widgets' data-aos-once="false" data-aos-duration="50000">
+    <div id = 'widgets' data-aos-once="false" data-aos-duration="50000">
 
 
 

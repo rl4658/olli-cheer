@@ -5,7 +5,7 @@
   justify-content: center;
   margin-right: 10rem; 
   font-size: 75px; 
-  border: 1px solid black; 
+  color: #6c5c73;
 
 }
 
@@ -16,6 +16,7 @@
   justify-content: center; /* Center content horizontally */
   height: 1000px; /* Set height to viewport height */
   background-color: rgb(62, 96, 61);
+  background: url("../../components/NewsLetters/image1.jpg");
 
 }
 
