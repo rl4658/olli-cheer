@@ -1,5 +1,6 @@
 #ContactUsDiv{
-	background-color: #e9d1d1;
+  background: url("../../components/ContactUs/image1.jpg");
+
 	height: auto; 
 }
 
@@ -62,7 +63,7 @@
     display: block;
     font-size: 70px;
     font-weight: 600;
-    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    background-image: linear-gradient(to left, #6c5c73, #b393d3);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
