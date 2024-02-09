@@ -1,5 +1,5 @@
 import React from "react";
-import "../../CSS/NewsLetter/NewsLetterSection.css"
+import "../../../CSS/NewsLetter/NewsLetterSection.css"
 import PdfLoader from "./PDFLoader";
 
 

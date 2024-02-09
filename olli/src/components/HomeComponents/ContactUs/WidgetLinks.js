@@ -2,7 +2,7 @@ import React from "react";
 import { FacebookShareButton, FacebookIcon } from 'react-share';
 import './Iphone.png'; 
 import './Mail.png';
-import "../../CSS/ContactUs/Contact.css"
+import "../../../CSS/ContactUs/Contact.css"
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
 

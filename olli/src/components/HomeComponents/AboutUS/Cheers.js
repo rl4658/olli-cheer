@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../CSS/Cheer/Cheer.css';
+import '../../../CSS/Cheer/Cheer.css';
 import CheerGroupImage from './cheergroup.png';
 import CheerConnectionsImage from './cheerconnections.png';
 import CheerWorksImage from './cheerworks.png';

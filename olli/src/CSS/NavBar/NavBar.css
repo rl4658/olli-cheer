@@ -15,6 +15,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -22,18 +23,20 @@
 
 /* Stop rotation on hover */
 .olliLogo:hover {
-  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+  transition: transform 0.3s ease-in-out;
+  /* Add a smooth transition effect */
 
   /* Define the rotation animation */
-  animation: rotateAnimation 2s infinite; 
-  
+  animation: rotateAnimation 2s infinite;
+
 }
 
 
 /* Burger menu styles */
-.sideMenu{
+.sideMenu {
   display: none;
 }
+
 .burgerMenu {
   display: none;
   cursor: pointer;
@@ -46,8 +49,8 @@
 .burgerIcon {
   width: 30px;
   height: 3px;
-  background-color: rgb(0, 0, 0);
-  
+  background-color: rgb(68, 108, 0);
+
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -74,7 +77,8 @@
   display: flex;
   position: fixed;
   width: 100%;
-  background-color: rgba(0, 0, 0, 1);  align-items: center;
+  background-image: linear-gradient(to right, rgb(73, 114, 20), rgb(60, 80, 19));
+  align-items: center;
   padding: 0.2rem;
   border: auto;
   font-size: 1.4rem;
@@ -106,7 +110,8 @@
 
 
 .navBar a {
-  position: relative; /* Ensure anchor is positioned */
+  position: relative;
+  /* Ensure anchor is positioned */
 }
 
 .faded {
@@ -227,7 +232,8 @@
   .sideMenu a:hover {
     color: rgb(114, 6, 202);
   }
-  .burgerMenu .burgerIcon{
+
+  .burgerMenu .burgerIcon {
     background-color: #000;
   }
 }

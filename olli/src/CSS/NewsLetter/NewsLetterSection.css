@@ -1,42 +1,56 @@
-
-.news h1{
+.news h1 {
   color: black;
-  text-align: center; 
+  text-align: center;
   justify-content: center;
-  margin-right: 10rem; 
-  font-size: 75px; 
+  margin-right: 10rem;
+  font-size: 75px;
   color: #6c5c73;
 
 }
 
 
 .news {
-  display: flex; /* Use flexbox to control layout */
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-  height: 1000px; /* Set height to viewport height */
-  background-color: rgb(62, 96, 61);
-  background: url("../../components/NewsLetters/image1.jpg");
 
+
+  display: flex;
+  flex-direction: row;
+  /* Default to horizontal layout */
+  align-items: center;
+  justify-content: center;
+  height: 110vh;
+  background-color: rgb(62, 96, 61);
+  background: url("../../components/HomeComponents/NewsLetters/image1.jpg");
 }
 
 .pdf-container {
-  width: auto; /* Allow the container to adjust its width based on content */
-  max-width: 100%; /* Ensure the container doesn't exceed the viewport width */
-  height: auto; /* Allow the container to adjust its height based on content */
-  max-height: 100%; /* Ensure the container doesn't exceed the viewport height */
-  overflow: hidden; /* Hide any overflow content */
-  margin: 0 auto; /* Center the container horizontally */
-  position: relative; /* Position relative to its parent */
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
 }
+
+@media screen and (max-width: 900px) {
+  .news {
+    flex-direction: column;
+    /* Switch to vertical layout on smaller screens */
+    height: auto;
+    /* Allow height to adjust based on content */
+  }
+
+  .pdf-container {
+    margin-top: 20px;
+    /* Add space between news header and PDF container */
+  }
+}
+
+
 
 .react-pdf__Page {
-  width: 100%; /* Ensure the page fills the container horizontally */
-  height: 100%; /* Ensure the page fills the container vertically */
+  width: 100%;
+  /* Ensure the page fills the container horizontally */
+  height: 100%;
+  /* Ensure the page fills the container vertically */
 }
-
-
-
-
-
- 

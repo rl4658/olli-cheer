@@ -5,4 +5,4 @@ export const images = [
   require("./image3.png"),
   require("./image4.png"),
 ];
-    
+

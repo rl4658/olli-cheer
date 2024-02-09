@@ -1,5 +1,5 @@
 import React from "react";
-import "../../CSS/ContactUs/WorkerInformation.css"
+import "../../../CSS/ContactUs/WorkerInformation.css"
 import { useState } from "react";
 
 
