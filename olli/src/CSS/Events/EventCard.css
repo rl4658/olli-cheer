@@ -3,37 +3,56 @@
     padding: 0;
     padding-bottom: 0.3rem;
     text-align: center;
-
+    white-space: nowrap;
+    font-size: 1.6rem;
+    margin-top: 1.7rem;
+    margin-bottom: 0.5rem;
 }
 
 .content-wrapper .description {
     padding: 0;
     color: black;
     text-align: center;
+    min-height: 4rem;
     margin-left: 1rem;
     margin-right: 1rem;
     padding: 0.5rem;
-    font-size: 17px;
+    font-size: 1.0625rem;
+    /* 17px / 16px = 1.0625rem */
     margin-bottom: 2rem;
     background-color: white;
+    height: 6.25rem;
+    /* 100px / 16px = 6.25rem */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
-.image {
+
+.cardContainer .image {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     display: block;
     padding: 0;
+    min-height: 10rem;
+    max-height: 14.5em;
 
 
 }
 
 .cardContainer {
-    border-radius: 25px;
+    border-radius: 1.5625rem;
+    /* 25px / 16px = 1.5625rem */
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1.25rem 1.5625rem -0.3125rem, rgba(0, 0, 0, 0.04) 0px 0.625rem 0.625rem -0.3125rem;
+    /* Adjusted shadow values */
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-    /* Adjust the duration here */
+    max-height: 70rem;
+    /* Adjusted value in rem */
     position: relative;
+    height: 100%;
 }
 
 .cardContainer:hover {
@@ -43,19 +62,18 @@
 }
 
 
-
-
-
-
 .cardContainer .content-wrapper .button {
-    width: 6rem;
-    height: 2rem;
+    width: 8rem;
+    height: 2.5rem;
+    margin-top: 1rem;
+    padding: 0.6rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
     padding-bottom: 1.7rem;
     border-radius: 5px;
     background-color: rgb(128, 67, 185);
     color: white;
+    white-space: nowrap;
 }
 
 .cardContainer .content-wrapper .button:hover {

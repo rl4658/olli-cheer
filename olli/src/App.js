@@ -17,14 +17,12 @@ export default function App() {
           element={
             <div className='loginSection'>
               <Login />
+
+
             </div>} />
 
 
-        <Route exact path='/signUp'
-          element={
-            <div className='signUpSection'>
-              <SignUpPage />
-            </div>} />
+
 
 
         <Route

@@ -1,39 +1,26 @@
-
-
-
-
 body {
-  
+
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
   padding: 0;
-
 }
 
-
-
 .eventSection .swiper-slide {
-  
   font-size: 18px;
   background: #531313;
   border-radius: 25px;
   height: fit-content;
   margin-bottom: 2.5rem;
   margin-top: 9rem;
-
 }
 
 
 .eventSection .swiper-slide img {
-
   display: block;
   width: 100%;
-  height: auto;
+
   object-fit: cover;
 }
-
-
-  

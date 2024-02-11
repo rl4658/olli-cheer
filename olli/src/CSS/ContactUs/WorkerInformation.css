@@ -17,14 +17,13 @@
 	width: 300px;
 	height: 450px;
 	perspective: 1000px;
-	margin: 1rem;
+	margin: 1.5rem;
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
 	transform-style: preserve-3d;
-	transition: transform 1200ms;
-	perspective: 1000px;
-	box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+	transition: 1200ms;
+	box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, #6c5c73 6px 2px 16px 2px;
 
 }
 
@@ -32,15 +31,13 @@
 	transform: rotateY(180deg);
 }
 
-/* 
-.team-member:hover {
-
-} */
-
 .contact-info {
 	margin-top: 100%;
 }
 
+.front p {
+	margin-top: 0 auto;
+}
 
 .front,
 .back {

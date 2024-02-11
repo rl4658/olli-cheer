@@ -1,0 +1,62 @@
+
+Login 
+url: login/:email/:password
+
+sucessful return
+{
+	"user": {
+		"email": "pyke@example.com",
+		"username": "pyke",
+		"password": "$2b$10$Yxfdxin4UMr24t3LagFHV.HoK4fj9HT9/dvrwUUZnYeWdmGRY.H8.",
+		"fName": "Pyke",
+		"lName": "Lord",
+		"user_type": "admin",
+		"phone_number": "1234567890",
+		"created_at": "2024-02-09T00:08:18.000Z",
+		"updated_at": "2024-02-09T00:08:18.000Z"
+	},
+	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InB5a2VAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InB5a2UiLCJwYXNzd29yZCI6IiQyYiQxMCRZeGZkeGluNFVNcjI0dDNMYWdGSFYuSG9LNGZqOUhUOS9kdnJ3VVVablllV2RtR1JZLkg4LiIsImZOYW1lIjoiUHlrZSIsImxOYW1lIjoiTG9yZCIsInVzZXJfdHlwZSI6ImFkbWluIiwicGhvbmVfbnVtYmVyIjoiMTIzNDU2Nzg5MCIsImNyZWF0ZWRfYXQiOiIyMDI0LTAyLTA5VDAwOjA4OjE4LjAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wMi0wOVQwMDowODoxOC4wMDBaIiwiaWF0IjoxNzA3NDQyMDU3LCJleHAiOjE3MDc0NDU2NTd9.C2km_FuL7E9fhHW6sIXUFtiJREm6bOe-1kqr7UiBPsY"
+}
+
+possible errors
+1. {
+	"error": "Server Error: Incorrect password"
+}
+2. {
+	"error": "Server Error: Incorrect Email Address"
+}
+
+
+
+Sign Up
+url: /signUp/addUser
+structure [{}, [{},{}....]]
+
+child array can be empty 
+
+req.body info example
+[{
+  "email": "example3@example.com",
+  "username": "pyke",
+  "password": "123",
+  "fName": "Pyke",
+  "lName": "Lord",
+  "user_type": "parent",
+  "phone_number": "1234567890"
+}, 
+ [
+ {
+ "username": "child" ,
+	 "image1":"url",
+	 "image2":"url"
+ },
+ {
+ "username": "child2" ,
+	 "image1":"url",
+	 "image2":"url"
+ }
+]
+]
+
+posssible errors: 
+{ error: "Server Error: could not add user" }

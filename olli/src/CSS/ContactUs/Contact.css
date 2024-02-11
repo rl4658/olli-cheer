@@ -1,25 +1,24 @@
-#ContactUsDiv{
-  background: url("../../components/HomeComponents/ContactUs/image1.jpg");
-
-	height: auto; 
+#ContactUsDiv {
+  background: url("../../components/HomeComponents/AboutUS/im1.png");
+  height: auto;
 }
 
 #widgets {
-	width: 100%;
-  display: flex; 
+  width: 100%;
+  display: flex;
   flex-direction: row;
   justify-content: flex-end;
-	padding: 20px; 
+  padding: 20px;
 }
 
-  #widgets > * {
-	/* Apply padding to immediate children */
-	padding: 10px;
-  align-self: flex-end; 
+#widgets>* {
+  /* Apply padding to immediate children */
+  padding: 10px;
+  align-self: flex-end;
 
-  }
+}
 
-  /* #letsGetSocial{
+/* #letsGetSocial{
     width: 248px; 
     color: black; 
     font-size: 25px;
@@ -28,12 +27,13 @@
   } */
 
 
-
 .contact-info-container {
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Enable vertical scrolling if the content overflows */
-  max-height: 400px; /* Set a maximum height to trigger scrolling */
+  overflow-y: auto;
+  /* Enable vertical scrolling if the content overflows */
+  max-height: 400px;
+  /* Set a maximum height to trigger scrolling */
 }
 
 .contact-info-item {
@@ -42,12 +42,13 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
-  transition: transform 0.3s ease-in-out; /* Add a smooth transition for the sliding effect */
+  transition: transform 0.3s ease-in-out;
+  /* Add a smooth transition for the sliding effect */
 }
 
 .contact-info-item:hover {
   transform: translateY(-5px);
-   /* Add a slight lift on hover for a subtle interactive effect */  
+  /* Add a slight lift on hover for a subtle interactive effect */
 }
 
 .contact-name {
@@ -60,21 +61,18 @@
 
 #ContactTitle {
 
-    display: block;
-    font-size: 70px;
-    font-weight: 600;
-    background-image: linear-gradient(to left, #6c5c73, #b393d3);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    position: absolute;
-    text-align:left;
-    margin-left: 2rem;
-    background-color: white;
-    margin-top: 2rem;
-    text-align: center; 
+  display: block;
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #6c5c73, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: absolute;
+  text-align: left;
+  margin-left: 2rem;
+  background-color: white;
+  margin-top: 2rem;
+  text-align: center;
 
 }
-  
-
-  

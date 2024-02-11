@@ -9,15 +9,15 @@ export default function ContactInfo() {
     {
       name: 'Ivey',
       cell: 9057778888,
-      email: 'iveyEmail@fake.com', 
+      email: 'iveyEmail@fake.com',
       description: "Ivey is the compassionate and dedicated owner of a special needs care business.",
-      photo: "https://source.unsplash.com/random/200x200/?business&woman",
+      photo: require("./ivey.png"),
       position: 'owner'
     },
     {
       name: 'Seth',
       cell: 9057777777,
-      email: 'aliceEmail@fake.com', 
+      email: 'aliceEmail@fake.com',
       description: "Alice is an adventurous explorer with a passion for discovering new places.",
       photo: "https://source.unsplash.com/random/200x200/?engineer",
       position: 'Software Engineering Intern'
@@ -25,7 +25,7 @@ export default function ContactInfo() {
     {
       name: 'Raymond',
       cell: 9057776666,
-      email: 'bobEmail@fake.com', 
+      email: 'bobEmail@fake.com',
       description: "Bob is a skilled craftsman who loves working with his hands to create beautiful things.",
       photo: "https://source.unsplash.com/random/200x200/?software&student",
       position: 'Senior Software Engineer'
@@ -33,13 +33,13 @@ export default function ContactInfo() {
     {
       name: 'Sabi',
       cell: 9057775555,
-      email: 'charlieEmail@fake.com', 
+      email: 'charlieEmail@fake.com',
       description: "Charlie is a dedicated educator who is passionate about inspiring young minds.",
       photo: "https://source.unsplash.com/random/200x200/?software&engineer",
       position: 'Full Stack Web Developer'
     },
   ];
-  
+
 
   const [clickedIndices, setClickedIndices] = useState([]);
 
@@ -52,41 +52,37 @@ export default function ContactInfo() {
   };
 
 
-
-
   return (
-    <div id = 'containAllWorkers'>
+    <div id='containAllWorkers'>
 
       {workers.map((worker, index) => (
 
-        <div key = {index} data-aos="zoom-in" data-aos-duration = "1500">
+        <div key={index} data-aos="zoom-in" data-aos-duration="1500">
           <div
             className={`team-member ${clickedIndices.includes(index) ? 'clicked' : ''}`}
             onClick={() => handleToggleClick(index)}
           >
-              <div className={`front`}>
-                <img src={worker.photo} alt={worker.name} className="photo" />
-                <p className="position"> {worker.position}</p>
-                <p className="name">{worker.name}</p>
+            <div className={`front`}>
+              <img src={worker.photo} alt={worker.name} className="photo" />
+              <p className="position"> {worker.position}</p>
+              <p className="name">{worker.name}</p>
+            </div>
+
+
+
+            <div className={`back`}>
+
+              <p className="info">{worker.description}</p>
+
+              <div className="contact-info">
+                <p className="cellNumber">{worker.cell}</p>
+                <p className="email">{worker.email}</p>
               </div>
 
-
-
-              <div className={`back`}>
-
-                <p className="info">{worker.description}</p>
-
-                <div className = "contact-info">
-                  <p className = "cellNumber">{worker.cell}</p>
-                  <p className = "email">{worker.email}</p>
-                </div>
-                
-              </div>
+            </div>
           </div>
         </div>
       ))}
     </div>
   );
-
-  
 }

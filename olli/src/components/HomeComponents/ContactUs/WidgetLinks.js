@@ -1,38 +1,37 @@
 import React from "react";
 import { FacebookShareButton, FacebookIcon } from 'react-share';
-import './Iphone.png'; 
+import './Iphone.png';
 import './Mail.png';
 import "../../../CSS/ContactUs/Contact.css"
-import AOS from 'aos'; 
 import 'aos/dist/aos.css';
 
 
 export default function WidgetLinks() {
-  const facebookLink = 'herFacebookLink';
-  const emailLink = 'OLLIemail';
+  const facebookLink = 'https://www.facebook.com/familyconnectionscheer';
+  const emailLink = 'cburnscheer@gmail.com';
   const phoneNumber = 'Iveys number';
 
-   
+
   return (
-    <div id = 'widgets' data-aos-once="false" data-aos-duration="50000">
+    <div id='widgets' data-aos-once="false" data-aos-duration="5000">
 
 
 
       <div>
-          <FacebookShareButton url={facebookLink}>
-            <FacebookIcon size={64} round />
-          </FacebookShareButton>
+        <FacebookShareButton url={facebookLink}>
+          <FacebookIcon size={64} round />
+        </FacebookShareButton>
       </div>
 
 
       {/* Email link with image */}
       <a href={`mailto:${emailLink}`}>
-        <img src={require("./Mail.png")} width = '64px' height = '64px' alt="Email" />
+        <img src={require("./Mail.png")} width='64px' height='64px' alt="Email" />
       </a>
 
       {/* Phone number link with image */}
       <a href={`tel:${phoneNumber}`}>
-        <img src={require("./Iphone.png")} width = '64px' height = '64px' alt="Phone" />
+        <img src={require("./Iphone.png")} width='64px' height='64px' alt="Phone" />
       </a>
     </div>
   );

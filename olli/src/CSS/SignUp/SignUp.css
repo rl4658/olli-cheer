@@ -1,141 +1,84 @@
 .signup-container {
-    top: 100px;
-    background-image: url("./bg.png");
-    background-size: cover;
+    background-color: transparent;
+    margin-left: 2rem;
 
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* Increase margin by 30% */
-}
-
-.savedSNUser {
-    width: 100%;
-    height: 40px;
-    background-color: grey;
-    border-radius: 5px;
-    text-align: left;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-
-
-}
-
-.savedSNUser:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.deleteSNUser {
-    width: 15px;
-    height: 15px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-h2 {
-    padding: 15px;
-}
-
-p {
-    color: #ffffff;
-    font-size: 1.3em;
-    /* Increase font size by 30% */
 }
 
 .signup-box {
-    background-color: #adadad;
-    /* Increase padding by 30% */
+
     border-radius: 16px;
-    /* Increased border-radius for rounded corners */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
     max-width: 520px;
-    /* Increase max-width by 30% */
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    padding: 15px;
-    overflow-y: scroll;
-
-
+    padding: 30px;
+    overflow-y: auto;
+    /* Show scrollbar when content overflows */
 }
 
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+p {
+
+    font-size: 1.2rem;
+}
 
 .SNFailMessage {
     color: red;
+    margin-top: 5px;
 }
 
 .sn-signup {
-    display: flex;
-    flex-direction: column;
+    margin-top: 20px;
 }
 
-/* form {
-
-} */
-
 label {
+    color: #ffffff;
+    font-size: 1.2rem;
     margin-bottom: 10px;
-    /* Increase margin by 30% */
-    color: rgb(255, 255, 255);
 }
 
 input {
-    padding: 13px;
-    /* Increase padding by 30% */
+    padding: 15px;
     margin-bottom: 20px;
-    /* Increase margin by 30% */
     border: 1px solid #ccc;
     border-radius: 10px;
-    /* Rounded corners for input boxes */
-    color: #000;
+    color: #333333;
+    font-size: 1.2rem;
 }
 
 button {
-
     width: 50%;
     margin: 0 auto;
-    margin-top: 2rem;
-    background-color: rgb(201, 113, 66);
-    color: #fff;
-    padding: 13px;
-    /* Increase padding by 30% */
+    margin-top: 20px;
+    background-color: #c97142;
+    color: #ffffff;
+    padding: 15px;
     border: none;
     border-radius: 5px;
-    /* Increase border-radius by 30% */
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
 button:hover {
-    background-color: #fff;
+    background-color: #ffffff;
     color: #000000;
+    border: 1px solid #c97142;
 }
 
 .signup-link {
     margin-top: 26px;
-    /* Increase margin by 30% */
 }
-
-/* .signup-link-text p {
-    color: black;
-} */
-
 
 .signup-link a:hover {
     text-decoration: underline;
-
 }
 
 .signup-link a {
     color: #000000;
-
     text-decoration: none;
-    font-size: 1.1em;
-    /* Increase font size by 30% */
+    font-size: 1.2rem;
 }

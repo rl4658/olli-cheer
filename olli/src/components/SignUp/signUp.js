@@ -22,7 +22,7 @@ const SignUpPage = () => {
   const [lastName, setLastName] = useState('');
   const [confPassword, setConfirmPassword] = useState('');
 
-  // function used to open the content to add a new special needs user. 
+  // function used to open the content to add a new special needs user.
   function openAddUserContent() {
     setAddUser(!addUser);
     // This will need to load the guys that were added. 
@@ -181,7 +181,7 @@ const SignUpPage = () => {
         </div>
 
         <div className="signup-link">
-          <p>Already have an account? <a href="/Login">Login</a></p>
+          <p>Already have an a ccount? <a href="/Login">Login</a></p>
         </div>
       </div>
     </div>

@@ -1,28 +1,33 @@
-.eventSection{
-    height: 100vh;
-    background: url("../../components/HomeComponents/AboutUS/image1.jpg");
-    position: relative;
+.eventSection {
+  height: 100vh;
+  background: #eeefef;
+  position: relative;
 }
 
-.eventSection .etitle{
-    transform: translateX(20px);
-    display: block;
-    font-size: 70px;
-    font-weight: 600;
-    background-image: linear-gradient(to left, #6c5c73, #b393d3);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    position: absolute;
-    text-align:left;
-    margin-left: 2rem;
-    margin-top: 2rem;
-    
+.eventSection .etitle {
+  transform: translateX(1.25rem);
+  /* 20px / 16px = 1.25rem */
+  display: block;
+  font-size: 4.375rem;
+  /* 70px / 16px = 4.375rem */
+  font-weight: 600;
+  background-image: linear-gradient(to left, #6c5c73, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: absolute;
+  text-align: left;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  white-space: nowrap;
+  /* Prevent text from wrapping */
 }
+
 
 @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateX(0); /* Move to its original position */
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    /* Move to its original position */
   }
+}

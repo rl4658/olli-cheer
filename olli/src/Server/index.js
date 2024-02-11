@@ -1,13 +1,15 @@
 const express = require('express');
-const loginRoute = require("./Routes/Login.js")
-const signUpRoute = require("./Routes/SignUp.js")
+const loginRoutes = require("./Routes/LoginRoutes.js")
+const signUpRoutes = require("./Routes/SignUpRoutes.js")
+const eventRoutes = require("./Routes/EventRoutes.js")
 require('dotenv').config();
 
 
 const app = express();
 
-app.use("/login", loginRoute)
-app.use("/signUp", signUpRoute)
+app.use("/login", loginRoutes)
+app.use("/signUp", signUpRoutes)
+app.use("/events", eventRoutes)
 
 
 

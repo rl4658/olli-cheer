@@ -5,13 +5,10 @@
   margin-right: 10rem;
   font-size: 75px;
   color: #6c5c73;
-
 }
 
 
 .news {
-
-
   display: flex;
   flex-direction: row;
   /* Default to horizontal layout */
@@ -19,7 +16,7 @@
   justify-content: center;
   height: 110vh;
   background-color: rgb(62, 96, 61);
-  background: url("../../components/HomeComponents/NewsLetters/image1.jpg");
+  background: url("../../components/HomeComponents/AboutUS/im1.png");
 }
 
 .pdf-container {

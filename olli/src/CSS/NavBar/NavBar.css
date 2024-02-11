@@ -77,14 +77,14 @@
   display: flex;
   position: fixed;
   width: 100%;
-  background-image: linear-gradient(to right, rgb(73, 114, 20), rgb(60, 80, 19));
+  background-image: linear-gradient(to right, black, black);
   align-items: center;
   padding: 0.2rem;
   border: auto;
   font-size: 1.4rem;
   margin: auto;
   z-index: 10;
-  top: -0px;
+  top: -1px;
   transition: top 0.3s ease, transform 0.3s ease;
 }
 
