@@ -23,6 +23,10 @@ function LoginPage() {
     setIsSignUpClicked(true);
   };
 
+  const handleLoginClick = () => {
+    setIsSignUpClicked(false); // Move back to the login form
+  };
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -30,9 +34,11 @@ function LoginPage() {
   return (
     <div>
       <div className="login-container">
-        <SignUpPage className={`signup-page ${isSignUpClicked ? 'move-left' : ''}`} />
+        <div className={`signup-page ${isSignUpClicked ? 'move-right' : ''}`}>
+          <SignUpPage onLoginClick={handleLoginClick}  />
+        </div>
         <div className={`stripe-pattern ${(isVisible && !isSignUpClicked) ? 'mounted' : ''}${isSignUpClicked ? 'move-right' : ''}`}></div>
-        <div className="login-form">
+        <div className={`login-form ${isSignUpClicked ? 'move-right' : ''}`}>
           <div className="logo-container">
             <img data-aos="fade-right" src={imageSrc} alt="Logo" className="logo" />
             <h1 data-aos="fade-right">O.L.L.I</h1>
@@ -40,6 +46,7 @@ function LoginPage() {
           <p data-aos="fade-right">Welcome back!</p>
           <input
             data-aos="fade-right"
+            id = "email1"
             type="email"
             placeholder="Enter your email here"
             value={email}
@@ -47,6 +54,7 @@ function LoginPage() {
           />
           <input
             data-aos="fade-right"
+            id='pass1'
             type="password"
             placeholder="Enter your password here"
             value={password}
@@ -60,7 +68,7 @@ function LoginPage() {
           <button data-aos="fade-right" className="sign-in-with-images-btn">Sign in with Images</button>
           <div className="sign-up">
             <p data-aos="fade-right">Don’t have an account?</p>
-            <NavLink data-aos="fade-right" onClick={handleSignUpClick}>Sign up</NavLink>
+            <a data-aos="fade-right" onClick={handleSignUpClick}>Sign up</a>
           </div>
         </div>
       </div>

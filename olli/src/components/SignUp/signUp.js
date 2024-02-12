@@ -1,9 +1,8 @@
 import React from 'react';
 import '../../CSS/SignUp/SignUp.css';
-import GuestUserBar from '../NavBars/GuestUserBar';
 import { useState } from 'react';
 
-const SignUpPage = () => {
+const SignUpPage = ({ onLoginClick }) => {
 
   // these are for the special needs users.
   const [addUser, setAddUser] = useState(false);
@@ -29,8 +28,6 @@ const SignUpPage = () => {
   }
 
 
-
-
   function saveSNUserToDatabase() {
     if (usernameSN == '') {
       setSNSaveFailMessage('You must enter a username');
@@ -49,7 +46,6 @@ const SignUpPage = () => {
       console.log(snUsersAdded);
     }
   }
-
 
 
   function deleteSNUser(index) {
@@ -96,9 +92,6 @@ const SignUpPage = () => {
   }
 
 
-
-
-
   return (
     <div>
       {/* <GuestUserBar /> */}
@@ -106,7 +99,7 @@ const SignUpPage = () => {
       <div className="signup-container">
 
         <div className="signup-box">
-          <h2>Guardian Sign Up</h2>
+          <h2>Sign Up</h2>
           <input type="text" id="email" name="email" placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -140,7 +133,7 @@ const SignUpPage = () => {
           <p className="SNFailMessage">{saveFailMessage}</p>
 
           <button onClick={() => openAddUserContent()}>Add Special Needs Users</button>
-
+          <hr data-aos="fade-right" className="divider" />
 
 
           {addUser && (
@@ -163,8 +156,6 @@ const SignUpPage = () => {
             </div>
           )}
 
-
-
           {snUsersAdded && (
             <div>
               {snUsersAdded.map((user, index) => (
@@ -177,11 +168,11 @@ const SignUpPage = () => {
           )}
 
           <button onClick={() => checkInput()}>Register</button>
+          <div className="signup-link">
+            <p>Already have an account?</p>
+            <a href="#login" onClick={onLoginClick}>Login</a>
+          </div>
 
-        </div>
-
-        <div className="signup-link">
-          <p>Already have an a ccount? <a href="/Login">Login</a></p>
         </div>
       </div>
     </div>
