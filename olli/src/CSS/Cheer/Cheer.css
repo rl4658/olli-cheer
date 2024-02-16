@@ -5,7 +5,7 @@
     max-width: 100%;
     margin: 0 auto;
     background: #eeefef;
-
+    min-height: 100vh;
 }
 
 .cheer-container {
@@ -25,6 +25,7 @@
 .image-container img {
     max-width: 90%;
     height: auto;
+    border-radius: 2rem;
 }
 
 .text-container {
@@ -32,6 +33,12 @@
 }
 
 .text-container h2 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    /* Select a serif font with a classic feel */
+    font-style: normal;
+    /* Ensure the title is not italicized */
+    font-weight: bold;
+    /* Make the title bold for emphasis */
     font-size: 1.6em;
     margin-bottom: 1rem;
     /* Added margin bottom */
@@ -39,7 +46,14 @@
 }
 
 .text-container p {
+    font-family: 'Helvetica', Arial, sans-serif;
+    /* Select a common sans-serif font stack */
+    font-style: normal;
+    /* Ensure the passage text is not italicized */
+    font-weight: normal;
+    /* Use normal font weight for the passage */
     font-size: 1.4em;
     line-height: 1.5;
     color: #6c5c73;
+
 }

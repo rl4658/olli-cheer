@@ -9,7 +9,7 @@ export default function ContactUs() {
 
 		<div id="ContactUsDiv">
 			<div data-aos="fade-right" data-aos-once="false" data-aos-duration="5000">
-				<h1 id='ContactTitle'>Get To Know The Team  </h1>
+				<h1 id='ContactTitle'>Reach Our Team</h1>
 			</div>
 			<WidgetLinks></WidgetLinks>
 			<ContactInfo></ContactInfo>

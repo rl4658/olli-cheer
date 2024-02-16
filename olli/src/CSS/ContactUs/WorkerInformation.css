@@ -52,7 +52,7 @@
 }
 
 .front {
-	border-radius: 5px;
+	border-radius: 50%;
 	z-index: 1;
 	background-color: #f0f0f0;
 
@@ -61,7 +61,7 @@
 }
 
 .front img {
-	border-radius: 5px;
+	border-radius: 50%;
 }
 
 .front :hover {

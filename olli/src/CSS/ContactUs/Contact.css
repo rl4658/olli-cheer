@@ -1,6 +1,7 @@
 #ContactUsDiv {
-  background: url("../../components/HomeComponents/AboutUS/im1.png");
+  background-color: #f2eadc;
   height: auto;
+  min-height: 100vh;
 }
 
 #widgets {

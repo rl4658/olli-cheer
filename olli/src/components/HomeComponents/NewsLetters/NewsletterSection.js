@@ -4,21 +4,13 @@ import PdfLoader from "./PDFLoader";
 
 
 export default function NewsLetterSection() {
-
     return (
-
         <div className="news">
-            <div data-aos="fade-right" data-aos-once="true"
-            >
+            <div data-aos="fade-right" data-aos-once="true">
                 <h1>O.L.L.I News</h1>
             </div>
-            <div data-aos="fade-left" data-aos-once="true"
-            >
-                <PdfLoader fileName={require("./pdf.pdf")}></PdfLoader>
-            </div>
-
-            <div className="pdfSection">
-
+            <div data-aos="fade-left" data-aos-once="true">
+                <PdfLoader className="pdf" fileName={require("./pdf.pdf")}></PdfLoader>
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 /*
+
 participants
     pick_time VARCHAR(255) NOT NULL,
     drop_time VARCHAR(255) NOT NULL,
@@ -15,6 +16,9 @@ participants
     image blob NOT NULL
 
 */
+
+
+
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host: 'localhost',

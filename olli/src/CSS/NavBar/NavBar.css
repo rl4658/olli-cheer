@@ -7,8 +7,59 @@
   box-sizing: border-box;
 }
 
+.home {
+  width: 2rem;
+  /* Adjust the width as per your requirement */
+  height: 2rem;
+  /* Adjust the height as per your requirement */
+  margin-right: -4.6rem;
+  margin-bottom: 0.4rem;
+}
 
+.calendar {
+  width: 2.1rem;
+  /* Adjust the width as per your requirement */
+  height: 2.1rem;
+  /* Adjust the height as per your requirement */
+  margin-right: -4.57rem;
+  margin-bottom: 0.5rem;
+}
 
+.info {
+  width: 2rem;
+  /* Adjust the width as per your requirement */
+  height: 2rem;
+  /* Adjust the height as per your requirement */
+  margin-right: -4.6rem;
+  margin-top: 0.2rem;
+}
+
+.email {
+  width: 1.9rem;
+  /* Adjust the width as per your requirement */
+  height: 1.9rem;
+  /* Adjust the height as per your requirement */
+  margin-right: -4.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.events {
+  width: 2.1rem;
+  /* Adjust the width as per your requirement */
+  height: 2.1rem;
+  /* Adjust the height as per your requirement */
+  margin-right: -4.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.newspaper {
+  width: 2.1rem;
+  /* Adjust the width as per your requirement */
+  height: 2.1rem;
+  /* Adjust the height as per your requirement */
+  margin-right: -4.5rem;
+  margin-bottom: 0.6rem;
+}
 
 /* Define the keyframes for the rotation animation */
 @keyframes rotateAnimation {

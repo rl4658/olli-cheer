@@ -32,24 +32,25 @@ const connection = mysql.createConnection({
 
 async function insertUser(email, username, password, fName, lName, user_type, phone_number, children) {
     try {
-        const [rows] = await connection.query(
+        await connection.query(
             'INSERT INTO users (email, username, password, fName, lName, user_type, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)',
             [email, username, password, fName, lName, user_type, phone_number]
         );
         if (user_type === "parent") {
             children.forEach(async child => {
                 await connection.query(
-                    'INSERT INTO sn (username, email, image1, image2) VALUES (?, ?, ?, ?)',
-                    [child.username, email, child.image1, child.image2]
+                    'INSERT INTO sn (username, email, image1, image2, firstNameSN, lastNameSN) VALUES (?, ?, ?, ?, ?, ?)',
+                    [child.username, email, child.image1, child.image2, child.firstNameSN, child.lastNameSN]
                 );
             });
 
         }
+        return { error: false }
         console.log('User inserted successfully');
-        return rows;
+
     } catch (error) {
         console.error('Error inserting user:', error);
-        throw error;
+        return { error: true }
     }
 }
 
@@ -70,7 +71,27 @@ async function getUserByEmail(email) {
     }
 }
 
+async function getSNByUsername(username) {
+    try {
+        const [rows] = await connection.query(
+            'SELECT * FROM sn WHERE username = ?',
+            [username]
+        );
+
+        if (rows.length > 0) {
+            return rows[0]; // Return the first row (SN) found
+        } else {
+            return null; // If no SN found with the given username
+        }
+    } catch (error) {
+        return null
+    }
+}
+
+
+
 module.exports = {
     insertUser,
-    getUserByEmail
+    getUserByEmail,
+    getSNByUsername
 }

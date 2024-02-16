@@ -14,9 +14,8 @@
   /* Default to horizontal layout */
   align-items: center;
   justify-content: center;
-  height: 110vh;
-  background-color: rgb(62, 96, 61);
-  background: url("../../components/HomeComponents/AboutUS/im1.png");
+  height: 100vh;
+  background-color: #f2eadc;
 }
 
 .pdf-container {

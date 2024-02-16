@@ -1,42 +1,96 @@
+/* Styles for the main container */
 .about-us-container {
   width: 100%;
   text-align: center;
-  padding: 20px;
+  padding: 2%;
   box-sizing: border-box;
-  background: url("../../components/HomeComponents/AboutUS/im1.png");
+  background-color: #f2eadc;
   color: white;
+  min-height: 100vh;
 }
 
+/* Styles for the content container */
 .content-container {
   display: flex;
   justify-content: space-between;
-  /* This will push the two divs to the sides */
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
-.text-container {
+/* Styles for the image container */
+.about-image-container {
   flex: 1;
-  padding: 10px;
-  text-align: left;
-  /* Align heading to the left */
+  /* Adjust margin to create spacing */
+  margin-top: 0.5%;
+  margin-right: 2%;
 }
 
-.heading {
-  font-size: 4.5em;
-  margin-bottom: 20px;
+.about-image-container img {
+  width: 60%;
+  margin-left: 2%;
+  /* Ensure the image takes the full width of its container */
+  border-radius: 2rem;
+  box-shadow: black -4px 4px 20px;
+}
+
+/* Styles for the text container */
+.about-text-container {}
+
+.olli {
+  font-family: 'Arial', sans-serif;
+  /* Select a sans-serif font for readability */
+  font-style: normal;
+  /* Ensure the subtitle is not italicized */
+  font-weight: normal;
+  /* Use normal font weight for the subtitle */
+  margin-top: 2%;
+  text-align: left;
+  margin-left: 21%;
   color: #6c5c73;
 }
 
-.mission-statement {
-  flex: 2;
-  padding: 10px;
+.about-divider {
+  align-self: flex-start;
+  /* Align to the end of the flex container (right side) */
+  border: 0.1px solid #6c5c73;
+  margin: 0.5%;
+  /* Adjust margins as needed */
+  width: 5%;
+  margin-left: 21%;
+}
+
+
+
+/* Styles for the heading */
+.heading {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  /* Select a serif font with a classic feel */
+  font-style: normal;
+  /* Ensure the title is not italicized */
+  font-weight: bold;
+  /* Make the title bold for emphasis */
+  font-size: 3rem;
+  margin-bottom: 2%;
+  color: #6c5c73;
   text-align: left;
-  /* Align paragraph to the right */
+  /* Align heading to the right */
+  margin-left: 21%;
+}
+
+/* Styles for the mission statement */
+.mission-statement {
+  text-align: left;
+  /* Align mission statement to the right */
+  margin-left: 21%;
+  margin-right: 21%;
 }
 
 .mission-statement p {
-  font-size: 2em;
+  font-size: 1.5rem;
   line-height: 1.5;
   color: #6c5c73;
+  font-family: 'Georgia', serif;
+  /* Use a serif font like Georgia for quotations */
+  font-style: italic;
+  /* Italicize the text for a quotation effect */
 }

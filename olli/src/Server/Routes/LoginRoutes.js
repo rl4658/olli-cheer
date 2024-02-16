@@ -11,7 +11,9 @@ router.use(express.json());
 router.get('/:email/:password', async (req, res) => {
     const email = req.params.email
     const password = req.params.password
+
     const user = await userDB.getUserByEmail(email)
+    console.log(user)
     if (user === null) {
         res.status(404).json({ error: "Server Error: Incorrect Email Address" })
         return
@@ -20,7 +22,7 @@ router.get('/:email/:password', async (req, res) => {
 
     if (match) {
         const token = jwt.sign(user, process.env.jwtSecret, { expiresIn: '1h' })
-        res.json({ user: user, accessToken: token })
+        res.json({ user: user, accessToken: token, error: false })
         return
     }
     else {
@@ -28,6 +30,53 @@ router.get('/:email/:password', async (req, res) => {
         return
     }
 });
+
+
+
+
+// this route will look for a SN user given a username and and two urls' (password)
+// then return the result: the SN user info if found, or not found message if there is no existing user. 
+
+router.post("/SNUserLogin", async (req, res) => {
+    try {
+        const { username, image1, image2 } = req.body;
+        console.log(username)
+        console.log(image1)
+        console.log(image2)
+        const user = await userDB.getSNByUsername(username);
+        console.log(user)
+
+        if (user === null) {
+            res.status(404).json({ error: true })
+            return
+        }
+        if (user.username !== username) {
+            res.status(404).json({ error: true })
+            return
+        }
+        if (user.image1 !== image1 || user.image2 !== image2) {
+            res.status(404).json({ error: true })
+            return
+        }
+        const token = jwt.sign(user, process.env.jwtSecret, { expiresIn: '1h' })
+        res.json({ user: user, accessToken: token })
+        return
+    } catch (err) {
+        res.status(404).json({ error: true })
+        return
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
 
 
 // Export router
