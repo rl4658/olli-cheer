@@ -21,6 +21,9 @@ export default function ParentNavBar({ user }) {
         />
 
     ]
+
+
+
     return (
         <NavBar
             userSpecificButtons={buttons}

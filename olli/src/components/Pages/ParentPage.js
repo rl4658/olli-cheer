@@ -23,6 +23,8 @@ export default function ParentPage() {
 
     }, [user]);
 
+
+
     const fetchSN = async () => {
 
         const response = await fetch(`/parentalControls/getSNOfParent/${user.user.email}`, {

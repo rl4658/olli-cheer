@@ -13,7 +13,7 @@ export default function WidgetLinks() {
 
 
   return (
-    <div id='widgets' data-aos-once="false" data-aos-duration="5000">
+    <div id='widgets' data-aos="zoom-in" data-aos-once="true" data-aos-duration="5000">
 
 
 

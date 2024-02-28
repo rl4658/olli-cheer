@@ -104,23 +104,34 @@ async function getSNByParentEmail(email) {
     }
 }
 
-async function updateSN(username, email, image1, image2, fName, lName) {
+async function updateSN(oldUsername, newUserName, email, image1, image2, fName, lName) {
     try {
         // Update query
+        console.log(image1)
+        console.log(image2)
         const remove = 'DELETE FROM sn WHERE username = ?';
         const add = "INSERT INTO sn (username, email, image1, image2, firstNameSN, lastNameSN) VALUES (?, ?, ?, ?, ?, ?)"
         // Execute the update query
-        await connection.query(remove, [username]);
-        await connection.query(add, [username, email, image1, image2, fName, lName])
+        await connection.query(remove, [oldUsername]);
+        await connection.query(add, [newUserName, email, image1, image2, fName, lName])
         return true
     } catch (error) {
         console.log(error)
         return null
     }
 }
+async function deleteSN(username) {
 
+    try {
+        let sql = `DELETE FROM sn WHERE username= ?`;
+        await connection.query(sql, [username]);
+        return "User deleted"
+    } catch (error) {
 
-
+        console.log(error)
+        return null
+    }
+}
 
 
 
@@ -129,5 +140,6 @@ module.exports = {
     getUserByEmail,
     getSNByUsername,
     getSNByParentEmail,
-    updateSN
+    updateSN,
+    deleteSN
 }

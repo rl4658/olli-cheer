@@ -2,39 +2,37 @@
   background-color: #f2eadc;
   height: auto;
   min-height: 100vh;
+  padding: 1rem;
 }
 
 #widgets {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 20px;
+  margin-top: 25%;
+  margin-left: 3%;
+}
+
+.lol {
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-top: 2rem;
+  align-items: center;
 }
 
 #widgets>* {
-  /* Apply padding to immediate children */
   padding: 10px;
   align-self: flex-end;
-
 }
-
-/* #letsGetSocial{
-    width: 248px; 
-    color: black; 
-    font-size: 25px;
-    font-weight: bold; 
-    text-align: center; 
-  } */
-
 
 .contact-info-container {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  /* Enable vertical scrolling if the content overflows */
   max-height: 400px;
-  /* Set a maximum height to trigger scrolling */
 }
 
 .contact-info-item {
@@ -44,12 +42,10 @@
   border-radius: 8px;
   background-color: #f9f9f9;
   transition: transform 0.3s ease-in-out;
-  /* Add a smooth transition for the sliding effect */
 }
 
 .contact-info-item:hover {
   transform: translateY(-5px);
-  /* Add a slight lift on hover for a subtle interactive effect */
 }
 
 .contact-name {
@@ -58,10 +54,7 @@
   margin-bottom: 10px;
 }
 
-
-
 #ContactTitle {
-
   display: block;
   font-size: 70px;
   font-weight: 600;
@@ -69,11 +62,166 @@
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  position: absolute;
-  text-align: left;
-  margin-left: 2rem;
-  background-color: white;
-  margin-top: 2rem;
   text-align: center;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
 
+.header1 {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.header2 {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+#SalesSupportContainer,
+#CustomerSupportContainer {
+  display: inline-block;
+  width: 30%;
+  min-height: 21.6vh;
+  vertical-align: top;
+  background-color: white;
+  padding: 10px;
+  margin-left: 19%;
+  border-radius: 15px;
+  border: 2px solid black;
+}
+
+#CustomerSupportContainer {
+  margin-left: 2%;
+}
+
+#SalesDiv,
+#SupportDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#SalesDiv p,
+#SupportDiv p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#SupportDiv button {
+  background-color: #6c5c73;
+  color: white;
+  width: 50%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#SupportDiv button:hover {
+  background-color: #b393d3;
+}
+
+.contact-divider {
+  align-self: flex-start;
+  border: 0.1px solid #6c5c73;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.headquarterTitle {
+  font-size: 2.5rem;
+  text-align: left;
+  margin-top: 8%;
+  margin-left: 8%;
+}
+
+.province {
+  font-size: 1.5rem;
+  margin-top: 8%;
+  margin-left: 8%;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+#HeadquartersDiv .address {
+  font-size: 1rem;
+  margin-top: 2%;
+  margin-left: 8%;
+  font-family: 'Roboto', sans-serif;
+}
+
+#HeadquartersDiv .gmail,
+#HeadquartersDiv .phone {
+  font-family: 'Roboto', sans-serif;
+  margin-left: 8%;
+  margin-top: 2%;
+  font-size: 1rem;
+}
+
+#HeadquartersAndMapContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+
+.map-image {
+  width: 50%;
+  margin-top: 4%;
+  margin-right: 4%;
+  border-radius: 15px;
+  border: 2px solid #6c5c73;
+}
+
+#HeadquartersDiv {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+  padding: 10px;
+  margin-top: 4%;
+  margin-left: 4%;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px solid #6c5c73;
+}
+
+.contact-info {
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 8%;
+  margin-top: 2%;
+  flex-grow: 1;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.info-item p {
+  margin-bottom: 2%;
+  font-size: 1rem;
+}
+
+.location,
+.mail,
+.phones {
+  width: 10%;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 5px;
+  margin-bottom: 1.5%;
+}
+
+.address,
+.gmail,
+.phone {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
 }

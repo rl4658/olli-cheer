@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     max-width: 100%;
     margin: 0 auto;
+    margin-top: 1%;
     background: #eeefef;
     min-height: 100vh;
 }
@@ -55,5 +56,4 @@
     font-size: 1.4em;
     line-height: 1.5;
     color: #6c5c73;
-
 }

@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect, useCallback } from 'react'
+
 
 export default function SNUpdater({ sn, user, setSNUsers }) {
     const [SNUsername, setSNUsername] = useState('');
@@ -31,32 +33,59 @@ export default function SNUpdater({ sn, user, setSNUsers }) {
 
     }, [user])
 
+    async function handleDelete() {
+        const response = await fetch(`/parentalControls/deleteSN/${sn.username}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${user.accessToken}`
+            }
+        });
+
+        if (!response.ok) {
+            setErrorMessage(`Could Not Delete to ${SNUsername}`)
+            return
+        }
+
+        const data = await response.json()
+        console.log(data)
+        if (data.error) {
+            setErrorMessage(`Could Not Delete to ${SNUsername}`)
+            return
+        }
+
+
+    }
     async function handleUpdate() {
+        if (selectedImages.length === 0 && SNUsername === "") {
+            setErrorMessage("Please Enter Username or Select 2 Image")
+            return
+        }
         let image1 = sn.image1
         let image2 = sn.image2
-
-
+        let oldUsername = sn.username
+        let newUserName = SNUsername
+        if (SNUsername === "") {
+            newUserName = oldUsername
+        }
         if (selectedImages.length == 1) {
 
             setErrorMessage("You Must Select Two Images")
             return
-
         }
         if (selectedImages.length === 2) {
             image1 = selectedImages[0].url
-            image2 = selectedImages[0].url
+            image2 = selectedImages[1].url
         }
-        console.log(image1)
-        console.log(image2)
-        console.log(SNUsername)
-        console.log(user.user.email)
+
+
         const response = await fetch(`/parentalControls/updateSN`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 authorization: `Bearer ${user.accessToken}`
             },
-            body: JSON.stringify({ email: user.user.email, username: SNUsername, image1: image1, image2: image2, fName: sn.firstNameSN, lName: sn.lastNameSN }),
+            body: JSON.stringify({ email: user.user.email, oldUsername: oldUsername, newUsername: newUserName, image1: image1, image2: image2, fName: sn.firstNameSN, lName: sn.lastNameSN }),
         });
         if (!response.ok) {
             setErrorMessage(`Could Not Update to ${SNUsername}`)
@@ -116,6 +145,7 @@ export default function SNUpdater({ sn, user, setSNUsers }) {
                 ))}
                 <p>{errorMessage}</p>
                 <button className="updateSN" onClick={handleUpdate}>Update</button>
+                <button className='deleteUser' onClick={handleDelete}>Delete {sn.username}</button>
             </div>
         </div>
     )

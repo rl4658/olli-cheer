@@ -1,9 +1,7 @@
 #containAllWorkers {
 	display: flex;
 	flex-wrap: wrap;
-	/* Allow items to wrap to next line */
 	align-items: center;
-	/* Center items vertically */
 	justify-content: center;
 }
 
@@ -12,19 +10,21 @@
 }
 
 .team-member {
-
 	position: relative;
 	width: 300px;
-	height: 450px;
+	/* Adjust width */
+	height: 400px;
+	/* Adjust height */
 	perspective: 1000px;
-	margin: 1.5rem;
+	margin: 30px;
+	/* Adjust margin */
 	display: flex;
 	flex-direction: column;
-	border-radius: 5px;
+	border-radius: 10px;
+	/* Adjust border radius */
 	transform-style: preserve-3d;
 	transition: 1200ms;
 	box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, #6c5c73 6px 2px 16px 2px;
-
 }
 
 .team-member.clicked {
@@ -32,11 +32,7 @@
 }
 
 .contact-info {
-	margin-top: 100%;
-}
-
-.front p {
-	margin-top: 0 auto;
+	margin-top: auto;
 }
 
 .front,
@@ -46,95 +42,97 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	border-radius: 5px;
+	border-radius: 10px;
+	/* Adjust border radius */
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
 .front {
-	border-radius: 50%;
-	z-index: 1;
-	background-color: #f0f0f0;
-
+	background-color: black;
 	text-align: center;
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .front img {
-	border-radius: 50%;
+	border-radius: 30%;
+	border: 2px solid #b570d1;
+	/* Add border with specified color */
+	width: 160px;
+	/* Adjust image width */
+	height: 180px;
+	/* Adjust image height */
+	margin-bottom: 2%;
 }
 
-.front :hover {
-	cursor: pointer;
-}
-
-
-
-
-.back {
-	border-radius: 5px;
-	transform: rotateY(180deg);
-	background-color: #fff;
-	padding: 20px;
-	text-align: center;
-	color: black;
-}
-
-
-
-.photo {
-	width: 100%;
-	/* Adjust photo size */
-	height: 100%;
-	/* Adjust photo size */
-
-}
 
 .position {
-	font-size: 18px;
 	font-weight: bold;
-	margin-bottom: 5px;
-	/* Reduce space below */
-	margin-top: 0;
-	/* Reset top margin */
-	color: black;
-	position: relative;
-	bottom: 5rem;
-
-	text-shadow:
-		-1px -1px 0 white,
-		1px -1px 0 white,
-		-1px 1px 0 white,
-		1px 1px 0 white;
+	margin-top: 2%;
+	font-family: 'Roboto', sans-serif;
+	/* Example of a clean and modern font */
+	font-size: 20px;
+	/* Adjust font size as needed */
+	color: white;
+	/* Adjust color for better contrast */
 }
 
 .name {
-	font-size: 36px;
-	font-weight: bold;
-	margin-bottom: 5px;
-	/* Reduce space below */
-	margin-top: 0;
-	/* Reset top margin */
-	color: black;
-	position: relative;
-	bottom: 5rem;
-	text-shadow:
-		-1px -1px 0 white,
-		1px -1px 0 white,
-		-1px 1px 0 white,
-		1px 1px 0 white;
+	margin-top: 4%;
+	font-style: italic;
+	font-family: 'Montserrat', sans-serif;
+	/* Another example of a bold and modern font */
+	font-size: 24px;
+	/* Adjust font size as needed */
+	color: #b570d1;
+	/* Adjust color for better contrast */
 }
 
-.info {
-	font-size: 16px;
-	margin-bottom: 10px;
-	color: black;
 
+.back {
+	background-color: #f9f9f9;
+	/* Light background color */
+	padding: 20px;
+	text-align: left;
+	/* Align text to the left */
+	color: #333;
+	/* Darker text color for better contrast */
+	transform: rotateY(180deg);
+	border-radius: 10px;
+	/* Rounded corners for a softer look */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	/* Subtle box shadow for depth */
+	font-family: 'Roboto', sans-serif;
+	/* Example of a clean and modern font */
+}
+
+.workerinfo {
+	font-weight: bold;
+	width: 100%;
+	font-size: 14px;
+	/* Maintain font size for readability */
+	margin-top: 50%;
+	margin-bottom: 15px;
+	/* Maintain bottom margin for spacing */
+	line-height: 1.6;
+	/* Increase line height for better text spacing */
 }
 
 .cellNumber,
 .email {
-	margin-top: 5px;
-	font-size: 14px;
-	color: black;
+	margin-top: 10px;
+	/* Maintain top margin for spacing */
+	font-size: 12px;
+	/* Maintain font size for readability */
+	color: #666;
+	/* Maintain text color */
+}
+
+.email:hover,
+.cellNumber:hover {
+	text-decoration: underline;
+	/* Underline text on hover */
 }

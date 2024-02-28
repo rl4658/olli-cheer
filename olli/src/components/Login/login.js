@@ -59,7 +59,7 @@ function LoginPage({ setUser }) {
 
     if (user.user.user_type === "sn") navigate("/sn")
     if (user.user.user_type === "parent") navigate("/parentPage")
-    if (user.user.user_type === "admin") { navigate("/admin") }
+    if (user.user.user_type === "admin") navigate("/adminPage")
     if (user.user.user_type === "staff") navigate("/staff")
   }
 
