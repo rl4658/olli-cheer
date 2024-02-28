@@ -8,29 +8,29 @@ import AboutUs from "../HomeComponents/AboutUS/AboutUsSection";
 import ContactUs from "../HomeComponents/ContactUs/ContactUs";
 import { images } from "../HomeComponents/ImageSlider/Images.js";
 
-export default function HomePage(){
-    return(
-        <div>
-            <GuestUserBar />
-              <ImageSlider
-                imageURLs={images}
-              />
-              <div className='aboutUsSection'>
-                <AboutUs />
+export default function HomePage({ user }) {
+  return (
+    <div>
+      <GuestUserBar user={user} />
+      <ImageSlider
+        imageURLs={images}
+      />
+      <div className='aboutUsSection'>
+        <AboutUs />
 
-              </div>
+      </div>
 
-              <div className='cheers-container'>
-                <Cheers />
-              </div>
+      <div className='cheers-container'>
+        <Cheers />
+      </div>
 
-              <div className='news'>
-                <NewsLetterSection />
-              </div>
-              <EventSection />
-              <div className='contactUs'>
-                <ContactUs />
-              </div>
-        </div>
-    )
+      <div className='news'>
+        <NewsLetterSection />
+      </div>
+      <EventSection />
+      <div className='contactUs'>
+        <ContactUs />
+      </div>
+    </div>
+  )
 }

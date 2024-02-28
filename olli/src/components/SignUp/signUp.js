@@ -260,15 +260,15 @@ const SignUpPage = ({ onLoginClick }) => {
             onChange={(e) => ANSanitizer(e, setUsername)}
           />
           <input type="text" id="guardian_full_name" name="guardian_full_name" placeholder="First name"
-            value={firstName} maxlength='30'
+            value={firstName} maxLength='30'
             onChange={(e) => FNLNSanitizer(e, setFirstName)}
           />
           <input type="text" id="dependent_full_name" name="dependent_full_name" placeholder="Last name"
-            value={lastName} maxlength='30'
+            value={lastName} maxLength='30'
             onChange={(e) => FNLNSanitizer(e, setLastName)}
           />
           <input type="password" id="password" name="password" placeholder="Password"
-            value={password} maxlength='30'
+            value={password} maxLength='30'
             onChange={(e) => ANSanitizer(e, setPassword)}
           />
           <input type="password" id="confirm_password" maxLength="30" name="confirm_password" placeholder="Confirm Password"

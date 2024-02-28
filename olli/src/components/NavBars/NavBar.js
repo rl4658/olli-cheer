@@ -1,32 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import NavButton from "./NavButton";
+
 import "../../CSS/NavBar/NavBar.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
-export default function NavBar({ userSpecificButtons, style }) {
+
+
+export default function NavBar({ userSpecificButtons, style, user }) {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isNavbarFaded, setNavbarFaded] = useState(false);
+  const profilePick = "../../assets/NavBarIcons/profile.png"
 
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
   };
 
+
+
   const handleScroll = React.useCallback(() => {
     const currentScrollPos = window.scrollY;
-
+    console.log(user)
     if (currentScrollPos > prevScrollPos) {
       console.log("schrodingers up");
       setNavbarFaded(true);
-    } else if(currentScrollPos < prevScrollPos){      
+    } else if (currentScrollPos < prevScrollPos) {
       console.log("schrodingers down");
       setNavbarFaded(false);
     }
 
     setPrevScrollPos(currentScrollPos);
-  },[prevScrollPos]);
+  }, [prevScrollPos]);
 
   useEffect(() => {
 
@@ -36,7 +42,7 @@ export default function NavBar({ userSpecificButtons, style }) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-    
+
   }, [handleScroll, prevScrollPos])
 
   return (
@@ -44,13 +50,13 @@ export default function NavBar({ userSpecificButtons, style }) {
 
 
     <div >
-      <div className={`burgerMenu ${isBurgerMenuOpen ? 'open' : ''}`}  onClick={toggleBurgerMenu}>
+      <div className={`burgerMenu ${isBurgerMenuOpen ? 'open' : ''}`} onClick={toggleBurgerMenu}>
         <div className={`burgerIcon ${isBurgerMenuOpen ? 'open1' : ''}`}></div>
         <div className={`burgerIcon ${isBurgerMenuOpen ? 'open2' : ''}`}></div>
         <div className={`burgerIcon ${isBurgerMenuOpen ? 'open3' : ''}`}></div>
       </div>
 
-      <div className={`navBar ${isBurgerMenuOpen ? 'hidden' : ''} ${isNavbarFaded ? 'faded' : ''}`}  style={style}>
+      <div className={`navBar ${isBurgerMenuOpen ? 'hidden' : ''} ${isNavbarFaded ? 'faded' : ''}`} style={style}>
         <a href="/"><img className='olliLogo' src={require("./OLLILOGO.png")} alt="OLLI Logo" style={{ backgroundColor: 'transparent' }}></img></a>
 
         <div className={`homeLink ${isBurgerMenuOpen ? 'hidden' : ''}`}>
@@ -65,17 +71,17 @@ export default function NavBar({ userSpecificButtons, style }) {
           ))}
         </div>
 
-        <div className='loginButton'>
+        {user ? <img src={require("../../assets/NavBarIcons/profile.png")} className="profile" /> : <div className='loginButton'>
           <NavButton name="Login" linkTo="/login"></NavButton>
-        </div>
+        </div>}
 
-        
+
       </div>
 
       {/* Side Menu HTML */}
       <div className={`sideMenu ${isBurgerMenuOpen ? 'open' : ''}`}>
-        
-        
+
+
         <div className='userSpecificButtons'>
           {userSpecificButtons.map((button, index) => (
             <React.Fragment key={index}>
@@ -84,14 +90,14 @@ export default function NavBar({ userSpecificButtons, style }) {
           ))}
         </div>
 
-        <div className='login' >
+        {user ? <img src={require("../../assets/NavBarIcons/profile.png")} className="profile" /> : <div className='loginButton'>
           <NavButton name="Login" linkTo="/login"></NavButton>
-        </div>
+        </div>}
 
-        
+
 
       </div>
-      
+
     </div>
 
   );

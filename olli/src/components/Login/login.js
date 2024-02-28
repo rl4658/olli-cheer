@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
+
 import SignUpPage from '../SignUp/signUp';
-import { UserContext } from '../../App';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../../CSS/Login/Login.css';
 import imageSrc from "../../CSS/Login/im1.png";
 
-function LoginPage() {
+function LoginPage({ setUser }) {
   const [isSignUpClicked, setIsSignUpClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const userController = React.useContext(UserContext)
+
   const navigate = useNavigate()
 
 
@@ -26,7 +26,12 @@ function LoginPage() {
 
   useEffect(() => {
     setIsVisible(true);
+
   }, []);
+  useEffect(() => {
+
+
+  }, [email]);
 
   const handleSignUpClick = () => {
     setIsSignUpClicked(true);
@@ -46,11 +51,14 @@ function LoginPage() {
       alert("Cannot Login");
       return;
     }
+
     const user = await response.json()
-    userController.setUser(user);
-    console.log(user.user)
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser(user)
+
+
     if (user.user.user_type === "sn") navigate("/sn")
-    if (user.user.user_type === "parent") navigate("/parent")
+    if (user.user.user_type === "parent") navigate("/parentPage")
     if (user.user.user_type === "admin") { navigate("/admin") }
     if (user.user.user_type === "staff") navigate("/staff")
   }

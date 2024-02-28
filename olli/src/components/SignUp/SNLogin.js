@@ -1,15 +1,13 @@
-import { React, useState, useContext } from 'react';
-import { UserContext } from '../../App';
+import { React, useState, useEffect } from 'react';
 
-export default function SNLogin() {
+
+export default function SNLogin({ setUser }) {
 
     const [SNUsername, setSNUsername] = useState('');
     const [selectedImages, setSelectedImages] = useState([]);
     const pureURLS = ["../../assets/SnImages/lion.png", "../../assets/SnImages/bear.png", "../../assets/SnImages/panda.png", "../../assets/SnImages/moose.png", "../../assets/SnImages/sheep.png", "../../assets/SnImages/tiger.png"]
     const animalURLs = [require("../../assets/SnImages/lion.png"), require("../../assets/SnImages/bear.png"), require("../../assets/SnImages/panda.png"), require("../../assets/SnImages/moose.png"), require("../../assets/SnImages/sheep.png"), require("../../assets/SnImages/tiger.png")]
     const [snSaveFailMessage, setSNSaveFailMessage] = useState('')
-    const userController = useContext(UserContext)
-
 
     const ANSanitizer = (event, setFunc) => {
         // Sanitization logic
@@ -31,9 +29,10 @@ export default function SNLogin() {
         } else { // If the image is already selected, remove it
             const updatedSelectedImages = selectedImages.filter(image => image.index !== index);
             setSelectedImages(updatedSelectedImages);
-            console.log(selectedImages);
+
         }
     };
+
 
 
 
@@ -67,9 +66,10 @@ export default function SNLogin() {
         }
 
         // successful login
-        console.log(responseData)
-        console.log(userController.user)
-        userController.setUser(responseData)
+        localStorage.setItem('user', JSON.stringify(responseData));
+        setUser(responseData)
+
+
         setSNSaveFailMessage('');
     }
 

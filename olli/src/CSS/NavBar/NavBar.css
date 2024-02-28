@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+.profile {
+  width: 3.5rem;
+  margin-right: 1.5rem;
+}
+
 .home {
   width: 2rem;
   /* Adjust the width as per your requirement */

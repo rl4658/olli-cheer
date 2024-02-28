@@ -8,7 +8,7 @@ import email from "./email.png";
 import events from "./favorite.png";
 import news from "./newspaper.png";
 
-export default function GuestUserBar() {
+export default function GuestUserBar({ user }) {
     const buttons = [
         <img src={homeImage} alt="Logo" className="home" />,
         <NavButton key="1" name="Home" linkTo="/" />,
@@ -25,7 +25,7 @@ export default function GuestUserBar() {
 
     ]
     return (
-        <NavBar userSpecificButtons={buttons}></NavBar>
+        <NavBar userSpecificButtons={buttons} user={user}></NavBar>
 
     );
 

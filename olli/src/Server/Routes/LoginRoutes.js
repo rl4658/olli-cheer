@@ -38,13 +38,11 @@ router.get('/:email/:password', async (req, res) => {
 // then return the result: the SN user info if found, or not found message if there is no existing user. 
 
 router.post("/SNUserLogin", async (req, res) => {
+
     try {
         const { username, image1, image2 } = req.body;
-        console.log(username)
-        console.log(image1)
-        console.log(image2)
         const user = await userDB.getSNByUsername(username);
-        console.log(user)
+
 
         if (user === null) {
             res.status(404).json({ error: true })

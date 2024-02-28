@@ -46,7 +46,7 @@ async function insertUser(email, username, password, fName, lName, user_type, ph
 
         }
         return { error: false }
-        console.log('User inserted successfully');
+
 
     } catch (error) {
         console.error('Error inserting user:', error);
@@ -87,11 +87,47 @@ async function getSNByUsername(username) {
         return null
     }
 }
+async function getSNByParentEmail(email) {
+    try {
+        const [rows] = await connection.query(
+            'SELECT * FROM sn WHERE email = ?',
+            [email]
+        );
+
+        if (rows.length > 0) {
+            return rows; // Return the first row (SN) found
+        } else {
+            return null; // If no SN found with the given username
+        }
+    } catch (error) {
+        return null
+    }
+}
+
+async function updateSN(username, email, image1, image2, fName, lName) {
+    try {
+        // Update query
+        const remove = 'DELETE FROM sn WHERE username = ?';
+        const add = "INSERT INTO sn (username, email, image1, image2, firstNameSN, lastNameSN) VALUES (?, ?, ?, ?, ?, ?)"
+        // Execute the update query
+        await connection.query(remove, [username]);
+        await connection.query(add, [username, email, image1, image2, fName, lName])
+        return true
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+
+
 
 
 
 module.exports = {
     insertUser,
     getUserByEmail,
-    getSNByUsername
+    getSNByUsername,
+    getSNByParentEmail,
+    updateSN
 }
