@@ -53,6 +53,7 @@ export default function SNUpdater({ sn, user, setSNUsers }) {
             setErrorMessage(`Could Not Delete to ${SNUsername}`)
             return
         }
+        fetchSN()
 
 
     }

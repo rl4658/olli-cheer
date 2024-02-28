@@ -30,7 +30,7 @@ router.delete("/deleteSN/:username", auth, async (req, res) => {
             res.json({ error: true })
             return
         }
-        res.json()
+        res.json({ error: false })
     } catch (error) {
         res.json({ error: true })
     }
