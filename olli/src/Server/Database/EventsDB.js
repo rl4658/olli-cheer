@@ -21,9 +21,9 @@ participants
 
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '34.41.54.58',
     user: 'root',
-    password: 'Sabi5437',
+    password: '',
     database: 'olli',
 }).promise();
 
@@ -32,8 +32,8 @@ async function getEventByTitle(title) {
         const [rows] = await connection.query(
             'SELECT * FROM events WHERE title = ?',
             [title]
-        );
 
+        );
         if (rows.length > 0) {
             return rows[0];
         } else {

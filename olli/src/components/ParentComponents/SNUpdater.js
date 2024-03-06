@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 
 
 export default function SNUpdater({ sn, user, setSNUsers }) {
@@ -48,12 +48,15 @@ export default function SNUpdater({ sn, user, setSNUsers }) {
         }
 
         const data = await response.json()
-        console.log(data)
+
         if (data.error) {
             setErrorMessage(`Could Not Delete to ${SNUsername}`)
             return
         }
+
         fetchSN()
+
+
 
 
     }

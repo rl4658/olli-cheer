@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavBar from '../NavBars/AdminNavBar'
 import ManageUsers from '../AdminComponents/ManageUsers'
-// import SNUpdater from '../AdminComponents/SNUpdater'
-
+// import Calendar from '../Calendar'; // Import the Calendar component
+// import UserSettings from '../UserSettings'; // Import the UserSettings component
 
 export default function AdminPage() {
     const [snUsers, setSNUsers] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
     const [user, setUser] = useState([])
+    const [activeComponent, setActiveComponent] = useState('ManageUsers'); // default component that is mounted is manage users. 
 
-	// this gives sets the user in the hook. 
+    // this gives sets the user in the hook. 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
@@ -43,23 +44,34 @@ export default function AdminPage() {
     }
 
 
+    const handleNavButtonClick = (componentName) => {
+        setActiveComponent(componentName);
+    };
+
+    const renderComponent = () => {
+        switch (activeComponent) {
+            case 'ManageUsers':
+                return <ManageUsers />;
+            // case 'Calendar':
+            //     return <Calendar />;
+            // case 'UserSettings':
+            //     return <UserSettings />;
+            // Add more cases for other components if needed
+            default:
+                return null;
+        }
+    };
+
+
+
+
+
 
     return (
         <div>
 
-            <AdminNavBar user={user} />
-
-			<ManageUsers /> 
-
-            {/* <ParentNavBar user={user} />
-
-            <div className='manageSNContainer'>
-                <h1>Manage My Family</h1>
-                {snUsers.map((sn, index) => (
-                    <SNUpdater key={index} sn={sn} user={user} setSNUsers={setSNUsers} setUser={setUser} />
-                ))}
-                <p>{errorMessage}</p>
-            </div> */}
+            <AdminNavBar user={user} onNavButtonClick={handleNavButtonClick} />
+            {renderComponent()}
 
         </div>
     )

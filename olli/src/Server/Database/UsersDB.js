@@ -23,9 +23,9 @@ email VARCHAR(100) NOT NULL PRIMARY KEY,
 
 // Create a connection to the database
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '34.41.54.58',
     user: 'root',
-    password: 'Sabi5437',
+    password: '',
     database: 'olli', // Replace 'your_database_name' with the actual database name
 }).promise();
 
