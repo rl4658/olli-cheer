@@ -21,7 +21,7 @@ router.get('/:email/:password', async (req, res) => {
     const match = await bcrypt.compare(password, user.password)
 
     if (match) {
-        const token = jwt.sign(user, process.env.jwtSecret, { expiresIn: '1h' })
+        const token = jwt.sign(user, "712f63ff87d8f25fcf73ed6ad182ada891dedbc9", { expiresIn: '1h' })
         res.json({ user: user, accessToken: token, error: false })
         return
     }
@@ -56,7 +56,7 @@ router.post("/SNUserLogin", async (req, res) => {
             res.status(404).json({ error: true })
             return
         }
-        const token = jwt.sign(user, process.env.jwtSecret, { expiresIn: '1h' })
+        const token = jwt.sign(user, "712f63ff87d8f25fcf73ed6ad182ada891dedbc9", { expiresIn: '1h' })
         res.json({ user: user, accessToken: token })
         return
     } catch (err) {

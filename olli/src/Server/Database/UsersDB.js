@@ -23,9 +23,10 @@ email VARCHAR(100) NOT NULL PRIMARY KEY,
 
 // Create a connection to the database
 const connection = mysql.createConnection({
-    host: '34.41.54.58',
+    socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
     user: 'root',
-    password: '',
+    connectTimeout: 20000,
+    password: 'Sabi5437',
     database: 'olli', // Replace 'your_database_name' with the actual database name
 }).promise();
 
