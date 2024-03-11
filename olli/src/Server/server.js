@@ -3,6 +3,7 @@ const loginRoutes = require("./Routes/LoginRoutes.js")
 const signUpRoutes = require("./Routes/SignUpRoutes.js")
 const eventRoutes = require("./Routes/EventRoutes.js")
 const parentalControlsRoutes = require("./Routes/ParentalControl.js")
+const userRoutes = require('./Routes/UserRoutes.js')
 require('dotenv').config();
 
 
@@ -12,6 +13,7 @@ app.use("/login", loginRoutes)
 app.use("/signUp", signUpRoutes)
 app.use("/events", eventRoutes)
 app.use("/parentalControls", parentalControlsRoutes)
+app.use("/users", userRoutes)
 
 app.use(express.static('public'));
 

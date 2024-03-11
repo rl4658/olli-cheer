@@ -1,16 +1,17 @@
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 
 
-export default function SNUpdater({ sn, user, setSNUsers }) {
+export default function SNUpdater({ sn, user, setSNUsers, snUsers, lastSN }) {
     const [SNUsername, setSNUsername] = useState('');
     const [selectedImages, setSelectedImages] = useState([]);
     const pureURLS = ["../../assets/SnImages/lion.png", "../../assets/SnImages/bear.png", "../../assets/SnImages/panda.png", "../../assets/SnImages/moose.png", "../../assets/SnImages/sheep.png", "../../assets/SnImages/tiger.png"]
     const animalURLs = [require("../../assets/SnImages/lion.png"), require("../../assets/SnImages/bear.png"), require("../../assets/SnImages/panda.png"), require("../../assets/SnImages/moose.png"), require("../../assets/SnImages/sheep.png"), require("../../assets/SnImages/tiger.png")]
     const [errorMessage, setErrorMessage] = useState('')
 
-
     const fetchSN = useCallback(async () => {
+
+
 
         const response = await fetch(`/parentalControls/getSNOfParent/${user.user.email}`, {
             headers: {
@@ -25,11 +26,12 @@ export default function SNUpdater({ sn, user, setSNUsers }) {
         }
         const data = await response.json()
 
+
         if (data.error) {
             setErrorMessage("You Have No Registered Members")
+            setSNUsers([])
             return
         }
-        setSNUsers(data)
 
     }, [user])
 
@@ -54,11 +56,8 @@ export default function SNUpdater({ sn, user, setSNUsers }) {
             return
         }
 
+        console.log("Delete Called")
         fetchSN()
-
-
-
-
     }
     async function handleUpdate() {
         if (selectedImages.length === 0 && SNUsername === "") {

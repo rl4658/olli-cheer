@@ -9,6 +9,7 @@ import SNLogin from './components/SignUp/SNLogin.js';
 import ParentPage from './components/Pages/ParentPage.js';
 import Tetris from './components/Games/Tetris.js';
 import AdminPage from './components/Pages/AdminPage.js';
+import UserSettingPage from './components/Pages/UserSettingPage.js';
 
 
 export default function App() {
@@ -46,6 +47,11 @@ export default function App() {
           exact path='/adminPage'
           element={
             <AdminPage user={user} setUser={setUser} />
+          } />
+        <Route
+          exact path='/userSettings'
+          element={
+            <UserSettingPage />
           } />
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../CSS/Events/EventCard.css"
+
 
 export default function EventCard({ title, URL, description }) {
 

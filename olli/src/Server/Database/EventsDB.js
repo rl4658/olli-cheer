@@ -21,8 +21,8 @@ participants
 
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
-    socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
-    connectTimeout: 20000,
+    //socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
+    host: "localhost",
     user: 'root',
     password: 'Sabi5437',
     database: 'olli',

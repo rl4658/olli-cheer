@@ -23,12 +23,26 @@ email VARCHAR(100) NOT NULL PRIMARY KEY,
 
 // Create a connection to the database
 const connection = mysql.createConnection({
-    socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
+    //socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
+    host: "localhost",
     user: 'root',
     connectTimeout: 20000,
     password: 'Sabi5437',
     database: 'olli', // Replace 'your_database_name' with the actual database name
 }).promise();
+
+async function updateUser(email, username, password, phone_number) {
+    try {
+        await connection.query(
+            'UPDATE users SET username = ?, password = ?, phone_number = ? WHERE email = ?',
+            [username, password, phone_number, email]
+        );
+    } catch (error) {
+        // Handle error
+        console.error("Error updating user:", error);
+        return null
+    }
+}
 
 
 async function insertUser(email, username, password, fName, lName, user_type, phone_number, children) {
@@ -142,5 +156,6 @@ module.exports = {
     getSNByUsername,
     getSNByParentEmail,
     updateSN,
-    deleteSN
+    deleteSN,
+    updateUser
 }

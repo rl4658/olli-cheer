@@ -6,6 +6,7 @@ export default function ParentPage() {
     const [snUsers, setSNUsers] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
     const [user, setUser] = useState([])
+    const [lastSN, setlastSN] = useState(false)
 
     useEffect(() => {
 
@@ -14,7 +15,6 @@ export default function ParentPage() {
             setUser(JSON.parse(storedUser));
         }
     }, []);
-
     useEffect(() => {
 
         if (user && user.user && user.user.email) {
@@ -25,8 +25,9 @@ export default function ParentPage() {
 
 
 
-    const fetchSN = async () => {
 
+
+    const fetchSN = async () => {
         const response = await fetch(`/parentalControls/getSNOfParent/${user.user.email}`, {
 
             headers: {
@@ -50,6 +51,7 @@ export default function ParentPage() {
 
 
 
+
     return (
         <div>
 
@@ -58,11 +60,12 @@ export default function ParentPage() {
             <div className='manageSNContainer'>
                 <h1>Manage My Family</h1>
 
-
+                {console.log(snUsers)}
                 {snUsers.map((sn, index) => (
 
-                    <SNUpdater key={index} sn={sn} user={user} setSNUsers={setSNUsers} setUser={setUser} />
+                    <SNUpdater key={index} sn={sn} user={user} setSNUsers={setSNUsers} setUser={setUser} snUsers={snUsers} lastSN={lastSN} />
                 ))}
+
                 <p>{errorMessage}</p>
             </div>
 
