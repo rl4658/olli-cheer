@@ -18,19 +18,23 @@ router.get('/getUser/:email', auth, async (req, res) => {
     res.json({ user: user, accessToken: accessToken })
 })
 
-router.put("/updateUser", auth, async (req, res) => {
+
+// NOTE I have removed auth temporarily 
+router.put("/updateUser", async (req, res) => {
     const username = req.body.username
     const password = await bcrypt.hash(req.body.password, 10)
     const phone_number = req.body.phone_number
 
+    console.log("Update user has been called, these are the given values: username: " + username +"password: "+  password +"phone number: "+phone_number)
+
     try {
-        await userDB.updateUser(req.user.email, username, password, phone_number)
+        await userDB.updateUser(req.body.email, username, password, phone_number)
         res.json({ error: false })
     } catch (error) {
+        console.log("Error updating user: " + error); 
+        console.log()
         res.json({ error: true })
     }
-
-
 
 })
 

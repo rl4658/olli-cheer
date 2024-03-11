@@ -20,6 +20,8 @@ router.get("/getSNOfParent/:email", auth, async (req, res) => {
 
 })
 
+
+
 router.delete("/deleteSN/:username", auth, async (req, res) => {
     try {
         const username = req.params.username

@@ -27,6 +27,8 @@ router.get('/getEvent/:title', async (req, res) => {
     }
 });
 
+
+
 // Route to insert event
 router.post('/addEvent', async (req, res) => {
     const { title, descrip, shortDescrip, image } = req.body;

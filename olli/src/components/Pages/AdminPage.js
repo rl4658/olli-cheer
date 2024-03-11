@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import AdminNavBar from '../NavBars/AdminNavBar'
 import ManageUsers from '../AdminComponents/ManageUsers'
 // import Calendar from '../Calendar'; // Import the Calendar component
@@ -24,6 +24,8 @@ export default function AdminPage() {
     }, [user]);
 
 
+
+    // modify this so that the selected parent of the dropped down list is the users email here. 
     const fetchSN = async () => {
         const response = await fetch(`/parentalControls/getSNOfParent/${user.user.email}`, {
             headers: {
@@ -48,10 +50,11 @@ export default function AdminPage() {
         setActiveComponent(componentName);
     };
 
+    // determines the component to dispaly on adminPage depending on what button in the navbar is clicked. 
     const renderComponent = () => {
         switch (activeComponent) {
             case 'ManageUsers':
-                return <ManageUsers />;
+                return <ManageUsers user={user}/>;
             // case 'Calendar':
             //     return <Calendar />;
             // case 'UserSettings':
@@ -67,11 +70,13 @@ export default function AdminPage() {
 
 
 
+    // renders the appropriate component and admin navbar. 
     return (
         <div>
 
             <AdminNavBar user={user} onNavButtonClick={handleNavButtonClick} />
             {renderComponent()}
+
 
         </div>
     )

@@ -27,7 +27,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: 'root',
     connectTimeout: 20000,
-    password: 'Sabi5437',
+    password: '53Th1235@',
     database: 'olli', // Replace 'your_database_name' with the actual database name
 }).promise();
 
@@ -86,6 +86,25 @@ async function getUserByEmail(email) {
     }
 }
 
+
+// function to get all of the parents. 
+async function getAllParents(){
+    try{
+        const [rows] = await connection.query(
+            'SELECT * FROM users WHERE user_type = "parent"'
+            )
+        if(rows.length > 0){
+            return rows; 
+        } else {
+            return null; 
+        }
+    } catch(e){
+        console.log("Error getting all parents: " + e); 
+    }
+}
+
+
+
 async function getSNByUsername(username) {
     try {
         const [rows] = await connection.query(
@@ -102,6 +121,8 @@ async function getSNByUsername(username) {
         return null
     }
 }
+
+
 async function getSNByParentEmail(email) {
     try {
         const [rows] = await connection.query(
@@ -119,6 +140,7 @@ async function getSNByParentEmail(email) {
     }
 }
 
+
 async function updateSN(oldUsername, newUserName, email, image1, image2, fName, lName) {
     try {
         // Update query
@@ -135,6 +157,10 @@ async function updateSN(oldUsername, newUserName, email, image1, image2, fName, 
         return null
     }
 }
+
+
+
+
 async function deleteSN(username) {
 
     try {
@@ -149,6 +175,19 @@ async function deleteSN(username) {
 }
 
 
+async function deleteUser(email) {
+
+    try {
+        let sql = `DELETE FROM users WHERE email= ?`;
+        await connection.query(sql, [email]);
+        return "User deleted"
+    } catch (error) {
+
+        console.log(error)
+        return null
+    }
+}
+
 
 module.exports = {
     insertUser,
@@ -157,5 +196,7 @@ module.exports = {
     getSNByParentEmail,
     updateSN,
     deleteSN,
-    updateUser
+    updateUser, 
+    getAllParents,
+    deleteUser,
 }
