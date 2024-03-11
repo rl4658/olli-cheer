@@ -169,18 +169,8 @@ return (
 							{user.fName}'s Information:
 						</p>
 						<p>
-							Username: {user.username}
-							<input
-								type="text"
-								name="username"
-								placeholder="New Username"
-								value={newUserInfo.username}
-								onChange={handleInputChange}
-							/>
-						</p>
-						<p>
 							Email: {user.email}
-							<input
+							{/* <input
 								type="email"
 								name="email"
 								placeholder="New Email"
@@ -188,6 +178,16 @@ return (
 								// onChange={handleInputChange} Currently updateUser uses this email to find 
 								// the user in the db, a new backend function needs to be created to update emails using 
 								// the previous one and the new one, and I am tired. (Seth)
+							/> */}
+						</p>
+						<p>
+							Username: {user.username}
+							<input
+								type="text"
+								name="username"
+								placeholder="New Username"
+								value={newUserInfo.username}
+								onChange={handleInputChange}
 							/>
 						</p>
 						<p>
