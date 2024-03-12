@@ -43,12 +43,12 @@ router.put("/updateUser", async (req, res) => {
 // NOTE I have removed auth temporarily 
 router.put("/updateUserUsingAdmin", async (req, res) => {
     const username = req.body.username
-    const password = await bcrypt.hash(req.body.password, 10)
+    const password = req.body.password
     const phone_number = req.body.phone_number
     const newEmail = req.body.newEmail
     const prevEmail = req.body.prevEmail
 
-    
+
     console.log("New email: " + newEmail + "prevEmail: " + prevEmail)
     console.log("Update user has been called, these are the given values: username: " + username +"password: "+  password +"phone number: "+phone_number)
 

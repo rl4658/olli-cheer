@@ -38,6 +38,8 @@ router.delete("/deleteSN/:username", auth, async (req, res) => {
     }
 })
 
+
+
 router.put("/updateSN", auth, async (req, res) => {
 
     const oldUsername = req.body.oldUsername
