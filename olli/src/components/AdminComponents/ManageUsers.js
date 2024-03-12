@@ -64,6 +64,16 @@ const setOpenedUser = (email) => {
 	});
 };
 
+const updateSetOpenedList = (newEmail, prevEmail) => {
+    setOpenedUsers((prevOpenedUsers) => {
+        return prevOpenedUsers.map((email) => email === prevEmail ? newEmail : email);
+    });
+};
+
+
+
+
+
 const handleInputChange = (e) => {
 	const { name, value } = e.target;
 	setNewUserInfo((prevUserInfo) => ({
@@ -88,9 +98,11 @@ const handleInputChange = (e) => {
 
 // })
 
+
+
 const updateUser = async (user) => {
 	try {
-		const response = await fetch(`/users/updateUser`, {
+		const response = await fetch(`/users/updateUserUsingAdmin`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
@@ -100,7 +112,8 @@ const updateUser = async (user) => {
 				password: user.password, // password remains the same (cannot change it)
 				// if any of these are empty they use the previous value. 
 				username: newUserInfo.username || user.username,
-				email: newUserInfo.email || user.email,
+				newEmail: newUserInfo.email || user.email,
+				prevEmail: user.email,
 				phone_number: newUserInfo.phone_number || user.phone_number,
 			}),
 		});
@@ -108,7 +121,8 @@ const updateUser = async (user) => {
 			console.error("Failed to update user");
 			return;
 		}
-		// Refresh the user list
+		// Refresh the user list and opened list if successful. 
+		updateSetOpenedList(newUserInfo.email || user.email, user.email); 
 		fetchParents();
 	} catch (error) {
 		console.error("Error updating user:", error);
@@ -170,15 +184,14 @@ return (
 						</p>
 						<p>
 							Email: {user.email}
-							{/* <input
+							<input
 								type="email"
 								name="email"
 								placeholder="New Email"
 								value={newUserInfo.email}
-								// onChange={handleInputChange} Currently updateUser uses this email to find 
-								// the user in the db, a new backend function needs to be created to update emails using 
-								// the previous one and the new one, and I am tired. (Seth)
-							/> */}
+								onChange={handleInputChange} 
+
+							/>
 						</p>
 						<p>
 							Username: {user.username}

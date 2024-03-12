@@ -45,6 +45,24 @@ async function updateUser(email, username, password, phone_number) {
 }
 
 
+
+async function updateUserUsingAdmin(username, password, phone_number, newEmail, prevEmail) {
+    try {
+        await connection.query(
+            'UPDATE users SET username = ?, password = ?, phone_number = ?, email = ? WHERE email = ?',
+            [username, password, phone_number, newEmail, prevEmail]
+        );
+    } catch (error) {
+        // Handle error
+        console.error("Error updating user:", error);
+        return null
+    }
+}
+
+
+
+
+
 async function insertUser(email, username, password, fName, lName, user_type, phone_number, children) {
     try {
         await connection.query(
@@ -175,6 +193,9 @@ async function deleteSN(username) {
 }
 
 
+
+
+
 async function deleteUser(email) {
 
     try {
@@ -199,4 +220,5 @@ module.exports = {
     updateUser, 
     getAllParents,
     deleteUser,
+    updateUserUsingAdmin
 }
