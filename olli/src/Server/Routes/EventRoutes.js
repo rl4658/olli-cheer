@@ -27,20 +27,49 @@ router.get('/getEvent/:title', async (req, res) => {
     }
 });
 
-
-
 // Route to insert event
-router.post('/addEvent', async (req, res) => {
-    const { title, descrip, shortDescrip, image } = req.body;
+router.put('/addEvent', async (req, res) => {
+    const { title, descrip, shortDescrip, image, start, end } = req.body;
 
     try {
-        await eventDB.insertEvent(title, descrip, shortDescrip, image);
+        await eventDB.insertEvent(title, descrip, shortDescrip, image, start, end);
         return res.status(201).json({ message: "Event inserted successfully" });
     } catch (error) {
         console.error('Error inserting event:', error);
         return res.status(500).json({ error: "Server Error" });
     }
 });
+
+
+
+// delete event using event title (primary key)
+router.delete('/deleteEvent', async (req, res) => {
+    const { title } = req.body.params;
+    try {
+        const event = await eventDB.deleteEvent(title);
+        if (!event) {
+            return res.status(404).json({ error: "Event not found" });
+        }
+        return res.json({key: "success"});
+    } catch (error) {
+        console.error('Error retrieving event:', error);
+        return res.json({key: "failure"})
+    }
+});
+
+
+// Route to get all of the events. 
+router.get('/getAllEvents', async (req, res) => {
+    try {
+        const events = await eventDB.getAllEvents(); // should be an array. 
+        return res.json(events); // should be an array. 
+    } catch (error) {
+        console.error('Error gettings events:', error);
+        return res.status(500).json({ error: "Server Error" });
+    }
+});
+
+
 
 // Route to sign up for an event
 router.post('/eventSignUp', async (req, res) => {

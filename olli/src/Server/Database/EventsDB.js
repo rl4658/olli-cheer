@@ -14,10 +14,11 @@ participants
     descrip VARCHAR(3500) NOT NULL, 
     short_descrip VARCHAR(1000) NOT NULL,
     image blob NOT NULL
-
+    start (string) not null
+    end (string) not null
 */
 
-
+const fs = require('fs');
 
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
@@ -28,12 +29,12 @@ const connection = mysql.createConnection({
     database: 'olli',
 }).promise();
 
+
 async function getEventByTitle(title) {
     try {
         const [rows] = await connection.query(
             'SELECT * FROM events WHERE title = ?',
             [title]
-
         );
         if (rows.length > 0) {
             return rows[0];
@@ -46,11 +47,14 @@ async function getEventByTitle(title) {
     }
 }
 
-async function insertEvent(title, descrip, shortDescrip, image) {
-    try {
 
-        const query = 'INSERT INTO events (title, descrip, short_descrip, image) VALUES (?, ?, ?, ?)';
-        const values = [title, descrip, shortDescrip, image];
+
+
+async function insertEvent(title, descrip, shortDescrip, image, start, end) {
+    // image should be a blob already (handled on the front end)    
+    try {
+        const query = 'INSERT INTO events (title, descrip, short_descrip, image, start, end) VALUES (?, ?, ?, ?, ?, ?)';
+        const values = [title, descrip, shortDescrip, image, start, end];
         await connection.query(query, values);
         console.log('Entry inserted successfully.');
 
@@ -59,6 +63,30 @@ async function insertEvent(title, descrip, shortDescrip, image) {
         throw error;
     }
 }
+
+async function deleteEvent(title) {
+    try {
+        const query = 'DELETE FROM events WHERE title = ?';
+        const value = [title]
+        await connection.query(query, value);
+        console.log('Entry deleted successfully.');
+    } catch (error) {
+        console.error('Error deleting entry:', error);
+        throw error;
+    }
+}
+
+
+async function getAllEvents(){
+    try{
+        const [rows] = await connection.query('SELECT * FROM events');
+        console.log('successfully received rows.')
+        return rows;
+    }catch(e){
+        console.log("Error fetching all events: " + e);
+    }
+}
+
 
 // Insert function
 async function EventSignUp(pickTime, dropTime, title, username) {
@@ -101,5 +129,7 @@ module.exports = {
     insertEvent,
     getEventByTitle,
     EventSignUp,
-    getParticipant
+    getParticipant,
+    getAllEvents, 
+    deleteEvent
 }

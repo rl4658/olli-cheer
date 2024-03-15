@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import AdminNavBar from '../NavBars/AdminNavBar'
 import ManageUsers from '../AdminComponents/ManageUsers'
-// import Calendar from '../Calendar'; // Import the Calendar component
+import Calendar from '../AdminComponents/Calendar'; 
 // import UserSettings from '../UserSettings'; // Import the UserSettings component
 
 export default function AdminPage() {
@@ -46,38 +46,35 @@ export default function AdminPage() {
     }
 
 
-    const handleNavButtonClick = (componentName) => {
-        setActiveComponent(componentName);
-    };
+
+    // const handleNavButtonClick = (componentName) => {
+    //     setActiveComponent(componentName);
+    //     console.log("This should be printing."); 
+    // };
+
 
     // determines the component to dispaly on adminPage depending on what button in the navbar is clicked. 
-    const renderComponent = () => {
-        switch (activeComponent) {
-            case 'ManageUsers':
-                return <ManageUsers user={user}/>;
-            // case 'Calendar':
-            //     return <Calendar />;
-            // case 'UserSettings':
-            //     return <UserSettings />;
-            // Add more cases for other components if needed
-            default:
-                return null;
-        }
-    };
-
-
-
-
+    // const renderComponent = () => {
+    //     console.log("Component Rendered: " + activeComponent); 
+    //     switch (activeComponent) {
+    //         case 'ManageUsers':
+    //             return <ManageUsers user={user}/>;
+    //         case 'Calendar':
+    //             return <Calendar />;
+    //         // case 'UserSettings':
+    //         //     return <UserSettings />;
+    //         // Add more cases for other components if needed
+    //         default:
+    //             return null;
+    //     }
+    // };
 
 
     // renders the appropriate component and admin navbar. 
     return (
         <div>
-
-            <AdminNavBar user={user} onNavButtonClick={handleNavButtonClick} />
-            {renderComponent()}
-
-
+            <AdminNavBar user={user}  /* onNavButtonClick={handleNavButtonClick} */ />
+            <ManageUsers user={user}/>
         </div>
     )
 }

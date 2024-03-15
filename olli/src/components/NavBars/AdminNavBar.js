@@ -6,18 +6,27 @@ export default function AdminNavBar({ onNavButtonClick }) {
     const buttons = [
         <NavButton
             name={"Manage Users"}
-            onClick={() => onNavButtonClick('ManageUsers')}
+            // onClick={() => {
+            // console.log('Manage user clicked. ');
+            // onNavButtonClick('ManageUsers');
+            // }}
             scrollLink={false}
+            linkTo={"/adminPage"}
         />,
         <NavButton
             name={"Calendar"}
-            onClick={() => onNavButtonClick('Calendar')}
+            // onClick={() =>{
+            // console.log('ManageUserClicked');
+            // onNavButtonClick('Calendar');
+            // }}
             scrollLink={false}
+            linkTo={"/calendar"}
         />,
         <NavButton
             name={"User Settings"}
-            onClick={() => onNavButtonClick('UserSettings')}
+            // onClick={() => onNavButtonClick('UserSettings')}
             scrollLink={false}
+            // linkTo={"/UserSettings"}
         />
         // Add more NavButton components as needed for other functionalities
     ];
@@ -25,7 +34,6 @@ export default function AdminNavBar({ onNavButtonClick }) {
     return (
         <NavBar
             userSpecificButtons={buttons}
-
         />
     )
 }

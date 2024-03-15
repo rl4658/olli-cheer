@@ -7,7 +7,7 @@ height: 100vh;
 background: url(${stars}) #000;
 background-size: cover;
 overflow: hidden;
-`
+`;
 export const StyledTetris = styled.div`
     display: flex;
     align-items: flext-start;
@@ -21,4 +21,4 @@ export const StyledTetris = styled.div`
         max-width: 200px;
         padding: 0 20px;
     }
-`
+`;

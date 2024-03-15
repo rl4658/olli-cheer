@@ -17,10 +17,10 @@ const [newUserInfo, setNewUserInfo] = useState({
 });
 
 
+
 useEffect(() => {
 	fetchParents(); 
 }, [])
-
 
 
 
@@ -49,10 +49,6 @@ const fetchParents = useCallback(async () => {
 }, [user.accessToken]); 
 
 
-
-// 'INSERT INTO users (email, username, password, fName, lName, user_type, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)',
-
-
 const setOpenedUser = (email) => {
     setOpenedUsers((prevOpenedUsers) => {
         // Check if the email is already in the opened users list
@@ -78,16 +74,11 @@ const setOpenedUser = (email) => {
     });
 };
 
-
 const updateSetOpenedList = (newEmail, prevEmail) => {
     setOpenedUsers((prevOpenedUsers) => {
         return prevOpenedUsers.map((email) => email === prevEmail ? newEmail : email);
     });
 };
-
-
-
-
 
 const handleInputChange = (e) => {
 	const { name, value } = e.target;
@@ -96,7 +87,6 @@ const handleInputChange = (e) => {
 		[name]: value,
 	}));
 };
-
 
 const updateUser = async (user) => {
 	try {
@@ -127,10 +117,6 @@ const updateUser = async (user) => {
 	}
 };
 
-
-
-
-
 const deleteUser = async (email) => {
     try {
         const response = await fetch(`/adminControls/deleteUser/${email}`, {
@@ -155,12 +141,6 @@ const deleteUser = async (email) => {
         return;
     }
 };
-
-// Example usage:
-// const success = await deleteUser("username");
-// console.log("User deletion success:", success);
-
-
 
 return (
     <div className="container">
@@ -219,6 +199,4 @@ return (
             ))}
     </div>
 );
-
-
 }
