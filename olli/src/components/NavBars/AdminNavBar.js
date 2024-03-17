@@ -2,31 +2,22 @@ import React from 'react';
 import NavBar from './NavBar.js';
 import NavButton from './NavButton.js';
 
-export default function AdminNavBar({ onNavButtonClick }) {
+export default function AdminNavBar({ user }) {
     const buttons = [
         <NavButton
-            name={"Manage Users"}
-            // onClick={() => {
-            // console.log('Manage user clicked. ');
-            // onNavButtonClick('ManageUsers');
-            // }}
+            name={"Calendar"}
+            linkTo={"/calender"}
             scrollLink={false}
-            linkTo={"/adminPage"}
         />,
         <NavButton
-            name={"Calendar"}
-            // onClick={() =>{
-            // console.log('ManageUserClicked');
-            // onNavButtonClick('Calendar');
-            // }}
-            scrollLink={false}
-            linkTo={"/calendar"}
+            name={"Manage Users"}
+            linkTo={"admin-page"}
+            scrollLink={true}
         />,
         <NavButton
             name={"User Settings"}
-            // onClick={() => onNavButtonClick('UserSettings')}
+            linkTo={"/adminuserSettings"}
             scrollLink={false}
-            // linkTo={"/UserSettings"}
         />
         // Add more NavButton components as needed for other functionalities
     ];
@@ -34,6 +25,7 @@ export default function AdminNavBar({ onNavButtonClick }) {
     return (
         <NavBar
             userSpecificButtons={buttons}
+            user={user}
         />
     )
 }

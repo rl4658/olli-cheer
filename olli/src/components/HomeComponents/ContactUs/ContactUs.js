@@ -7,7 +7,14 @@ import location from "./location.png";
 import gmail from "./gmail.png";
 import phone from "./phone.png";
 
+
 export default function ContactUs() {
+	// Function to handle button click
+	const handleContactSupportClick = () => {
+		// Open the Google Form in a new tab
+		window.open('https://forms.gle/Y7BjZAcpX3gsRamR8', '_blank');
+	};
+
 	return (
 		<div id="ContactUsDiv">
 			<div data-aos="fade-up" data-aos-once="true">
@@ -18,21 +25,21 @@ export default function ContactUs() {
 					<div id="SalesDiv">
 						<h2>Talk to our Staffs</h2>
 						<p>Chat with our staff team to discover how our support can work best for you.</p>
-						<p>Phone: +1 632 960 985</p>
+						<p>Phone: CA +1 (632) - 960 - 1985</p>
 					</div>
 				</div>
 				<div id="CustomerSupportContainer">
 					<div id="SupportDiv">
 						<h2>Contact Customer Support</h2>
-						<p>We are waiting to help you and your families – so don’t hesitate to reach out!</p>
-						<button>CONTACT SUPPORT</button>
+						<p>We are waiting to help you and your families – so don’t hesitate to reach out! Click on the button below to fill out a form!</p>
+						<button onClick={handleContactSupportClick}>CONTACT SUPPORT</button>
 					</div>
 				</div>
 				<ContactInfo></ContactInfo>
 				<hr data-aos="fade-up" data-aos-once="true" className="contact-divider" />
 				<div data-aos="fade-up" data-aos-once="true" id="HeadquartersAndMapContainer">
 					<div id="HeadquartersDiv">
-						<h2 className="headquarterTitle">Headquarters</h2>
+						<h2 className="headquarterTitle">Headquarter's Information</h2>
 						<div className="contact-info">
 							<div className="info-item">
 								<img data-aos="fade-up" data-aos-once="true" src={location} alt="location" className="location" />
@@ -44,11 +51,12 @@ export default function ContactUs() {
 							</div>
 							<div className="info-item">
 								<img data-aos="fade-up" data-aos-once="true" src={phone} alt="phone" className="phones" />
-								<p data-aos="fade-up" data-aos-once="true" className="phone">+1 617-555-0198</p>
+								<p data-aos="fade-up" data-aos-once="true" className="phone">CA +1 (617) - 555 - 0198</p>
 							</div>
-						</div>
-						<div className="lol">
-							<WidgetLinks></WidgetLinks>
+							<div className="info-item">
+								<WidgetLinks></WidgetLinks>
+								<p data-aos="fade-up" data-aos-once="true" className="phone">Family Connections Cheer</p>
+							</div>
 						</div>
 					</div>
 

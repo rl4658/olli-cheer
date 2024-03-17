@@ -1,0 +1,168 @@
+/* SNUpdater.css adjustments for professional UI */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f8;
+    /* Consistent background with the main page */
+}
+
+h2,
+h3 {
+    margin-top: 1rem;
+    color: #333;
+    /* Darker color for better readability */
+    text-align: center;
+    /* Center-aligning headers for a polished look */
+}
+
+h2 {
+    font-size: 24px;
+    /* Slightly larger for better visibility */
+    margin-bottom: 0.5rem;
+    /* Reduced bottom margin for tighter spacing */
+}
+
+h3 {
+    font-size: 20px;
+    /* Making subheaders stand out */
+    margin-top: 1rem;
+    /* More spacing above subheaders */
+    color: #555;
+    /* Slightly lighter than main headers */
+}
+
+input[type="text"] {
+    width: 80%;
+    /* Slightly reduced width for aesthetic spacing */
+    padding: 12px;
+    margin: 10px auto;
+    /* Centering input */
+    display: block;
+    /* Ensure input is block level for auto margin to work */
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    /* Consistent border-radius */
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: #f9f9f9;
+    /* Slight background color for depth */
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    /* Remove the default focus outline */
+}
+
+#animalPasswordPhotos {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.1rem;
+    gap: 15px;
+    /* Increased gap for better separation */
+    justify-content: center;
+    padding: 20px;
+    /* Padding for breathing space */
+    background-color: #fff;
+    /* White background for the section */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Consistency with box shadows */
+    border-radius: 8px;
+    /* Rounded corners */
+    margin-top: 1rem;
+}
+
+.animalPhoto {
+    border: 2px solid transparent;
+    /* Predefined border for transition smoothness */
+    border-radius: 8px;
+    transition: transform 0.2s, border-color 0.2s;
+    /* Transition for border-color */
+    cursor: pointer;
+    display: flex;
+    /* Center content */
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    /* Light background for each photo container */
+}
+
+.animalPhoto img {
+    max-width: 100px;
+    /* Consistent size for images */
+    max-height: 100px;
+    border-radius: 8px;
+    /* Rounded corners for images */
+}
+
+.animalPhoto:hover {
+    transform: scale(1.05);
+}
+
+.animalPhoto.selected {
+    border-color: #007bff;
+    /* Highlight color for selected image */
+}
+
+.animalPhoto.selected img {
+    border-color: white;
+    /* Ensure selected image remains unchanged */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    /* Uniform font size */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin: 10px;
+    /* Spacing around buttons */
+}
+
+button:hover {
+    transform: translateY(-2px);
+    /* Slight lift on hover */
+}
+
+.deleteUser,
+.updateSN {
+    width: 45%;
+    /* Equal and responsive width for buttons */
+    display: inline-block;
+    /* Align buttons side by side */
+}
+
+.deleteUser {
+    background-color: #dc3545;
+}
+
+.deleteUser:hover {
+    background-color: #c82333;
+}
+
+.updateSN {
+    background-color: #28a745;
+}
+
+.updateSN:hover {
+    background-color: #218838;
+}
+
+p {
+    color: #666;
+    font-size: 16px;
+    /* Slightly larger for readability */
+    text-align: center;
+    /* Center alignment for text */
+}
+
+.errorMessage {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    /* Ensure error messages are centered */
+}

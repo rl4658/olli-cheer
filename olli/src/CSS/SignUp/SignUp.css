@@ -33,10 +33,15 @@ p {
 
 .SNFailMessage {
     color: red;
-    margin-top: 5px;
     font-size: 16px;
     text-align: center;
+}
 
+.SNFailMessage1 {
+    color: red;
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
 }
 
 .sn-signup {
@@ -232,7 +237,9 @@ input:focus {
     border: none;
 }
 
-button {
+.addSNbutton,
+.register,
+.saveBtn {
     width: 100%;
     padding: 10px 20px;
     background-color: #916ba1;
@@ -244,7 +251,9 @@ button {
     margin-top: 30px;
 }
 
-button:hover {
+.addSNbutton:hover,
+.register:hover,
+.saveBtn:hover {
     background-color: #8671a5;
 }
 
@@ -263,7 +272,7 @@ button:hover {
     align-items: center;
 }
 
-.signup-link a {
+.signup-link .login {
     color: #6c5c73;
 }
 
@@ -302,4 +311,40 @@ button:hover {
 .animalPhoto.selected img {
     border: 3px solid blue;
     /* Add blue border when selected */
+}
+
+.savedSNUser {
+    display: flex;
+    justify-content: space-between;
+    /* This separates the <p> and button */
+    align-items: center;
+    /* This centers them vertically */
+    padding: 10px;
+    /* Adds some padding inside each user item for better spacing */
+    border-bottom: 1px solid #ddd;
+    /* Optional: adds a separator between items */
+}
+
+.deleteSNUser {
+    margin-top: 0px;
+    width: 50px;
+    margin-left: 10px;
+    /* Ensures some space between the button and the text */
+    cursor: pointer;
+    /* Makes it clear the button is clickable */
+    background-color: #161212;
+    /* Button background color for delete, consider a red tone */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Removes border */
+    border-radius: 4px;
+    /* Rounds corners */
+    padding: 5px 10px;
+    /* Padding inside the button */
+}
+
+.deleteSNUser:hover {
+    background-color: #ff2e2e;
+    /* Slightly darker on hover for feedback */
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ParentNavBar from '../NavBars/ParentNavBar'
 import SNUpdater from '../ParentComponents/SNUpdater'
+import "./parent.css"
 
 export default function ParentPage() {
     const [snUsers, setSNUsers] = useState([])
@@ -49,26 +50,17 @@ export default function ParentPage() {
         setSNUsers(data)
     }
 
-
-
-
     return (
         <div>
-
             <ParentNavBar user={user} />
-
             <div className='manageSNContainer'>
                 <h1>Manage My Family</h1>
-
                 {console.log(snUsers)}
                 {snUsers.map((sn, index) => (
-
                     <SNUpdater key={index} sn={sn} user={user} setSNUsers={setSNUsers} setUser={setUser} snUsers={snUsers} lastSN={lastSN} />
                 ))}
-
                 <p>{errorMessage}</p>
             </div>
-
         </div>
     )
 }

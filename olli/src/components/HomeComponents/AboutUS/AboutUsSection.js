@@ -18,8 +18,7 @@ const AboutUs = () => {
             <div className="mission-statement">
               <p data-aos="fade-up" data-aos-once="true" onClick={() => { Speak('We believe in empowering and enriching the lives of individuals with intellectual disabilities and their families through development, social recreation, and community integration opportunities.') }}>
                 🔊 "We believe in empowering and enriching the lives of individuals with intellectual
-                disabilities and their families through development, social
-                recreation, and community integration opportunities."
+                disabilities and their families through development, social recreation, and community integration opportunities."
               </p>
             </div>
           </div>

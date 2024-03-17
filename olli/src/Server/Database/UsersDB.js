@@ -27,7 +27,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: 'root',
     connectTimeout: 20000,
-    password: '53Th1235@',
+    password: 'Sabi5437',
     database: 'olli', // Replace 'your_database_name' with the actual database name
 }).promise();
 
@@ -88,11 +88,13 @@ async function insertUser(email, username, password, fName, lName, user_type, ph
 }
 
 async function getUserByEmail(email) {
+
     try {
         const [rows] = await connection.query(
             'SELECT * FROM users WHERE email = ?',
             [email]
         );
+
         if (rows.length > 0) {
             return rows[0]; // Return the first row (user) found
         } else {
@@ -106,18 +108,18 @@ async function getUserByEmail(email) {
 
 
 // function to get all of the parents. 
-async function getAllParents(){
-    try{
+async function getAllParents() {
+    try {
         const [rows] = await connection.query(
             'SELECT * FROM users WHERE user_type = "parent"'
-            )
-        if(rows.length > 0){
-            return rows; 
+        )
+        if (rows.length > 0) {
+            return rows;
         } else {
-            return null; 
+            return null;
         }
-    } catch(e){
-        console.log("Error getting all parents: " + e); 
+    } catch (e) {
+        console.log("Error getting all parents: " + e);
     }
 }
 
@@ -208,6 +210,24 @@ async function deleteUser(email) {
         return null
     }
 }
+async function updateVerification(email) {
+
+    try {
+        await connection.query('UPDATE users SET isVerified = ? WHERE email = ?', [1, email])
+    }
+    catch (error) {
+        throw new Error('User Status Could not Be Updated')
+    }
+}
+
+async function getSubscribedEmails() {
+    try {
+        const [rows] = await connection.query(`SELECT email FROM users WHERE isSubscribed = ?`, [1])
+        return rows
+    } catch (error) {
+
+    }
+}
 
 
 module.exports = {
@@ -217,8 +237,10 @@ module.exports = {
     getSNByParentEmail,
     updateSN,
     deleteSN,
-    updateUser, 
+    updateUser,
     getAllParents,
     deleteUser,
-    updateUserUsingAdmin
+    updateUserUsingAdmin,
+    updateVerification,
+    getSubscribedEmails
 }

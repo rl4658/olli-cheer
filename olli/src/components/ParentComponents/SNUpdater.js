@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
-
+import "./snu.css";
 
 export default function SNUpdater({ sn, user, setSNUsers, snUsers, lastSN }) {
     const [SNUsername, setSNUsername] = useState('');
@@ -101,7 +101,7 @@ export default function SNUpdater({ sn, user, setSNUsers, snUsers, lastSN }) {
             setErrorMessage(`Could Not Update to ${SNUsername}`)
             return
         }
-        setErrorMessage(`Updated ${SNUsername}`)
+        setErrorMessage(`Updated ${SNUsername}!`)
         fetchSN()
 
     }
@@ -136,7 +136,6 @@ export default function SNUpdater({ sn, user, setSNUsers, snUsers, lastSN }) {
             <h3>Update Image Password</h3>
             <div id='animalPasswordPhotos'>
                 {animalURLs.map((url, index) => (
-
                     <div
                         key={index}
                         className={selectedImages.some(image => image.index === index) ? 'animalPhoto selected' : 'animalPhoto'}
@@ -146,9 +145,9 @@ export default function SNUpdater({ sn, user, setSNUsers, snUsers, lastSN }) {
                     </div>
 
                 ))}
-                <p>{errorMessage}</p>
                 <button className="updateSN" onClick={handleUpdate}>Update</button>
                 <button className='deleteUser' onClick={handleDelete}>Delete {sn.username}</button>
+                <p>{errorMessage}</p>
             </div>
         </div>
     )

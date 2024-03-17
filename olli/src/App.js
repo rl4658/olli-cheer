@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import './CSS/ImageSlider/ImageSlider.css'
 import HomePage from './components/Pages/HomePage.js';
 import Login from './components/Login/login.js';
-import SNLogin from './components/SignUp/SNLogin.js';
 import ParentPage from './components/Pages/ParentPage.js';
 import Tetris from './components/Games/Tetris.js';
 import AdminPage from './components/Pages/AdminPage.js';
-import UserSettingPage from './components/Pages/UserSettingPage.js';
-import Calendar from './components/AdminComponents/Calendar.js';
+import ParentUserSettingPage from './components/Pages/ParentUserSettingPage.js';
+import AdminUserSettingPage from './components/Pages/AdminUserSettingPage.js';
+
 
 export default function App() {
   const [user, setUser] = useState(null)
 
-
-
   return (
-
     <Router>
-
       <Routes>
         <Route
           exact path='/'
@@ -34,33 +30,29 @@ export default function App() {
               <Login setUser={setUser} />
             </div>} />
         <Route
-          exact path='/snlogin'
-          element={
-            <SNLogin setUser={setUser} />
-          } />
-        <Route
           exact path='/parentPage'
           element={
             <ParentPage user={user} setUser={setUser} />
           } />
+
         <Route
           exact path='/adminPage'
           element={
             <AdminPage user={user} setUser={setUser} />
           } />
+
         <Route
-          exact path='/userSettings'
+          exact path='/parentuserSettings'
           element={
-            <UserSettingPage />
+            <ParentUserSettingPage />
           } />
+
         <Route
-        exact path='/calendar'
-        element={
-          <Calendar user={user} setUser={setUser} />
-        }
-        >
-        </Route>
-        
+          exact path='/adminuserSettings'
+          element={
+            <AdminUserSettingPage />
+          } />
+
         <Route
           exact path='/tetris'
           element={
@@ -69,8 +61,5 @@ export default function App() {
 
       </Routes>
     </Router>
-
   )
-
 }
-

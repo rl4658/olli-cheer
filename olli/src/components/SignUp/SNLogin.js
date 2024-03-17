@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from 'react';
+import '../../CSS/SignUp/SNLogin.css';
 
 
-export default function SNLogin({ setUser }) {
+export default function SNLogin({ setUser, onLoginClick }) {
 
     const [SNUsername, setSNUsername] = useState('');
     const [selectedImages, setSelectedImages] = useState([]);
@@ -29,7 +30,7 @@ export default function SNLogin({ setUser }) {
         } else { // If the image is already selected, remove it
             const updatedSelectedImages = selectedImages.filter(image => image.index !== index);
             setSelectedImages(updatedSelectedImages);
-
+            
         }
     };
 
@@ -75,7 +76,7 @@ export default function SNLogin({ setUser }) {
 
     return (
         <div id="SNSignupContainer">
-            <h1>Special Needs User Signup</h1>
+            <h1>Special Needs User Login</h1>
             <input type="text" id="username" maxLength="30" name="username" placeholder="Username"
                 value={SNUsername}
                 onChange={(e) => ANSanitizer(e, setSNUsername)}
@@ -92,10 +93,9 @@ export default function SNLogin({ setUser }) {
                     </div>
                 ))}
             </div>
-            <p>{snSaveFailMessage}</p>
+            <p className='FailMessage'>{snSaveFailMessage}</p>
             <button className='loginBtn' onClick={handleLogin}>Login</button>
+            <button className='backBtn' onClick={onLoginClick}>Back to User Login</button>
         </div>
     )
-
-
 }

@@ -1,0 +1,70 @@
+#SNSignupContainer {
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* This centers the text elements like <h1> and <p> */
+    width: 100%;
+    /* Adjust based on your preference */
+}
+
+#animalPasswordPhotos {
+    display: grid;
+    margin-left: -2rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* Creates a responsive grid layout */
+    gap: 10px;
+    /* Adjust based on your preference */
+    /* Adds some space inside the container */
+    justify-content: center;
+    /* Center grid items horizontally */
+    width: 100%;
+    /* Adjust based on your preference */
+}
+
+.animalPhoto {
+    cursor: pointer;
+    /* Indicates the images are clickable */
+    transition: transform 0.3s ease;
+    /* Optional: adds a nice effect when selecting */
+}
+
+.FailMessage {
+    color: red;
+    margin-top: 3rem;
+    font-size: 20px;
+    text-align: center;
+}
+
+.animalPhoto img {
+    width: 100%;
+    /* Makes the image fill the container */
+    height: auto;
+    /* Keeps the aspect ratio of the image */
+}
+
+.loginBtn {
+    margin-left: 1rem;
+    width: 100%;
+    background-color: #916ba1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 30px;
+}
+
+.backBtn {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    background-color: #916ba1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}

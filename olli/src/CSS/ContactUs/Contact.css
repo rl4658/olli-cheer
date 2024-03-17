@@ -6,24 +6,15 @@
 }
 
 #widgets {
-  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   padding: 20px;
-  margin-top: 25%;
-  margin-left: 3%;
+  margin-top: -1.2rem;
+  margin-left: -1.6rem;
+  margin-right: -1.5rem;
 }
 
-.lol {
-  background-color: black;
-  border: 1px solid black;
-  border-radius: 15px;
-  margin-top: 2rem;
-  align-items: center;
-}
-
-#widgets>* {
+#widgets > * {
   padding: 10px;
   align-self: flex-end;
 }
@@ -139,6 +130,7 @@
   text-align: left;
   margin-top: 8%;
   margin-left: 8%;
+  margin-bottom: 8%;
 }
 
 .province {
@@ -208,14 +200,23 @@
   font-size: 1rem;
 }
 
+.facebook-icon, /* Class added for FacebookIcon */
 .location,
 .mail,
 .phones {
-  width: 10%;
+  width: 64px; /* Set width */
+  height: 64px; /* Set height */
   border-radius: 50%;
-  padding: 2px;
   margin-right: 5px;
   margin-bottom: 1.5%;
+}
+
+/* Ensure FacebookShareButton directly wraps the FacebookIcon without extra padding */
+.FacebookShareButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Override if necessary */
 }
 
 .address,

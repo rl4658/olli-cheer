@@ -13,7 +13,7 @@ router.get('/:email/:password', async (req, res) => {
     const password = req.params.password
 
     const user = await userDB.getUserByEmail(email)
-    
+    console.log(user)
     if (user === null) {
         res.status(404).json({ error: "Server Error: Incorrect Email Address" })
         return

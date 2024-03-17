@@ -16,13 +16,10 @@ export default function ParentNavBar({ user }) {
         />,
         <NavButton
             name={"User Settings"}
-            linkTo={"/userSettings"}
+            linkTo={"/parentuserSettings"}
             scrollLink={false}
         />
-
     ]
-
-
 
     return (
         <NavBar

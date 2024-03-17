@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../CSS/SignUp/SignUp.css';
-import GuestUserBar from '../NavBars/GuestUserBar';
 import { useState } from 'react';
 
 
@@ -280,7 +279,7 @@ const SignUpPage = ({ onLoginClick }) => {
             onChange={(e) => PNSanitizer(e, setPhoneNumber)}
           />
           <p className="SNFailMessage">{saveFailMessage}</p>
-          <button onClick={() => openAddUserContent()}>Add Special Needs Users</button>
+          <button className="addSNbutton" onClick={() => openAddUserContent()}>Add Special Needs Users</button>
 
 
           {addUser && (
@@ -314,8 +313,8 @@ const SignUpPage = ({ onLoginClick }) => {
                 ))}
               </div>
 
-              <p className="SNFailMessage">{snSaveFailMessage}</p>
-              <button onClick={() => saveSNUserToDatabase()}>Save this user</button>
+              <p className="SNFailMessage1">{snSaveFailMessage}</p>
+              <button className='saveBtn' onClick={() => saveSNUserToDatabase()}>Save this user</button>
             </div>
 
           )}
@@ -331,10 +330,10 @@ const SignUpPage = ({ onLoginClick }) => {
             </div>
           )}
 
-          <button onClick={() => { checkInput() }}>Register</button>
+          <button className="register" onClick={() => { checkInput() }}>Register</button>
           <div className="signup-link">
             <p>Already have an account?</p>
-            <a href="#login"
+            <a href="#login" className='login'
               onClick={() => { onLoginClick(); if (addUser) { openAddUserContent() } }}>Login</a>
           </div>
 

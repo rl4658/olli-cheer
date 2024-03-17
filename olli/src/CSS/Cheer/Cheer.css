@@ -31,6 +31,14 @@
 
 .text-container {
     padding: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.text-container:hover {
+    border: 1px solid #000;
+    border-radius: 1rem;
+    padding: 5px;
 }
 
 .text-container h2 {

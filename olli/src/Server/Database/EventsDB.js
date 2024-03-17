@@ -25,7 +25,7 @@ const connection = mysql.createConnection({
     //socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
     host: "localhost",
     user: 'root',
-    password: '53Th1235@',
+    password: 'Sabi5437',
     database: 'olli',
 }).promise();
 
@@ -77,12 +77,12 @@ async function deleteEvent(title) {
 }
 
 
-async function getAllEvents(){
-    try{
+async function getAllEvents() {
+    try {
         const [rows] = await connection.query('SELECT * FROM events');
         console.log('successfully received rows.')
         return rows;
-    }catch(e){
+    } catch (e) {
         console.log("Error fetching all events: " + e);
     }
 }
@@ -130,6 +130,6 @@ module.exports = {
     getEventByTitle,
     EventSignUp,
     getParticipant,
-    getAllEvents, 
+    getAllEvents,
     deleteEvent
 }

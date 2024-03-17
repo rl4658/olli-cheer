@@ -5,6 +5,7 @@ const eventRoutes = require("./Routes/EventRoutes.js")
 const parentalControlsRoutes = require("./Routes/ParentalControl.js")
 const userRoutes = require('./Routes/UserRoutes.js')
 const adminControlRoutes = require('./Routes/AdminControls.js')
+const emailRoutes = require("./Routes/EmailRoutes.js")
 require('dotenv').config();
 
 
@@ -16,12 +17,13 @@ app.use("/events", eventRoutes)
 app.use("/parentalControls", parentalControlsRoutes)
 app.use("/users", userRoutes)
 app.use("/adminControls", adminControlRoutes)
+app.use("/email", emailRoutes)
 
 app.use(express.static('public'));
 
 
 
-const PORT = process.env.PORT||8080
+const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

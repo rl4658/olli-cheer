@@ -46,6 +46,17 @@
   color: #6c5c73;
 }
 
+.speech-text {
+  cursor: pointer; /* Changes cursor to hand pointer */
+  transition: all 0.3s ease; /* Smooth transition for the border appearance */
+}
+
+.speech-text:hover {
+  border: 1px solid #000; /* Example solid black border, adjust as needed */
+  padding: 5px; /* Adjust padding to avoid text jump (optional) */
+}
+
+
 .about-divider {
   align-self: flex-start;
   /* Align to the end of the flex container (right side) */
@@ -80,6 +91,8 @@
   /* Align mission statement to the right */
   margin-left: 21%;
   margin-right: 21%;
+  cursor: pointer; /* Changes cursor to hand pointer */
+  transition: all 0.3s ease; /* Smooth transition for the border appearance */
 }
 
 .mission-statement p {
@@ -90,4 +103,10 @@
   /* Use a serif font like Georgia for quotations */
   font-style: italic;
   /* Italicize the text for a quotation effect */
+}
+
+.mission-statement:hover {
+  border: 1px solid #000; /* Example solid black border, adjust as needed */
+  border-radius: 1rem;
+  padding: 5px; /* Adjust padding to avoid text jump (optional) */
 }
