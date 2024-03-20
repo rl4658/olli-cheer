@@ -11,7 +11,7 @@ router.get("/getSNOfParent/:email", auth, async (req, res) => {
 
     try {
         const parentEmail = req.params.email
-        console.log(parentEmail)
+
         const SNUsers = await userDB.getSNByParentEmail(parentEmail)
         SNUsers ? res.json(SNUsers) : res.json({ error: true })
     } catch (error) {
@@ -27,7 +27,7 @@ router.delete("/deleteSN/:username", auth, async (req, res) => {
         const username = req.params.username
 
         const response = await userDB.deleteSN(username)
-        console.log(response);
+
         if (response === null) {
             res.json({ error: true })
             return
@@ -50,8 +50,6 @@ router.put("/updateSN", auth, async (req, res) => {
     const firstName = req.body.fName
     const lastName = req.body.lName
 
-    console.log(oldUsername)
-    console.log(newUserName)
     try {
 
         const response = await userDB.updateSN(oldUsername, newUserName, email, image1, image2, firstName, lastName)

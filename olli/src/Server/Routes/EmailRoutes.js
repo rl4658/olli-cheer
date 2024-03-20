@@ -8,6 +8,22 @@ router.use(express.json());
 const fs = require('fs')
 const nodemailer = require('nodemailer');
 
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log(file)
+        return cb(null, "../../src/assets/Newsletters")
+    },
+    filename: function (req, file, cb) {
+        return cb(null, `${file.originalname}`)
+    }
+})
+
+const upload = multer({ storage })
+
+
+
 router.get('/verify/:email', async (req, res) => {
     const email = req.params.email;
     console.log(email)
@@ -24,9 +40,21 @@ router.get('/verify/:email', async (req, res) => {
     res.json({ message: 'Email verified successfully.' });
 });
 
+router.post('/createFile', auth, upload.single("file"), (req, res) => {
+    console.log(req.file)
+    console.log(req.body)
+    res.json()
+})
+
 router.post('/sendNewsLetter', auth, async (req, res) => {
     const subscriberEmails = await userDB.getSubscribedEmails()
-    const path = req.body.path
+    const emailAddresses = subscriberEmails.map(obj => obj.email);
+    console.log(subscriberEmails)
+    const name = req.body.path
+
+
+
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -39,18 +67,24 @@ router.post('/sendNewsLetter', auth, async (req, res) => {
             <html>
                 <body>
                     <h2>Olli News</h2>
-                    <embed src="data:application/pdf;base64,${getBase64EncodedPDF(path)}" width="100%" height="500px" />
+                    <embed src="data:application/pdf;base64,${getBase64EncodedPDF("../../src/assets/Newsletters/" + name)}" width="100%" height="500px" />
                 </body>
             </html>
         `;
 
     const mailOptions = {
         from: 'pykelol5437@gmail.com',
-        to: subscriberEmails.join(', '),
+        to: emailAddresses.join(', '),
         subject: 'Olli News',
         html: htmlContent
     };
-    await transporter.sendMail(mailOptions)
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+        } else {
+            console.log('Email sent:', info.response);
+        }
+    });
     res.json()
 
 })

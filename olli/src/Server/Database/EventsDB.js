@@ -50,11 +50,12 @@ async function getEventByTitle(title) {
 
 
 
-async function insertEvent(title, descrip, shortDescrip, image, start, end) {
-    // image should be a blob already (handled on the front end)    
+async function insertEvent(title, descrip, shortDescrip, path, start, end) {
+    // image should be a blob already (handled on the front end) 
+    console.log('Inside insert event');
     try {
-        const query = 'INSERT INTO events (title, descrip, short_descrip, image, start, end) VALUES (?, ?, ?, ?, ?, ?)';
-        const values = [title, descrip, shortDescrip, image, start, end];
+        const query = 'INSERT INTO events (title, descrip, short_descrip, path, start, end) VALUES (?, ?, ?, ?, ?, ?)';
+        const values = [title, descrip, shortDescrip, path, start, end];
         await connection.query(query, values);
         console.log('Entry inserted successfully.');
 

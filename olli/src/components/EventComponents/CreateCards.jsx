@@ -30,7 +30,7 @@ export default function CreateCards() {
     }, [cardsData])
 
     return (
-        { cards.map() }
+        <div></div>
     )
 
 }

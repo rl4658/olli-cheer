@@ -10,13 +10,13 @@ router.use(express.json());
 
 // returns all of the parents. NOTE, removed auth temporarily. 
 router.get('/getParents', async (req, res) => {
-    console.log("getAllParents called"); 
-    try{
-        const users = await userDB.getAllParents(); 
-		users.forEach(user => console.log(user));
 
-        return res.json({users}); 
-    } catch(e) { 
+    try {
+        const users = await userDB.getAllParents();
+
+
+        return res.json({ users });
+    } catch (e) {
         (console.log('Unable to get parents.' + e))
     }
 })
@@ -28,7 +28,7 @@ router.delete("/deleteUser/:email", async (req, res) => {
         const email = req.params.email
 
         const response = await userDB.deleteUser(email)
-        console.log(response);
+
         if (response === null) {
             res.json({ error: true })
             return

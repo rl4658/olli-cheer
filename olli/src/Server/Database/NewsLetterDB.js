@@ -13,10 +13,11 @@ const connection = mysql.createConnection({
     database: 'olli',
 }).promise();
 
-async function addNewsletter(imageName, image, isCurrent) {
+async function addNewsletter(image_name, current_letter, path) {
     try {
-        const query = 'INSERT INTO newsletter (image_name, image, current_letter) VALUES (?, ?, ?)';
-        const values = [imageName, image, isCurrent];
+
+        const query = 'INSERT INTO newsletter (image_name, current_letter, path) VALUES (?, ?, ?)';
+        const values = [image_name, current_letter, path];
         await connection.query(query, values);
         console.log('Newsletter image added successfully.');
 
@@ -26,11 +27,23 @@ async function addNewsletter(imageName, image, isCurrent) {
     }
 }
 
+async function setCurrentLetter(image_name) {
+    try {
+        const query = 'UPDATE newsletter SET current_letter = ?'
+        await connection.query(query, [0])
+
+        const q2 = 'UPDATE newsletter SET current_letter = ? WHERE image_name = ?'
+        await connection.query(q2, [1, image_name]);
+    } catch (error) {
+
+    }
+}
+
 // Get function
 async function getCurrentNewsletterImage() {
     try {
-        const query = 'SELECT * FROM newsletter WHERE current_letter = true';
-        const [rows] = await connection.query(query);
+        const query = 'SELECT * FROM newsletter WHERE current_letter = ?';
+        const [rows] = await connection.query(query, [1]);
 
         if (rows.length > 0) {
             return rows[0]; // Return the first row (newsletter image) found
@@ -44,7 +57,8 @@ async function getCurrentNewsletterImage() {
 }
 async function getPastNewsletterImage() {
     try {
-        const query = 'SELECT * FROM newsletter WHERE current_letter = false';
+
+        const query = 'SELECT * FROM newsletter';
         const [rows] = await connection.query(query);
 
         if (rows.length > 0) {
@@ -58,8 +72,18 @@ async function getPastNewsletterImage() {
     }
 }
 
+async function deleteLetter(image_name) {
+    try {
+        await connection.query("DELETE FROM newsletter WHERE image_name = ? ", [image_name])
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     addNewsletter,
     getPastNewsletterImage,
-    getCurrentNewsletterImage
+    getCurrentNewsletterImage,
+    setCurrentLetter,
+    deleteLetter
 }

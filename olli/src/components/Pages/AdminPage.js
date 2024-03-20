@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavBar from '../NavBars/AdminNavBar'
 import ManageUsers from '../AdminComponents/ManageUsers'
+import ManageNewsletters from '../AdminComponents/ManageNewsletters'
 // import Calendar from '../Calendar'; // Import the Calendar component
 // import UserSettings from '../UserSettings'; // Import the UserSettings component
 
@@ -42,28 +43,11 @@ export default function AdminPage() {
         setSNUsers(data);
     };
 
-    const handleNavButtonClick = (componentName) => {
-        setActiveComponent(componentName);
-    };
-
-    function renderComponent() {
-        switch (activeComponent) {
-            case 'ManageUsers':
-                return <ManageUsers snUsers={snUsers} />;
-            // Uncomment and update the following lines according to your actual component names and props
-            // case 'Calendar':
-            //     return <Calendar />;
-            // case 'UserSettings':
-            //     return <UserSettings user={user} />;
-            default:
-                return <ManageUsers snUsers={snUsers} />; // Fallback or default case
-        }
-    }
-
     return (
         <div className='admin-page'>
-            <AdminNavBar user={user} onNavButtonClick={handleNavButtonClick} />
-            {renderComponent()}
+            <AdminNavBar user={user} />
+            <ManageUsers user={user} />
+            <ManageNewsletters />
         </div>
     );
 }

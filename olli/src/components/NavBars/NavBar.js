@@ -22,12 +22,9 @@ export default function NavBar({ userSpecificButtons, style, user }) {
 
   const handleScroll = React.useCallback(() => {
     const currentScrollPos = window.scrollY;
-    console.log(user)
     if (currentScrollPos > prevScrollPos) {
-      console.log("schrodingers up");
       setNavbarFaded(true);
     } else if (currentScrollPos < prevScrollPos) {
-      console.log("schrodingers down");
       setNavbarFaded(false);
     }
 

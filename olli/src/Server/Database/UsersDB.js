@@ -223,7 +223,9 @@ async function updateVerification(email) {
 async function getSubscribedEmails() {
     try {
         const [rows] = await connection.query(`SELECT email FROM users WHERE isSubscribed = ?`, [1])
+        console.log(rows)
         return rows
+
     } catch (error) {
 
     }

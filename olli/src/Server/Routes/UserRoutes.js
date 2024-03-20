@@ -14,7 +14,7 @@ router.get('/getUser/:email', auth, async (req, res) => {
     if (!user) {
         return res.json(null)
     }
-    console.log(user)
+
     res.json({ user: user, accessToken: accessToken })
 })
 
@@ -24,14 +24,14 @@ router.put("/updateUser", async (req, res) => {
     const username = req.body.username
     const password = await bcrypt.hash(req.body.password, 10)
     const phone_number = req.body.phone_number
-    
-    console.log("Update user has been called, these are the given values: username: " + username +"password: "+  password +"phone number: "+phone_number)
+
+    console.log("Update user has been called, these are the given values: username: " + username + "password: " + password + "phone number: " + phone_number)
 
     try {
         await userDB.updateUser(req.body.email, username, password, phone_number)
         res.json({ error: false })
     } catch (error) {
-        console.log("Error updating user: " + error); 
+        console.log("Error updating user: " + error);
         console.log()
         res.json({ error: true })
     }
@@ -50,14 +50,14 @@ router.put("/updateUserUsingAdmin", async (req, res) => {
 
 
     console.log("New email: " + newEmail + "prevEmail: " + prevEmail)
-    console.log("Update user has been called, these are the given values: username: " + username +"password: "+  password +"phone number: "+phone_number)
+    console.log("Update user has been called, these are the given values: username: " + username + "password: " + password + "phone number: " + phone_number)
 
     try {
         await userDB.updateUserUsingAdmin(username, password, phone_number, newEmail, prevEmail)
         res.json({ error: false })
     } catch (error) {
-        console.log("Error updating user: " + error); 
-        console.log()
+        console.log("Error updating user: " + error);
+
         res.json({ error: true })
     }
 

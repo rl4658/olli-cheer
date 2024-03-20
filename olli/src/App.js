@@ -10,7 +10,7 @@ import Tetris from './components/Games/Tetris.js';
 import AdminPage from './components/Pages/AdminPage.js';
 import ParentUserSettingPage from './components/Pages/ParentUserSettingPage.js';
 import AdminUserSettingPage from './components/Pages/AdminUserSettingPage.js';
-
+import Calendar from './components/AdminComponents/Calendar.js';
 
 export default function App() {
   const [user, setUser] = useState(null)
@@ -52,6 +52,13 @@ export default function App() {
           element={
             <AdminUserSettingPage />
           } />
+
+        <Route
+          exact path='/calender'
+          element={
+            <Calendar user={user} setUser={setUser} />
+          } />
+
 
         <Route
           exact path='/tetris'

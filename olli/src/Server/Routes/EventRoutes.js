@@ -27,12 +27,16 @@ router.get('/getEvent/:title', async (req, res) => {
     }
 });
 
-// Route to insert event
-router.put('/addEvent', async (req, res) => {
-    const { title, descrip, shortDescrip, image, start, end } = req.body;
 
+
+// Route to insert event
+router.post('/addEvent', async (req, res) => {
+
+    const { title, descrip, shortDescrip, path, start, end } = req.body;
+    //console.log('Title: ' + title + 'Description: ' + descrip + 'Short Description: ' + shortDescrip + ' Image path: ' + path + 'start: ' + start + 'End: ' + end);
     try {
-        await eventDB.insertEvent(title, descrip, shortDescrip, image, start, end);
+
+        await eventDB.insertEvent(title, descrip, shortDescrip, path, start, end);
         return res.status(201).json({ message: "Event inserted successfully" });
     } catch (error) {
         console.error('Error inserting event:', error);
@@ -44,16 +48,17 @@ router.put('/addEvent', async (req, res) => {
 
 // delete event using event title (primary key)
 router.delete('/deleteEvent', async (req, res) => {
-    const { title } = req.body.params;
+    const { title } = req.body;
+    //console.log('This is the title received: ' + title)
     try {
         const event = await eventDB.deleteEvent(title);
         if (!event) {
             return res.status(404).json({ error: "Event not found" });
         }
-        return res.json({key: "success"});
+        return res.json({ key: "success" });
     } catch (error) {
         console.error('Error retrieving event:', error);
-        return res.json({key: "failure"})
+        return res.json({ key: "failure" })
     }
 });
 
