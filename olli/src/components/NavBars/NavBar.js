@@ -12,7 +12,7 @@ export default function NavBar({ userSpecificButtons, style, user }) {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isNavbarFaded, setNavbarFaded] = useState(false);
-  const profilePick = "../../assets/NavBarIcons/profile.png"
+
 
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
@@ -68,7 +68,7 @@ export default function NavBar({ userSpecificButtons, style, user }) {
           ))}
         </div>
 
-        {user ? <img src={require("../../assets/NavBarIcons/profile.png")} className="profile" /> : <div className='loginButton'>
+        {user ? <NavButton name="Logout" linkTo={"/login"} set /> : <div className='loginButton'>
           <NavButton name="Login" linkTo="/login"></NavButton>
         </div>}
 
@@ -87,7 +87,7 @@ export default function NavBar({ userSpecificButtons, style, user }) {
           ))}
         </div>
 
-        {user ? <img src={require("../../assets/NavBarIcons/profile.png")} className="profile" /> : <div className='loginButton'>
+        {user ? <NavButton name="Logout" linkTo={"/login"} /> : <div className='loginButton'>
           <NavButton name="Login" linkTo="/login"></NavButton>
         </div>}
 

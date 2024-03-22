@@ -2,11 +2,24 @@ const express = require('express');
 require('dotenv').config();
 const eventDB = require("../Database/EventsDB.js")
 const auth = require("../Helpers/JwtAuth.js")
-
+const multer = require('multer'); // used for image uploading
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt')
 router.use(express.json());
+const app = express();
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        return cb(null, "../../src/assets/EventPhotos")
+    },
+    filename: function (req, file, cb) {
+        return cb(null, `${file.originalname}`)
+    }
+})
+const upload = multer({ storage })// Define a destination folder for uploaded files
 
 
 // Route to get event by title
@@ -27,6 +40,11 @@ router.get('/getEvent/:title', async (req, res) => {
     }
 });
 
+
+// used to upload an event image. // ADD AUTH
+router.post('/uploadImage', upload.single('file'), (req, res) => {
+    res.json()
+});
 
 
 // Route to insert event
@@ -51,10 +69,7 @@ router.delete('/deleteEvent', async (req, res) => {
     const { title } = req.body;
     //console.log('This is the title received: ' + title)
     try {
-        const event = await eventDB.deleteEvent(title);
-        if (!event) {
-            return res.status(404).json({ error: "Event not found" });
-        }
+        await eventDB.deleteEvent(title);
         return res.json({ key: "success" });
     } catch (error) {
         console.error('Error retrieving event:', error);

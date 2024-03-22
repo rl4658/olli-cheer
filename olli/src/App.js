@@ -11,6 +11,11 @@ import AdminPage from './components/Pages/AdminPage.js';
 import ParentUserSettingPage from './components/Pages/ParentUserSettingPage.js';
 import AdminUserSettingPage from './components/Pages/AdminUserSettingPage.js';
 import Calendar from './components/AdminComponents/Calendar.js';
+import ChatRoom from './components/Pages/ChatRoom.js';
+import SNPage from './components/Pages/SNPage.js';
+import ParentCalendar from './components/ParentComponents/ParentCalendar.js'
+
+
 
 export default function App() {
   const [user, setUser] = useState(null)
@@ -58,12 +63,28 @@ export default function App() {
           element={
             <Calendar user={user} setUser={setUser} />
           } />
-
+        <Route
+          exact path='/parentCalender'
+          element={
+            <ParentCalendar user={user} setUser={setUser} />
+          } />
 
         <Route
           exact path='/tetris'
           element={
             <Tetris />
+          } />
+
+        <Route
+          exact path='/snPage'
+          element={
+            <SNPage user={user} setUser={setUser} />
+          } />
+
+        <Route
+          exact path='/chat'
+          element={
+            <ChatRoom />
           } />
 
       </Routes>

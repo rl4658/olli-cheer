@@ -19,8 +19,10 @@ participants
 */
 
 const fs = require('fs');
-
 const mysql = require('mysql2');
+
+
+
 const connection = mysql.createConnection({
     //socketPath: '/cloudsql/se3350-group-40-416518:us-central1:olli',
     host: "localhost",
@@ -48,8 +50,6 @@ async function getEventByTitle(title) {
 }
 
 
-
-
 async function insertEvent(title, descrip, shortDescrip, path, start, end) {
     // image should be a blob already (handled on the front end) 
     console.log('Inside insert event');
@@ -70,6 +70,7 @@ async function deleteEvent(title) {
         const query = 'DELETE FROM events WHERE title = ?';
         const value = [title]
         await connection.query(query, value);
+
         console.log('Entry deleted successfully.');
     } catch (error) {
         console.error('Error deleting entry:', error);
@@ -132,5 +133,5 @@ module.exports = {
     EventSignUp,
     getParticipant,
     getAllEvents,
-    deleteEvent
+    deleteEvent,
 }

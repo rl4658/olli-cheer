@@ -63,11 +63,12 @@ async function updateUserUsingAdmin(username, password, phone_number, newEmail, 
 
 
 
-async function insertUser(email, username, password, fName, lName, user_type, phone_number, children) {
+async function insertUser(email, username, password, fName, lName, user_type, phone_number, isSubscribed, children) {
+    console.log(isSubscribed)
     try {
         await connection.query(
-            'INSERT INTO users (email, username, password, fName, lName, user_type, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [email, username, password, fName, lName, user_type, phone_number]
+            'INSERT INTO users (email, username, password, fName, lName, user_type, phone_number, isVerified, isSubscribed) VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?)',
+            [email, username, password, fName, lName, user_type, phone_number, 0, isSubscribed]
         );
         if (user_type === "parent") {
             children.forEach(async child => {

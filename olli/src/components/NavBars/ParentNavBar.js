@@ -6,7 +6,7 @@ export default function ParentNavBar({ user }) {
     const buttons = [
         <NavButton
             name={"Calender"}
-            linkTo={"/calender"}
+            linkTo={"/parentCalender"}
             scrollLink={false}
         />,
         <NavButton
@@ -17,6 +17,11 @@ export default function ParentNavBar({ user }) {
         <NavButton
             name={"User Settings"}
             linkTo={"/parentuserSettings"}
+            scrollLink={false}
+        />,
+        <NavButton
+            name={"Chat"}
+            linkTo={"/chat"}
             scrollLink={false}
         />
     ]

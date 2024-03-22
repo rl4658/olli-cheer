@@ -3,16 +3,18 @@ import PdfLoader from "./PDFLoader"
 import axios from 'axios'
 
 
+
 export default function ManageNewsletters() {
 
     const [user, setUser] = useState()
+    const updatedPdfContext = require.context('../../assets/Newsletters', false, /\.pdf$/);
     const [pastNewsletter, setPastNewsletter] = useState([])
     const [currentletter, setCurrentNewsletter] = useState()
     const [file, setFile] = useState()
     const [errorMessage, setErrorMessage] = useState("")
+    const [pdfFiles, setPdfFiles] = useState(updatedPdfContext.keys().map(updatedPdfContext));
     const localPath = "../../assets/Newsletters/"
-    const pdfContext = require.context('../../assets/Newsletters', false, /\.pdf$/);
-    const pdfFiles = pdfContext.keys().map(pdfContext);
+
 
 
     // Fetches the newsletter
@@ -21,10 +23,9 @@ export default function ManageNewsletters() {
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }
-
-
-
     }, [])
+
+
     useEffect(() => {
         if (user) {
             fetchPastLetters()
@@ -62,6 +63,10 @@ export default function ManageNewsletters() {
         }
         const currentData = await response.json();
         setCurrentNewsletter(currentData);
+
+        const updatedPdfFiles = updatedPdfContext.keys().map(updatedPdfContext);
+        setPdfFiles(updatedPdfFiles);
+
     }
 
     async function setCurrent(image_name) {
@@ -104,6 +109,7 @@ export default function ManageNewsletters() {
                 'Authorization': `Bearer ${user.accessToken}` // Include JWT token in the Authorization header
             }
         })
+
     }
 
     async function sendEmail(path) {
@@ -133,8 +139,9 @@ export default function ManageNewsletters() {
     }
 
     function uploadFile() {
+
         if (!file) {
-            errorMessage("No File Selected")
+            setErrorMessage("No File Selected")
             return
         }
 
@@ -145,10 +152,6 @@ export default function ManageNewsletters() {
         createFile(formData)
         addLetter(file.name, filePath)
         sendEmail(file.name)
-
-
-
-
 
     }
     function refreshPage() {
@@ -198,20 +201,22 @@ export default function ManageNewsletters() {
 
             <h2>Past Newsletters</h2>
 
-            {pastNewsletter.map((letter, index) => (
+            {pdfFiles && pdfFiles.map((letter, index) => (
 
                 <div key={letter.image_name}>
 
 
+
+
                     <PdfLoader fileName={pdfFiles[index]} />
-                    <button onClick={() => { setCurrent(pdfFiles[index].split('/')[3].split('.')[0] + ".pdf") }}>Set {pdfFiles[index].split('/')[3].split('.')[0] + ".pdf"} To Current Letter</button>
-                    <button onClick={() => { deleteLetter(pdfFiles[index].split('/')[3].split('.')[0] + ".pdf") }}>Delete {pdfFiles[index].split('/')[3].split('.')[0] + ".pdf"} </button>
+                    {pdfFiles.length > 0 && <button onClick={() => { setCurrent(pdfFiles[index].split('/')[3].split('.')[0] + ".pdf") }}>Set {pdfFiles[index].split('/')[3].split('.')[0] + ".pdf"} To Current Letter</button>}
+                    {pdfFiles.length > 0 && <button onClick={() => { deleteLetter(pdfFiles[index].split('/')[3].split('.')[0] + ".pdf") }}>Delete {pdfFiles[index].split('/')[3].split('.')[0] + ".pdf"} </button>}
                 </div>
 
             ))}
 
             <h2>Upload Newsletter</h2>
-            <input type="file" onChange={(e) => (handleFileInput(e))} /><br />
+            <input type="file" accept="application/pdf" onChange={(e) => (handleFileInput(e))} /><br />
 
             <button onClick={() => { uploadFile() }}>Upload</button>
 

@@ -8,6 +8,12 @@ router.use(express.json());
 const fs = require('fs')
 const nodemailer = require('nodemailer');
 
+
+
+
+
+
+
 const multer = require('multer')
 
 const storage = multer.diskStorage({
@@ -26,7 +32,7 @@ const upload = multer({ storage })
 
 router.get('/verify/:email', async (req, res) => {
     const email = req.params.email;
-    console.log(email)
+    console.log(email + " is Verified Now")
     // Update user status to "verified"
     try {
 
@@ -46,11 +52,14 @@ router.post('/createFile', auth, upload.single("file"), (req, res) => {
     res.json()
 })
 
+
 router.post('/sendNewsLetter', auth, async (req, res) => {
     const subscriberEmails = await userDB.getSubscribedEmails()
     const emailAddresses = subscriberEmails.map(obj => obj.email);
-    console.log(subscriberEmails)
+
     const name = req.body.path
+
+
 
 
 
@@ -63,20 +72,19 @@ router.post('/sendNewsLetter', auth, async (req, res) => {
         },
 
     });
-    const htmlContent = `
-            <html>
-                <body>
-                    <h2>Olli News</h2>
-                    <embed src="data:application/pdf;base64,${getBase64EncodedPDF("../../src/assets/Newsletters/" + name)}" width="100%" height="500px" />
-                </body>
-            </html>
-        `;
+
 
     const mailOptions = {
         from: 'pykelol5437@gmail.com',
         to: emailAddresses.join(', '),
         subject: 'Olli News',
-        html: htmlContent
+        html: 'Embedded image: <img src="cid:olli" />',
+
+        attachments: [{
+            filename: name,
+            path: "../../src/assets/Newsletters/" + name,
+            cid: 'olli' //same cid value as in the html img src
+        }]
     };
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {

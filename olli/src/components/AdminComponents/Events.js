@@ -1,8 +1,14 @@
 // This component will display all events and allow for event signup.
 
-export default function EventsList({ events }) { // Renamed the function and the parameter
+// path to event images folder: 
+import { useState } from "react";
+const eventImagePath = "../../assets/EventPhotos/"
 
-    console.log(events)
+export default function EventsList({ events }) {
+    const updatedImageContext = require.context('../../assets/EventPhotos', false, /\.(png|jpg|jpeg|gif|webp|svg)$/);
+    const [file, setFile] = useState(updatedImageContext.keys().map(updatedImageContext))
+
+
 
     return (
         <div>
@@ -12,19 +18,30 @@ export default function EventsList({ events }) { // Renamed the function and the
                     <div>
                         {events.map((event) => (
                             <div key={event.id}>
-                                {/* Add a unique key for each mapped element */}
                                 <h2>{event.title}</h2>
                                 <p>{event.descrip}</p>
                                 <p>{event.short_descrip}</p>
                                 <p>Start: {event.start.toLocaleString()}</p>
                                 <p>End: {event.end.toLocaleString()}</p>
-                                {/* {event.filePath && (
-                                    <img
-                                        src={URL.createObjectURL(event.filePath)}
-                                        alt="Selected"
-                                        style={{ maxWidth: '100%' }}
-                                    />
-                                )} */}
+                                <p>Image Path: {event.path} </p>
+                                {/** Iterate through images and find the one corresponding to event.path */}
+                                {event.path && file.map((imagePath) => {
+                                    const imageName = imagePath.split('/')[3].split('.')[0];
+                                    const imageSuffix = imagePath.split('.')[2]
+
+                                    if (event.path.includes(imageName + '.' + imageSuffix)) {
+
+                                        return (
+                                            <img
+                                                key={imagePath}
+                                                src={imagePath}
+
+                                                style={{ maxWidth: '100%' }}
+                                            />
+                                        );
+                                    }
+                                    return null;
+                                })}
                             </div>
                         ))}
                     </div>

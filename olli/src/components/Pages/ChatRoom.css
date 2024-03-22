@@ -1,0 +1,121 @@
+/* ChatRoom.css */
+
+.chat-room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4ebdc;
+    color: #000;
+    /* Set text color to black */
+}
+
+.chat-container {
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.connect-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-input,
+.room-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-color: #000;
+    border-radius: 5px;
+    color: #000;
+    /* Set text color to black */
+}
+
+.connect-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.connect-button:hover {
+    background-color: #0056b3;
+}
+
+.notification {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.message-container {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid black; /* Change border color to black */
+    color: #000;
+    /* Set text color to black */
+}
+
+
+.sender {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #000;
+    /* Set text color to black */
+}
+
+.own-message {
+    text-align: right;
+    
+}
+
+
+.chat-inputs {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.message-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #000;
+    /* Set text color to black */
+}
+
+.send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}

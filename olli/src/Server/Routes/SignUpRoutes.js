@@ -9,7 +9,7 @@ router.use(express.json());
 
 router.post("/addUser", async (req, res) => {
     const [user, child] = req.body
-
+    console.log(user)
     const password = await bcrypt.hash(user.password, 10)
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -27,7 +27,7 @@ router.post("/addUser", async (req, res) => {
     };
     await transporter.sendMail(mailOptions)
     try {
-        const dbResponse = await userDB.insertUser(user.email, user.username, password, user.fName, user.lName, user.user_type, user.phone_number, child)
+        const dbResponse = await userDB.insertUser(user.email, user.username, password, user.fName, user.lName, user.user_type, user.phone_number, user.isSubscribed, child)
         if (dbResponse.error) {
             res.json(dbResponse)
             return

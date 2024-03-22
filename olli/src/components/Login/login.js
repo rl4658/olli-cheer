@@ -54,9 +54,16 @@ function LoginPage({ setUser }) {
       return;
     }
 
+
     const user = await response.json()
+    console.log(user);
+    if (parseInt(user.user.isVerified) === 0) {
+      alert("Verify Your Email First")
+      return
+    }
     localStorage.setItem('user', JSON.stringify(user));
     setUser(user)
+
 
     if (user.user.user_type === "sn") navigate("/sn")
     if (user.user.user_type === "parent") navigate("/parentPage")

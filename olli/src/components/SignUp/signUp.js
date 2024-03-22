@@ -30,6 +30,11 @@ const SignUpPage = ({ onLoginClick }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const [selectedImages, setSelectedImages] = useState([]);
+  const [consent, setConsent] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setConsent(event.target.checked);
+  };
 
 
   // function used to open the content to add a new special needs user.
@@ -155,7 +160,8 @@ const SignUpPage = ({ onLoginClick }) => {
     fName: firstName.trim(),
     lName: lastName.trim(),
     user_type: "parent",
-    phone_number: phoneNumber.trim()
+    phone_number: phoneNumber.trim(),
+    isSubscribed: consent ? 1 : 0
   }
 
 
@@ -278,6 +284,10 @@ const SignUpPage = ({ onLoginClick }) => {
             value={phoneNumber}
             onChange={(e) => PNSanitizer(e, setPhoneNumber)}
           />
+
+          <input type="checkbox" id="consentCheckbox" name="consent" checked={consent} onChange={handleCheckboxChange} />
+          <label for="consentCheckbox">I agree to recieve emails</label>
+
           <p className="SNFailMessage">{saveFailMessage}</p>
           <button className="addSNbutton" onClick={() => openAddUserContent()}>Add Special Needs Users</button>
 

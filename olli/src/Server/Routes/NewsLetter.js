@@ -20,7 +20,7 @@ router.post('/addNewsletter', auth, async (req, res) => {
 router.get('/getCurrent', async (req, res) => {
     try {
         const currentNewsletterImage = await newsletterDB.getCurrentNewsletterImage();
-        console.log(currentNewsletterImage)
+
         if (currentNewsletterImage) {
             return res.json(currentNewsletterImage);
         } else {
@@ -53,7 +53,7 @@ router.put("/setCurrent/:image_name", auth, async (req, res) => {
 router.get('/getPast', auth, async (req, res) => {
     try {
         const pastNewsletterImages = await newsletterDB.getPastNewsletterImage()
-        console.log(pastNewsletterImages)
+
         if (pastNewsletterImages.length > 0) {
             return res.json(pastNewsletterImages);
         } else {
