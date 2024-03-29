@@ -11,14 +11,17 @@ import AdminPage from './components/Pages/AdminPage.js';
 import ParentUserSettingPage from './components/Pages/ParentUserSettingPage.js';
 import AdminUserSettingPage from './components/Pages/AdminUserSettingPage.js';
 import Calendar from './components/AdminComponents/Calendar.js';
-import ChatRoom from './components/Pages/ChatRoom.js';
 import SNPage from './components/Pages/SNPage.js';
-import ParentCalendar from './components/ParentComponents/ParentCalendar.js'
-
+import ParentCalendar from './components/ParentComponents/ParentCalendar.js';
+import ParentEvents from './components/ParentComponents/ParentEvents.js';
+import ChatRoom from './components/Pages/ChatRoom.js';
+import StaffPage from './components/Pages/StaffPage.js';
 
 
 export default function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
+  const [events, setEvents] = useState([]);
+  console.log(events)
 
   return (
     <Router>
@@ -61,12 +64,17 @@ export default function App() {
         <Route
           exact path='/calender'
           element={
-            <Calendar user={user} setUser={setUser} />
+            <Calendar user={user} setUser={setUser} createEvents={setEvents} />
           } />
         <Route
           exact path='/parentCalender'
           element={
             <ParentCalendar user={user} setUser={setUser} />
+          } />
+        <Route
+          exact path='/parentEvents'
+          element={
+            <ParentEvents user={user} setUser={setUser} events={events} />
           } />
 
         <Route
@@ -86,7 +94,11 @@ export default function App() {
           element={
             <ChatRoom />
           } />
-
+        <Route
+          exact path='/staff'
+          element={
+            <StaffPage />
+          } />
       </Routes>
     </Router>
   )

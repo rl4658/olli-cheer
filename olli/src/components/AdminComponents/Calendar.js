@@ -12,7 +12,7 @@ const eventPhotoPath = "../../assets/EventPhotos";
 
 const localizer = momentLocalizer(moment);
 
-const MyCalendar = (user) => {
+const MyCalendar = (user, createEvents) => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const updatedImageContext = require.context('../../assets/EventPhotos', false, /\.(png|jpg|jpeg|gif|svg)$/);
@@ -43,7 +43,7 @@ const MyCalendar = (user) => {
       }
       console.log('This is the data. ' + JSON.stringify(data))
       setEvents(JSON.stringify(data)); // [{}] // data is an array of objects I believe. 
-
+      // createEvents(JSON.stringify(data));
       if (Array.isArray(data)) { // Check if data is an array
 
         const eventsWithDateObjects = data.map(event => ({
@@ -53,7 +53,7 @@ const MyCalendar = (user) => {
         }));
 
         setEvents(eventsWithDateObjects); // Set events to the array data
-
+        // createEvents(eventsWithDateObjects);
       } else {
         console.error("Data is not an array:", data);
       }
@@ -83,6 +83,7 @@ const MyCalendar = (user) => {
       };
 
       setEvents([...events, newEvent]);
+      // createEvents([...events, newEvent]);
     }
   };
 
@@ -122,6 +123,7 @@ const MyCalendar = (user) => {
 
   const addEvent = async (eventToAdd) => {
     console.log('Sending the data: ' + eventToAdd.title + ' ' + eventToAdd.description + ' ' + eventToAdd.shortDescription + ' ' + eventToAdd.filePath + ' ' + eventToAdd.start);
+    // check wether there is an existing event already.
 
     try {
       // const imageBlobHex = await blobToHex(eventToAdd.file);
@@ -148,7 +150,7 @@ const MyCalendar = (user) => {
       if (!response.ok) {
         console.error("Failed to add event");
         alert("This event has already been published!");
-
+        // instead of this, we should call another function that simply just updates the image of an event. 
         return;
       }
 
@@ -167,6 +169,49 @@ const MyCalendar = (user) => {
 
 
 
+  const updatePhoto = async (eventToAdd) => {
+
+    console.log('updating photo');
+    try {
+      // const imageBlobHex = await blobToHex(eventToAdd.file);
+      const response = await fetch(`/events/updateEventPhoto`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // authorization: `Bearer ${user.accessToken}`
+        },
+        body: JSON.stringify({
+          title: eventToAdd.title,
+          path: eventToAdd.path || 'noImage',
+        })
+      });
+
+      if (!response.ok && eventToAdd.path) { // They are just updating the image. 
+      }
+
+
+      if (!response.ok) {
+        console.error("Failed to add event");
+        alert("Failed to update photo");
+        return;
+      }
+
+      const data = await response.json();
+      if (data.error) {
+        console.error("Error adding event");
+        return;
+      }
+      fetchEvents();
+    } catch (error) {
+      console.error("Error adding event:", error);
+      return;
+    }
+
+  }
+
+
+
+
   const handleSelectEvent = (event) => {
     setSelectedEvent(event);
     console.log("This is the event: " + JSON.stringify(event));
@@ -176,6 +221,9 @@ const MyCalendar = (user) => {
     addEvent(eventToAdd);
   }
 
+  const handleUpdatePhoto = (eventToAdd) => {
+    updatePhoto(eventToAdd);
+  }
 
 
   const handleDeleteEvent = (eventToDelete) => {
@@ -213,26 +261,29 @@ const MyCalendar = (user) => {
     const completeFilePath = `${eventPhotoPath}/${fileName}.${fileExtension}`; // Combine eventPhotoPath, fileName, and fileExtension
     console.log("Complete file path: " + completeFilePath);
     const reader = new FileReader();
+
+
     reader.onload = () => {
       const updatedEvents = events.map((ev) => {
-        if (ev.id === selectedEvent.id) {
-          console.log('updating Image path');
+
+        if (ev.title === selectedEvent.title) {
+          console.log('UPDATING Image path');
           return { ...ev, path: completeFilePath }; // Update the filePath property of the selected event with the complete file path
         }
         return ev;
       });
+
 
       // creating data to send to the backend to be published to the directory on the front end....
       const formData = new FormData();
       formData.append('file', file);
       postEventPhoto(formData);
 
-
-
       // once we have mapped an image to an event, add it to the file directory EventPhotos: 
       setSelectedEvent({ ...selectedEvent, path: completeFilePath });
       console.log("Current selected event with image path: " + JSON.stringify(selectedEvent));
       setEvents(updatedEvents);
+      // createEvents(updatedEvents);
     };
     reader.readAsDataURL(file); // Read file as data URL
   };
@@ -287,17 +338,13 @@ const MyCalendar = (user) => {
 
 
 
-
-
-
-
-
             <button onClick={() => handleDeleteEvent(selectedEvent)}>Delete Event</button>
-            <button onClick={() => handleAddEvent(selectedEvent)}>Save and publish this event</button>
+            <button onClick={() => handleUpdatePhoto(selectedEvent)}>Update To Selected Photo</button>
+            {/* <button onClick={() => handleAddEvent(selectedEvent)}>Save and publish this event</button> */}
           </div>
         )}
 
-        <EventsList events={events} />
+        <EventsList events={events} user={user} />
 
       </div>
     </div>

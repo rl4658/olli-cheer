@@ -9,7 +9,7 @@ participants
     FOREIGN KEY (title) REFERENCES events(title),  
     FOREIGN KEY (username) REFERENCES sn(username) 
 
-    events
+events
      title VARCHAR(64) NOT NULL PRIMARY KEY,
     descrip VARCHAR(3500) NOT NULL, 
     short_descrip VARCHAR(1000) NOT NULL,
@@ -89,6 +89,17 @@ async function getAllEvents() {
     }
 }
 
+async function updateEventPhoto(title, path) { // using title as it's the PK
+    try {
+        await connection.query(
+            'UPDATE events SET path = ? WHERE title = ? ',
+            [path, title]
+        );
+    } catch (e) {
+        console.log("Error fetching all events: " + e);
+    }
+}
+
 
 // Insert function
 async function EventSignUp(pickTime, dropTime, title, username) {
@@ -105,6 +116,27 @@ async function EventSignUp(pickTime, dropTime, title, username) {
         throw error;
     }
 }
+
+
+async function getAllParticipants() {
+    try {
+        const [rows] = await connection.query(
+            'SELECT * FROM participants',
+        );
+        if (rows.length > 0) {
+            return rows;
+        } else {
+            return null;
+        }
+
+    } catch (e) {
+        console.error("Error getting all participants on the backend: ", e);
+    }
+}
+
+
+
+
 
 // Get function
 async function getParticipant(title, username) {
@@ -127,6 +159,7 @@ async function getParticipant(title, username) {
 }
 
 
+
 module.exports = {
     insertEvent,
     getEventByTitle,
@@ -134,4 +167,7 @@ module.exports = {
     getParticipant,
     getAllEvents,
     deleteEvent,
+    getAllParticipants,
+    updateEventPhoto,
+
 }

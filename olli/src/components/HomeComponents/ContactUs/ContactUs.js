@@ -43,11 +43,11 @@ export default function ContactUs() {
 						<div className="contact-info">
 							<div className="info-item">
 								<img data-aos="fade-up" data-aos-once="true" src={location} alt="location" className="location" />
-								<p data-aos="fade-up" data-aos-once="true" className="address">Arkona, ON N0M 1B0</p>
+								<p data-aos="fade-up" data-aos-once="true" className="address">8685 Rockglen Rd. Arkona ON, N0M 1B0</p>
 							</div>
 							<div className="info-item">
 								<img data-aos="fade-up" data-aos-once="true" src={gmail} alt="mail" className="mail" />
-								<p data-aos="fade-up" data-aos-once="true" className="gmail">cburnscheer@gmail.com</p>
+								<p data-aos="fade-up" data-aos-once="true" className="gmail">ongoinglivinglearning@gmail.com</p>
 							</div>
 							<div className="info-item">
 								<img data-aos="fade-up" data-aos-once="true" src={phone} alt="phone" className="phones" />

@@ -18,7 +18,6 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        console.log(file)
         return cb(null, "../../src/assets/Newsletters")
     },
     filename: function (req, file, cb) {

@@ -30,11 +30,6 @@ const SignUpPage = ({ onLoginClick }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const [selectedImages, setSelectedImages] = useState([]);
-  const [consent, setConsent] = useState(false);
-
-  const handleCheckboxChange = (event) => {
-    setConsent(event.target.checked);
-  };
 
 
   // function used to open the content to add a new special needs user.
@@ -160,8 +155,7 @@ const SignUpPage = ({ onLoginClick }) => {
     fName: firstName.trim(),
     lName: lastName.trim(),
     user_type: "parent",
-    phone_number: phoneNumber.trim(),
-    isSubscribed: consent ? 1 : 0
+    phone_number: phoneNumber.trim()
   }
 
 
@@ -255,7 +249,7 @@ const SignUpPage = ({ onLoginClick }) => {
 
       <div className="signup-container">
         <div className="signup-box">
-          <h2>Guardian Sign Up</h2>
+          <h2>Caregiver Sign Up</h2>
           <input type="text" id="email" name="email" placeholder="Email Address"
             value={email}
             onChange={(e) => EmailSanitizer(e, setEmail)}
@@ -285,16 +279,16 @@ const SignUpPage = ({ onLoginClick }) => {
             onChange={(e) => PNSanitizer(e, setPhoneNumber)}
           />
 
-          <input type="checkbox" id="consentCheckbox" name="consent" checked={consent} onChange={handleCheckboxChange} />
+          <input type="checkbox" id="consentCheckbox" name="consent" />
           <label for="consentCheckbox">I agree to recieve emails</label>
 
           <p className="SNFailMessage">{saveFailMessage}</p>
-          <button className="addSNbutton" onClick={() => openAddUserContent()}>Add Special Needs Users</button>
+          <button className="addSNbutton" onClick={() => openAddUserContent()}>Add Your Loved Ones</button>
 
 
           {addUser && (
             <div className="sn-signup">
-              <h2>Special Needs user information</h2>
+              <h2>Attendee information</h2>
               <input type="text" id="username" name="username" placeholder="Username"
                 value={usernameSN}
                 onChange={(e) => ANSanitizer(e, setUsernameSN)}
@@ -308,7 +302,7 @@ const SignUpPage = ({ onLoginClick }) => {
                 onChange={(e) => FNLNSanitizer(e, setLastNameSN)}
               />
 
-              <h3>Select two photos for the password</h3>
+              <h3>Select 2 photos for the password</h3>
 
               {/* This portion will iterate through animals and colours and display them */}
               <div id='animalPasswordPhotos'>
@@ -324,7 +318,7 @@ const SignUpPage = ({ onLoginClick }) => {
               </div>
 
               <p className="SNFailMessage1">{snSaveFailMessage}</p>
-              <button className='saveBtn' onClick={() => saveSNUserToDatabase()}>Save this user</button>
+              <button className='saveBtn' onClick={() => saveSNUserToDatabase()}>Save This User</button>
             </div>
 
           )}

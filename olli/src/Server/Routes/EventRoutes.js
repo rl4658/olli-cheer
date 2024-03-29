@@ -3,13 +3,10 @@ require('dotenv').config();
 const eventDB = require("../Database/EventsDB.js")
 const auth = require("../Helpers/JwtAuth.js")
 const multer = require('multer'); // used for image uploading
-const fs = require('fs');
-const path = require('path');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt')
+
 router.use(express.json());
-const app = express();
+
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -45,6 +42,7 @@ router.get('/getEvent/:title', async (req, res) => {
 router.post('/uploadImage', upload.single('file'), (req, res) => {
     res.json()
 });
+
 
 
 // Route to insert event
@@ -89,7 +87,27 @@ router.get('/getAllEvents', async (req, res) => {
     }
 });
 
+router.get('/getAllParticipants', async (req, res) => {
+    try {
+        const participants = await eventDB.getAllParticipants();
+        return res.json(participants);
+    } catch (error) {
+        console.error('Error gettings participansts:', error);
+        return res.status(500).json({ error: "Server Error" });
+    }
+})
 
+router.post('/updateEventPhoto', async (req, res) => {
+    const { title, path } = req.body;
+    console.log('Title!!: ' + title + 'Path!!: ' + path);
+    try {
+        await eventDB.updateEventPhoto(title, path);
+        return res.json({ message: 'Succussefully updated event photo' });
+    } catch (error) {
+        console.error('Error updating photo:', error);
+        return res.status(500).json({ error: "Server Error" });
+    }
+})
 
 // Route to sign up for an event
 router.post('/eventSignUp', async (req, res) => {

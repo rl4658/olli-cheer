@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AdminNavBar from '../NavBars/AdminNavBar'
 import ManageUsers from '../AdminComponents/ManageUsers'
 import ManageNewsletters from '../AdminComponents/ManageNewsletters'
+import ManageStaff from '../AdminComponents/ManageStaff'
 // import Calendar from '../Calendar'; // Import the Calendar component
 // import UserSettings from '../UserSettings'; // Import the UserSettings component
 
@@ -48,6 +49,7 @@ export default function AdminPage() {
             <AdminNavBar user={user} />
             <ManageUsers user={user} />
             <ManageNewsletters />
+            <ManageStaff />
         </div>
     );
 }

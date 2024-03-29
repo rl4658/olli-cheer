@@ -2,29 +2,18 @@ import React from 'react'
 import NavBar from "./NavBar.js";
 import NavButton from "./NavButton.js";
 
-export default function ParentNavBar({ user }) {
+export default function SnNavBar({ user }) {
     const buttons = [
         <NavButton
             name={"Calender"}
-            linkTo={"/parentCalender"}
+            linkTo={"/calender"}
             scrollLink={false}
         />,
         <NavButton
-            name={"My Family Members"}
-            linkTo={"manageSNContainer"}
+            name={"Game"}
+            linkTo={"game-container"}
             scrollLink={true}
         />,
-        <NavButton
-            name={"User Settings"}
-            linkTo={"/parentuserSettings"}
-            scrollLink={false}
-        />,
-        <NavButton
-            name={"Events"}
-            linkTo={"/parentEvents"}
-            scrollLink={false}
-        />,
-
         <NavButton
             name={"Chat"}
             linkTo={"/chat"}

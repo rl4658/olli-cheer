@@ -1,0 +1,10 @@
+input,
+select,
+h1,
+h2 {
+    color: black;
+}
+
+select option {
+    color: black;
+}
