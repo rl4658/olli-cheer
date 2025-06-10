@@ -2,6 +2,12 @@
 
 A full-stack web application for **Ongoing Living & Learning Inc.**, dedicated to providing support and services for adults with disabilities, including recreation and leisure activities, employment assistance, and caregiver support groups.
 
+<p align="center">
+  <video controls src="https://github.com/user-attachments/assets/6c2828c6-fa6f-4a67-be27-0177b8a4392a">
+    Your browser doesn’t support HTML5 video.
+  </video>
+</p>
+
 ## Table of Contents
 
 * [About](#about)
